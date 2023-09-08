@@ -42,8 +42,8 @@ export default function Curtain({
             }}
             className={`w-full h-full px-6 pb-6 flex flex-col gap-4 items-center justify-center  ${
               randomcurtain.randomIndex === 1
-                ? "bg-[#bceaff] text-neutral-800"
-                : "bg-primaryred text-white"
+                ? "bg-[#bceaff] text-[#1d1d1d]"
+                : "bg-primaryred text-[#cccccc]"
             }`}
           >
             <Image
