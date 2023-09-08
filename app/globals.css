@@ -2,26 +2,19 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+* {
+  @apply scrollbar scrollbar-thumb-primaryblue scrollbar-track-transparent;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+*::-webkit-scrollbar-thumb {
+  border-left: 8px transparent solid;
+  background-clip: padding-box;
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+.btn-default {
+  @apply min-h-[48px] font-montserrat font-black duration-150 sm:active:scale-[97.5%] flex items-center justify-center gap-2  sm:border-[1px] sm:border-transparent  sm:hover:border-primaryblue;
+}
+
+h1 {
+  @apply font-montserrat font-black text-2xl text-content3;
 }
