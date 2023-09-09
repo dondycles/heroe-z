@@ -141,21 +141,25 @@ export default function ({
             className=" w-full gap-6  sm:w-2/3 h-full bg-background/90  px-6 pb-6 flex flex-col "
           >
             <motion.div className="w-full min-h-[96px] flex  py-6 pr-[84px]"></motion.div>
-            <motion.ul className="flex flex-col gap-[2px] overflow-y-auto overflow-x-hidden">
+            <motion.ul className="flex flex-col gap-1 overflow-y-auto overflow-x-hidden">
               <AnimatePresence>
                 {animateOptions && (
                   <>
                     {options.map((option, i) => {
                       return (
-                        <motion.li key={i}>
-                          <motion.button
+                        <motion.li
+                          initial={{ opacity: 0 }}
+                          animate={{ opacity: 1 }}
+                          transition={{ delay: (0.1 + i) / 10 }}
+                          key={i}
+                        >
+                          <Button
                             onClick={() => {
                               navigation.setWillNavigateTo(option.href);
-                              closeMenu();
+                              setTimeout(() => {
+                                closeMenu();
+                              }, 500);
                             }}
-                            initial={{ opacity: 0 }}
-                            animate={{ opacity: 1 }}
-                            transition={{ delay: (0.1 + i) / 10 }}
                             className={` w-full btn-default rounded-lg text-xs sm:hover:bg-primaryblue/10 sm:hover:text-primaryblue sm:hover:border-[1px] sm:border-transparent 
                           ${
                             option.title === "CONNECT WALLET" &&
@@ -164,7 +168,7 @@ export default function ({
                               option.href.toLowerCase() ===
                               pathname!.toLowerCase()
                                 ? " pointer-events-none bg-primary text-content1"
-                                : "bg-transparent text-content3"
+                                : "bg-primaryblue/5 text-content3"
                             }`}
                           >
                             <span className="text-lg">
@@ -174,7 +178,7 @@ export default function ({
                                 : option.icon}
                             </span>
                             <span>{option.title.toUpperCase()}</span>
-                          </motion.button>
+                          </Button>
                         </motion.li>
                       );
                     })}
@@ -186,18 +190,21 @@ export default function ({
               layout
               className=" text-2xl flex flex-col gap-4 justify-center items-center mt-auto mb-0 "
             >
-              <ThemeButton />
-              <div className="flex gap-4 rounded-xl bg-accent text-content3 p-6 w-full items-center justify-center bg-primaryred">
-                <Link href={"https://discord.gg/64nt9zk6x7"} target="_blank">
-                  <BsDiscord />
-                </Link>
-                <Link
-                  href={"https://twitter.com/HEROEZofficial"}
-                  target="_blank"
-                >
-                  <BsTwitter />
-                </Link>
+              <div className="w-full flex flex-row-reverse sm:flex-col gap-6">
+                <ThemeButton />
+                <div className="flex gap-4 rounded-xl bg-accent text-content1 sm:p-6 w-full items-center justify-center sm:bg-primaryred">
+                  <Link href={"https://discord.gg/64nt9zk6x7"} target="_blank">
+                    <BsDiscord />
+                  </Link>
+                  <Link
+                    href={"https://twitter.com/HEROEZofficial"}
+                    target="_blank"
+                  >
+                    <BsTwitter />
+                  </Link>
+                </div>
               </div>
+
               <p className="text-xs mb-0 mt-auto text-neutral">HeroeZ 2023</p>
             </motion.footer>
           </motion.div>

@@ -12,7 +12,7 @@
 }
 
 .btn-default {
-  @apply min-h-[44px] font-montserrat font-black duration-150 sm:active:scale-[97.5%] flex items-center justify-center gap-2  sm:border-[1px] sm:border-transparent  sm:hover:border-primaryblue;
+  @apply min-h-[48px] font-montserrat font-black duration-150 sm:active:scale-[97.5%] flex items-center justify-center gap-2  sm:border-[1px] sm:border-transparent  sm:hover:border-primaryblue;
 }
 
 h1 {
