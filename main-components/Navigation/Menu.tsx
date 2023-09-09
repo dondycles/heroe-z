@@ -155,21 +155,22 @@ export default function ({
                         >
                           <Button
                             onClick={() => {
+                              if (option.href === "/connectwallet") return;
+                              if (option.href === pathname) return;
                               navigation.setWillNavigateTo(option.href);
                               setTimeout(() => {
                                 closeMenu();
                               }, 500);
                             }}
                             className={` w-full btn-default rounded-lg text-xs sm:hover:bg-primaryblue/10 sm:hover:text-primaryblue sm:hover:border-[1px] sm:border-transparent 
-                          ${
-                            option.title === "CONNECT WALLET" &&
-                            "pointer-events-none"
-                          } ${
-                              option.href.toLowerCase() ===
-                              pathname!.toLowerCase()
-                                ? " pointer-events-none bg-primary text-content1"
-                                : "bg-primaryblue/5 text-content3"
-                            }`}
+                           ${
+                             option.href.toLowerCase() ===
+                             pathname!.toLowerCase()
+                               ? " pointer-events-none  bg-primary text-content1"
+                               : option.href === "/connectwallet"
+                               ? "bg-foreground/10 cursor-not-allowed"
+                               : " bg-transparent text-content3"
+                           }`}
                           >
                             <span className="text-lg">
                               {option.href.toLowerCase() ===
