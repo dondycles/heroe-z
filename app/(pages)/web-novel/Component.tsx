@@ -55,36 +55,6 @@ export default function Component() {
             {novelParts.map((part, i) => {
               return (
                 <motion.li key={i} variants={item}>
-                  {/* <div className="bg-transparent w-full h-44  rounded-box relative">
-                    <div className="rounded-box bg-gradient-to-tl from-zinc-950/[90%] via-transparent/[10%]  to-transparent absolute top-0 left-0 w-full h-full z-10 p-6 flex flex-col justify-end items-end">
-                      <div className="flex flex-row items-center gap-2">
-                        <h2 className="text-sm font-montserrat font-black text-secondary">
-                          {part.title.toUpperCase()}:
-                        </h2>
-                        <button
-                          onClick={() => {
-                            navigation.setWillNavigateTo(part.link);
-                          }}
-                          className=" group text-secondary px-6 w-fit sm:hover:translate-x-1 shadow-md"
-                        >
-                          <p className="flex w-full items-center justify-center gap-1">
-                            <span className=" sm:group-hover:-translate-x-1 duration-150">
-                              READ
-                            </span>
-                            <span className="sm:group-hover:text-lg duration-150">
-                              <TbPlayerTrackNextFilled />
-                            </span>
-                          </p>
-                        </button>
-                      </div>
-                    </div>
-                    <Image
-                      className="w-full h-full object-cover rounded-box overflow-hidden "
-                      fill
-                      src={part.src}
-                      alt={part.title}
-                    />
-                  </div> */}
                   <Card
                     isFooterBlurred
                     className="w-full h-[300px] col-span-12 sm:col-span-7 "
