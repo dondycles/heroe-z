@@ -27,7 +27,7 @@ export default function TopNav() {
   const navigation = useNavigationStore();
   const randomcurtain = useRandomCurtainColor();
   useEffect(() => {
-    if (!isMounted) return;
+    if (!isMounted) return; //? This is to make that this useEffect is only running after the first time TopNav has been mounted.
     if (searchparams.get("chapter")) {
       if (
         String(pathname + "?chapter=" + searchparams.get("chapter")) ===
@@ -40,12 +40,14 @@ export default function TopNav() {
     } else {
       if (pathname === navigation.willNavigateTo) {
         setIsNavigated(true);
+        navigation.setTimes(3);
       } else {
         setIsNavigated(false);
       }
     }
   }, [pathname, navigation.willNavigateTo]);
   useEffect(() => {
+    navigation.setTimes(0);
     randomcurtain.setRandomIndex(Math.random() < 0.5 ? 1 : 2);
   }, [navigation.willNavigateTo]);
   useEffect(() => {
@@ -57,6 +59,8 @@ export default function TopNav() {
       navigation.setWillNavigateTo(pathname as string);
     }
     animate.toggleMode(false);
+
+    // ? This timeout is to handle the first time the TopNav has been mounted
     setTimeout(() => {
       setIsNavigated(true);
       setIsMounted(true);

@@ -31,13 +31,21 @@ export const useAnimateStore = create<AnimateState>()(
 );
 
 type NavigationState = {
+  times: number;
   willNavigateTo: string;
+  isNavigating: boolean;
+  setIsNavigating: (status: true | false) => void;
+  setTimes: (times: number) => void;
   setWillNavigateTo: (pathname: string) => void;
 };
 // ? This is for handling the navigation and also triggers the Curtains of the "willNavigateTo" is not equal to the current "pathname" from useRouter().
 export const useNavigationStore = create<NavigationState>()(
   persist(
     (set) => ({
+      times: 0,
+      isNavigating: false,
+      setIsNavigating: (status) => set((state) => ({ isNavigating: status })),
+      setTimes: (times) => set((state) => ({ times: times })),
       willNavigateTo: "",
       setWillNavigateTo: (pathname) =>
         set((state) => ({ willNavigateTo: pathname })),

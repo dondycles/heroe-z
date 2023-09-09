@@ -37,10 +37,10 @@ export function Providers({ children }: { children: React.ReactNode }) {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className={`fixed top-0 left-0 z-50 w-screen h-screen  font-bold flex items-center justify-center  ${
+            className={`fixed top-0 left-0 z-50 w-screen h-screen  font-bold flex items-center justify-center   ${
               randomcurtain.randomIndex === 1
-                ? "bg-[#bceaff] text-neutral-800"
-                : "bg-accent text-white"
+                ? "bg-[#bceaff] text-[#1d1d1d]"
+                : "bg-primaryred text-[#cccccc]"
             }
    
     `}
