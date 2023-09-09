@@ -2,7 +2,7 @@
 import { useAnimateStore } from "@/store";
 import { container, item } from "@/transitions";
 import { AnimatePresence, motion } from "framer-motion";
-import { Link } from "@nextui-org/link";
+import { Link } from "@nextui-org/react";
 export default function Component() {
   const animate = useAnimateStore();
   return (

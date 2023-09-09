@@ -8,7 +8,7 @@ import {
 } from "@/store";
 import logohighres from "@/public/logohighres.webp";
 import { useEffect, useState } from "react";
-import { Spinner } from "@nextui-org/spinner";
+import { Spinner } from "@nextui-org/react";
 export default function Curtain({
   isNavigating,
   navigate,

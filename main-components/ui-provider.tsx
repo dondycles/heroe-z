@@ -1,6 +1,6 @@
 "use client";
 import "@/app/globals.css";
-import { useRandomCurtainColor, useThemeStore } from "@/store";
+import { useThemeStore } from "@/store";
 import { NextUIProvider } from "@nextui-org/react";
 import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useState } from "react";
@@ -11,7 +11,6 @@ import TopNav from "./Navigation/TopNav";
 export function Providers({ children }: { children: React.ReactNode }) {
   const [hydrated, setHydrated] = useState<Boolean>(false);
   const theme = useThemeStore();
-  const randomcurtain = useRandomCurtainColor();
   useEffect(() => {
     setHydrated(true);
   }, []);

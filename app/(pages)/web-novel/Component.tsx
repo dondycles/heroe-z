@@ -6,18 +6,8 @@ import Image from "next/image";
 import chatp1 from "@/public/chapt1.webp";
 import chatp2 from "@/public/chapt2.webp";
 import { useNavigationStore } from "@/store";
-import {
-  TbPlayerTrackPrevFilled,
-  TbPlayerTrackNextFilled,
-} from "react-icons/tb";
-import {
-  Card,
-  CardHeader,
-  CardBody,
-  CardFooter,
-  Button,
-} from "@nextui-org/react";
-import Link from "next/link";
+import { TbPlayerTrackNextFilled } from "react-icons/tb";
+import { Card, CardHeader, CardFooter, Button } from "@nextui-org/react";
 export default function Component() {
   let novelParts = [
     {

@@ -3,7 +3,7 @@ import {
   TbPlayerTrackPrevFilled,
   TbPlayerTrackNextFilled,
 } from "react-icons/tb";
-import { Button } from "@nextui-org/button";
+import { Button } from "@nextui-org/react";
 export default function MenuButton({
   toggleMenu,
   menuStatus,

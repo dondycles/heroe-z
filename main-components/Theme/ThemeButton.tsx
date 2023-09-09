@@ -1,5 +1,4 @@
 "use client";
-import { MdDarkMode, MdLightMode } from "react-icons/md";
 import { useThemeStore } from "@/store";
 import React from "react";
 import { Switch } from "@nextui-org/react";
@@ -10,7 +9,7 @@ export default function ThemeButton() {
 
   return (
     <Switch
-      className="mr-0 ml-auto"
+      className="mr-0 ml-0 sm:ml-auto"
       defaultSelected={theme.mode === "light" ? true : false}
       onClick={() => {
         if (theme.mode === "dark") return theme.toggleMode("light");

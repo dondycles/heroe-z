@@ -1,6 +1,6 @@
 "use client";
 import { useAnimateStore } from "@/store";
-import { container, item } from "@/transitions";
+import { container } from "@/transitions";
 import { AnimatePresence, motion } from "framer-motion";
 export default function Component() {
   const animate = useAnimateStore();
