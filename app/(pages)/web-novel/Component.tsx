@@ -69,6 +69,7 @@ export default function Component() {
                       className="z-0 w-full h-full object-cover"
                       width={1000}
                       height={500}
+                      placeholder="blur"
                       src={part.src}
                     />
                     <CardFooter className="absolute bg-black/50 bottom-0 z-10 border-t-1 border-default-600 dark:border-default-100">

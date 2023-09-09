@@ -193,7 +193,7 @@ export default function ({
             >
               <div className="w-full flex flex-row-reverse sm:flex-col gap-6">
                 <ThemeButton />
-                <div className="flex gap-4 rounded-xl bg-accent text-content1 sm:p-6 w-full items-center justify-center sm:bg-primaryred">
+                <div className="flex gap-4 rounded-xl bg-accent sm:text-content1 sm:p-6 w-full items-center justify-center sm:bg-primaryred">
                   <Link href={"https://discord.gg/64nt9zk6x7"} target="_blank">
                     <BsDiscord />
                   </Link>
