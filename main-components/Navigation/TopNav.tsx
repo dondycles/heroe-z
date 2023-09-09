@@ -14,7 +14,7 @@ import {
   useNavigationStore,
   useRandomCurtainColor,
 } from "@/store";
-import ThemeButton from "../Theme/ThemeButton";
+// import ThemeButton from "../Theme/ThemeButton";
 export default function TopNav() {
   const pathname = usePathname();
   const searchparams = useSearchParams();
@@ -83,7 +83,7 @@ export default function TopNav() {
           priority
         />
       </div>
-      <ThemeButton />
+      {/* <ThemeButton /> */}
 
       <MenuButton
         menuStatus={showMenu}

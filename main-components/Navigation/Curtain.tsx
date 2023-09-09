@@ -62,11 +62,7 @@ export default function Curtain({
                     .replace("-", " ")
                     .toLocaleUpperCase()}
             </p>
-            <Spinner
-              className=" text-background"
-              color={randomcurtain.randomIndex === 1 ? "default" : "white"}
-              labelColor="foreground"
-            />
+            <Spinner color="current" />
           </motion.div>
         )}
       </AnimatePresence>

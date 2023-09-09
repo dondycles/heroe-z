@@ -19,6 +19,7 @@ import {
   BsPeople,
 } from "react-icons/bs";
 import Link from "next/link";
+import ThemeButton from "../Theme/ThemeButton";
 export default function ({
   menuState,
   closeMenu,
@@ -85,10 +86,7 @@ export default function ({
             onClick={(e) => e.stopPropagation()}
             className=" w-full gap-6  sm:w-2/3 h-full bg-background/90  px-6 pb-6 flex flex-col "
           >
-            <motion.div
-              layout
-              className="w-full min-h-[96px]  py-6 "
-            ></motion.div>
+            <motion.div className="w-full min-h-[96px] flex  py-6 pr-[84px]"></motion.div>
             <motion.ul className="flex flex-col gap-1 overflow-y-auto overflow-x-hidden">
               <AnimatePresence>
                 {animateOptions && (
@@ -129,7 +127,8 @@ export default function ({
               layout
               className=" text-2xl flex flex-col gap-4 justify-center items-center mt-auto mb-0 "
             >
-              <div className="flex gap-4 rounded-full bg-accent text-content3 p-6 w-full items-center justify-center bg-primaryred">
+              <ThemeButton />
+              <div className="flex gap-4 rounded-xl bg-accent text-content3 p-6 w-full items-center justify-center bg-primaryred">
                 <Link href={"https://discord.gg/64nt9zk6x7"} target="_blank">
                   <BsDiscord />
                 </Link>

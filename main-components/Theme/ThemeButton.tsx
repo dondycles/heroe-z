@@ -10,7 +10,7 @@ export default function ThemeButton() {
 
   return (
     <Switch
-      className="ml-auto mr-6 z-[51]"
+      className="mr-0 ml-auto"
       defaultSelected={theme.mode === "light" ? true : false}
       onClick={() => {
         if (theme.mode === "dark") return theme.toggleMode("light");
@@ -18,8 +18,19 @@ export default function ThemeButton() {
       }}
       size="md"
       color="primary"
-      startContent={<SunIcon />}
-      endContent={<MoonIcon />}
+      thumbIcon={({ isSelected, className }) =>
+        isSelected ? (
+          <SunIcon className={className} />
+        ) : (
+          <MoonIcon className={className} />
+        )
+      }
+      classNames={{
+        wrapper: "bg-primaryblue/10 m-0",
+        thumb: "bg-white",
+        startContent: "text-white",
+        endContent: "text-primaryblue",
+      }}
     ></Switch>
   );
 }
