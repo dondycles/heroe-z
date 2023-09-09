@@ -20,7 +20,6 @@ export function Providers({ children }: { children: React.ReactNode }) {
       <AnimatePresence>
         {hydrated ? (
           <motion.main
-            key={0}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -32,19 +31,14 @@ export function Providers({ children }: { children: React.ReactNode }) {
             <Wallpaper />
           </motion.main>
         ) : (
-          <motion.div
-            key={1}
+          <motion.section
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className={`fixed top-0 left-0 z-50 w-screen h-screen  font-bold flex items-center justify-center   ${
-              randomcurtain.randomIndex === 1
-                ? "bg-[#bceaff] text-[#1d1d1d]"
-                : "bg-primaryred text-[#cccccc]"
-            }
-   
+            className={`fixed top-0 left-0 z-50 w-screen h-screen  font-bold flex items-center justify-center  bg-background
+             
     `}
-          ></motion.div>
+          ></motion.section>
         )}
       </AnimatePresence>
     </NextUIProvider>

@@ -40,14 +40,12 @@ export default function TopNav() {
     } else {
       if (pathname === navigation.willNavigateTo) {
         setIsNavigated(true);
-        navigation.setTimes(3);
       } else {
         setIsNavigated(false);
       }
     }
   }, [pathname, navigation.willNavigateTo]);
   useEffect(() => {
-    navigation.setTimes(0);
     randomcurtain.setRandomIndex(Math.random() < 0.5 ? 1 : 2);
   }, [navigation.willNavigateTo]);
   useEffect(() => {

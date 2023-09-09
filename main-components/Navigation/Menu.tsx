@@ -17,6 +17,17 @@ import {
   BsCollection,
   BsCheckCircle,
   BsPeople,
+  BsWalletFill,
+  BsHouseFill,
+  BsHeartFill,
+  BsMapFill,
+  BsBuildingsFill,
+  BsLightbulbFill,
+  BsBookFill,
+  BsRocketFill,
+  BsCollectionFill,
+  BsCheckCircleFill,
+  BsPeopleFill,
 } from "react-icons/bs";
 import Link from "next/link";
 import ThemeButton from "../Theme/ThemeButton";
@@ -35,25 +46,68 @@ export default function ({
       title: "CONNECT WALLET",
       href: "/connectwallet",
       icon: <BsWallet />,
+      filledIcon: <BsWalletFill />,
     },
-    { title: "HOME", href: "/", icon: <BsHouse /> },
-    { title: "ABOUT", href: "/about", icon: <BsHeart /> },
-    { title: "ROAD MAP", href: "/road-map", icon: <BsMap /> },
+    {
+      title: "HOME",
+      href: "/",
+      icon: <BsHouse />,
+      filledIcon: <BsHouseFill />,
+    },
+    {
+      title: "ABOUT",
+      href: "/about",
+      icon: <BsHeart />,
+      filledIcon: <BsHeartFill />,
+    },
+    {
+      title: "ROAD MAP",
+      href: "/road-map",
+      icon: <BsMap />,
+      filledIcon: <BsMapFill />,
+    },
     {
       title: "HEROEZ UNIVERSITY",
       href: "/heroez-university",
       icon: <BsBuildings />,
+      filledIcon: <BsBuildingsFill />,
     },
     {
       title: "QUEST SYSTEM",
       href: "/quest-system",
       icon: <BsLightbulb />,
+      filledIcon: <BsLightbulbFill />,
     },
-    { title: "WEB NOVEL", href: "/web-novel", icon: <BsBook /> },
-    { title: "STUDIO Z", href: "/studio-z", icon: <BsRocket /> },
-    { title: "GALLERY", href: "/gallery", icon: <BsCollection /> },
-    { title: "UPDATES", href: "/updates", icon: <BsCheckCircle /> },
-    { title: "TEAM", href: "/team", icon: <BsPeople /> },
+    {
+      title: "WEB NOVEL",
+      href: "/web-novel",
+      icon: <BsBook />,
+      filledIcon: <BsBookFill />,
+    },
+    {
+      title: "STUDIO Z",
+      href: "/studio-z",
+      icon: <BsRocket />,
+      filledIcon: <BsRocketFill />,
+    },
+    {
+      title: "GALLERY",
+      href: "/gallery",
+      icon: <BsCollection />,
+      filledIcon: <BsCollectionFill />,
+    },
+    {
+      title: "UPDATES",
+      href: "/updates",
+      icon: <BsCheckCircle />,
+      filledIcon: <BsCheckCircleFill />,
+    },
+    {
+      title: "TEAM",
+      href: "/team",
+      icon: <BsPeople />,
+      filledIcon: <BsPeopleFill />,
+    },
   ];
 
   useEffect(() => {
@@ -87,7 +141,7 @@ export default function ({
             className=" w-full gap-6  sm:w-2/3 h-full bg-background/90  px-6 pb-6 flex flex-col "
           >
             <motion.div className="w-full min-h-[96px] flex  py-6 pr-[84px]"></motion.div>
-            <motion.ul className="flex flex-col gap-1 overflow-y-auto overflow-x-hidden">
+            <motion.ul className="flex flex-col gap-[2px] overflow-y-auto overflow-x-hidden">
               <AnimatePresence>
                 {animateOptions && (
                   <>
@@ -102,7 +156,7 @@ export default function ({
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
                             transition={{ delay: (0.1 + i) / 10 }}
-                            className={`w-full btn-default rounded-lg text-xs sm:hover:bg-primaryblue/10 sm:hover:text-primaryblue sm:hover:border-[1px] sm:border-transparent
+                            className={` w-full btn-default rounded-lg text-xs sm:hover:bg-primaryblue/10 sm:hover:text-primaryblue sm:hover:border-[1px] sm:border-transparent 
                           ${
                             option.title === "CONNECT WALLET" &&
                             "pointer-events-none"
@@ -113,7 +167,12 @@ export default function ({
                                 : "bg-transparent text-content3"
                             }`}
                           >
-                            <span className="text-lg">{option.icon}</span>
+                            <span className="text-lg">
+                              {option.href.toLowerCase() ===
+                              pathname!.toLowerCase()
+                                ? option.filledIcon
+                                : option.icon}
+                            </span>
                             <span>{option.title.toUpperCase()}</span>
                           </motion.button>
                         </motion.li>

@@ -9,7 +9,7 @@ export default function QuestSystem() {
   return (
     <>
       <h1 className="mb-6">
-        QUEST <span className=" text-secondary">SYSTEM</span>{" "}
+        QUEST <span className=" text-primaryblue">SYSTEM</span>{" "}
       </h1>
       <Component />
     </>
