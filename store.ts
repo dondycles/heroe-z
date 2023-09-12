@@ -61,21 +61,21 @@ export const useRandomCurtainColor = create<RandomCurtainColorState>()(
   )
 );
 
-// type SelectedChapterState = {
-//   toBeSelected: string;
-//   selected: string;
-//   setToBeSelected: (chapter: string) => void;
-//   setSelected: (chapter: string) => void;
-// };
+type MusicStore = {
+  showPlayer: true | false;
+  playMusic: true | false;
+  setShowPlayer: (status: true | false) => void;
+  setPlayMusic: (status: true | false) => void;
+};
 
-// export const useSelectedChapter = create<SelectedChapterState>()(
-//   persist(
-//     (set) => ({
-//       toBeSelected: "",
-//       selected: "",
-//       setToBeSelected: (chapter) => set((state) => ({ toBeSelected: chapter })),
-//       setSelected: (chapter) => set((state) => ({ selected: chapter })),
-//     }),
-//     { name: "selected-chapter" }
-//   )
-// );
+export const useMusicStore = create<MusicStore>()(
+  persist(
+    (set) => ({
+      showPlayer: false,
+      playMusic: false,
+      setShowPlayer: (status) => set((state) => ({ showPlayer: status })),
+      setPlayMusic: (status) => set((state) => ({ playMusic: status })),
+    }),
+    { name: "music-status" }
+  )
+);
