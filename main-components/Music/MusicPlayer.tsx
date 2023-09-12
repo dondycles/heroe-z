@@ -171,9 +171,18 @@ export default function MusicPlayer() {
           />
         </div>
         <div className="flex flex-row gap-3 flex-1">
-          <div ref={controls} className="flex flex-1 flex-col gap-3 h-fit">
-            <Marquee speed={35} loop={0} pauseOnClick pauseOnHover>
-              <span className="text-primaryblue sm:font-montserrat flex-1 mr-6">
+          <div
+            ref={controls}
+            className="flex flex-1 flex-col-reverse sm:flex-col gap-0 sm:gap-3 h-fit"
+          >
+            <Marquee
+              className="h-[16px] overflow-hidden"
+              speed={35}
+              loop={0}
+              pauseOnClick
+              pauseOnHover
+            >
+              <span className="text-primaryblue text-sm sm:text-base leading-none  sm:font-montserrat flex-1 mr-3">
                 {tracks[musicIndex].title}
               </span>
             </Marquee>
