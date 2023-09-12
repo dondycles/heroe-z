@@ -154,7 +154,7 @@ export default function MusicPlayer() {
       />
       <div
         onClick={(e) => e.stopPropagation()}
-        className="h-fit w-full max-w-[250px] sm:max-w-[500px] rounded-xl p-3  duration-500 bg-background/5 flex flex-col sm:flex-row gap-3 backdrop-blur-lg outline-[1px] outline outline-primaryblue"
+        className="h-fit w-full max-w-[280px] sm:max-w-[500px] rounded-xl p-3  duration-500 bg-background/5 flex flex-row gap-3 backdrop-blur-lg outline-[1px] outline outline-primaryblue"
       >
         <div
           style={{
@@ -162,7 +162,7 @@ export default function MusicPlayer() {
               ? controls.current!.clientHeight + "px"
               : "100%",
           }}
-          className={`bg-black aspect-square rounded-lg hidden sm:block overflow-hidden`}
+          className={`bg-black aspect-square rounded-lg overflow-hidden hidden sm:block`}
         >
           <Image
             src={tracks[musicIndex].art}
@@ -170,91 +170,95 @@ export default function MusicPlayer() {
             className="w-full h-full object-cover"
           />
         </div>
-        <div
-          className={`bg-black w-full aspect-square rounded-lg block sm:hidden overflow-hidden`}
-        >
-          <Image
-            src={tracks[musicIndex].art}
-            alt={tracks[musicIndex].title}
-            className="w-full h-full object-cover"
-          />
-        </div>
-        <div className="flex flex-row gap-6 flex-1">
+        <div className="flex flex-row gap-3 flex-1">
           <div ref={controls} className="flex flex-1 flex-col gap-3 h-fit">
             <Marquee speed={35} loop={0} pauseOnClick pauseOnHover>
-              <span className="text-primaryblue font-montserrat flex-1 mr-6">
+              <span className="text-primaryblue sm:font-montserrat flex-1 mr-6">
                 {tracks[musicIndex].title}
               </span>
             </Marquee>
-            {audio.current && (
-              <div className="flex items-center gap-2 text-xs text-white">
-                <p>
-                  0{audioCurrentTime.min}:
-                  {audioCurrentTime.sec < 10
-                    ? "0" + audioCurrentTime.sec
-                    : audioCurrentTime.sec}
-                </p>
-                <Progress
-                  aria-label="Music Progress Bar"
-                  classNames={{
-                    indicator: "bg-primaryblue",
-                    track:
-                      "bg-primaryblue/10  outline outline-[1px] outline-primaryblue",
-                  }}
-                  size="sm"
-                  value={progressBarValue}
+            <div className="flex gap-3 flex-row flex-1">
+              <div
+                className={`bg-black h-[60px] aspect-square rounded-lg overflow-hidden block sm:hidden`}
+              >
+                <Image
+                  src={tracks[musicIndex].art}
+                  alt={tracks[musicIndex].title}
+                  className="w-full h-full object-cover"
                 />
-                <p>
-                  0{audioDuration.min}:
-                  {audioDuration.sec < 10
-                    ? "0" + audioDuration.sec
-                    : audioDuration.sec}
-                </p>
               </div>
-            )}
-            <div className="flex flex-row items-center justify-center gap-3 ">
-              <Button
-                onClick={() => {
-                  setMusicIndex((prev) => (prev > 0 ? prev - 1 : prev));
-                }}
-                className=" h-[32px] min-w-[32px]  rounded-full p-0 bg-primaryblue/10 text-primaryblue"
-              >
-                <PiArrowFatLeftFill />
-              </Button>
-              <Button
-                className={` h-[44px] min-w-[44px] rounded-full p-0 ${
-                  !stopMusic
-                    ? "bg-primaryblue text-content1"
-                    : "bg-primaryblue/10 text-primaryblue"
-                }`}
-                onClick={() => setPlayMusic((prev) => !prev)}
-              >
-                <AnimatePresence>
-                  {playMusic ? <PiPauseFill /> : <PiPlayFill />}
-                </AnimatePresence>
-              </Button>
-              <Button
-                className={` h-[32px] min-w-[32px] rounded-full p-0 ${
-                  stopMusic
-                    ? "bg-primaryblue text-content1"
-                    : "bg-primaryblue/10 text-primaryblue"
-                }`}
-                onClick={() => {
-                  setStopMusic(true);
-                  setPlayMusic(false);
-                }}
-              >
-                <PiStopFill />
-              </Button>
-              <Button
-                onClick={() => {
-                  // audio.current!.currentTime = 180;
-                  setMusicIndex((prev) => (prev < 3 ? prev + 1 : 0));
-                }}
-                className=" h-[32px] min-w-[32px] rounded-full p-0 bg-primaryblue/10 text-primaryblue"
-              >
-                <PiArrowFatRightFill />
-              </Button>
+              <div className="flex flex-col gap-3 flex-1">
+                {audio.current && (
+                  <div className="flex items-center gap-2 text-xs text-white">
+                    <p>
+                      0{audioCurrentTime.min}:
+                      {audioCurrentTime.sec < 10
+                        ? "0" + audioCurrentTime.sec
+                        : audioCurrentTime.sec}
+                    </p>
+                    <Progress
+                      aria-label="Music Progress Bar"
+                      classNames={{
+                        indicator: "bg-primaryblue",
+                        track:
+                          "bg-primaryblue/10  outline outline-[1px] outline-primaryblue",
+                      }}
+                      size="sm"
+                      value={progressBarValue}
+                    />
+                    <p>
+                      0{audioDuration.min}:
+                      {audioDuration.sec < 10
+                        ? "0" + audioDuration.sec
+                        : audioDuration.sec}
+                    </p>
+                  </div>
+                )}
+                <div className="flex flex-row items-center justify-center gap-3 ">
+                  <Button
+                    onClick={() => {
+                      setMusicIndex((prev) => (prev > 0 ? prev - 1 : prev));
+                    }}
+                    className=" h-[32px] min-w-[32px]  rounded-full p-0 bg-primaryblue/10 text-primaryblue"
+                  >
+                    <PiArrowFatLeftFill />
+                  </Button>
+                  <Button
+                    className={` h-[32px] min-w-[32px] sm:h-[44px] sm:min-w-[44px] rounded-full p-0 ${
+                      !stopMusic
+                        ? "bg-primaryblue text-content1"
+                        : "bg-primaryblue/10 text-primaryblue"
+                    }`}
+                    onClick={() => setPlayMusic((prev) => !prev)}
+                  >
+                    <AnimatePresence>
+                      {playMusic ? <PiPauseFill /> : <PiPlayFill />}
+                    </AnimatePresence>
+                  </Button>
+                  <Button
+                    className={` h-[32px] min-w-[32px] rounded-full p-0 ${
+                      stopMusic
+                        ? "bg-primaryblue text-content1"
+                        : "bg-primaryblue/10 text-primaryblue"
+                    }`}
+                    onClick={() => {
+                      setStopMusic(true);
+                      setPlayMusic(false);
+                    }}
+                  >
+                    <PiStopFill />
+                  </Button>
+                  <Button
+                    onClick={() => {
+                      // audio.current!.currentTime = 180;
+                      setMusicIndex((prev) => (prev < 3 ? prev + 1 : 0));
+                    }}
+                    className=" h-[32px] min-w-[32px] rounded-full p-0 bg-primaryblue/10 text-primaryblue"
+                  >
+                    <PiArrowFatRightFill />
+                  </Button>
+                </div>
+              </div>
             </div>
           </div>
           <div
