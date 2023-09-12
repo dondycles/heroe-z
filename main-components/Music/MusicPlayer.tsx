@@ -282,7 +282,7 @@ export default function MusicPlayer() {
                   100
               );
             }}
-            className="w-[8px]  bg-primaryblue/10 outline outline-[1px] outline-primaryblue flex items-end rounded-full cursor-pointer "
+            className="w-[6px]  bg-primaryblue/10 outline outline-[1px] outline-primaryblue flex items-end rounded-full cursor-pointer "
             style={{
               height: controls.current
                 ? controls.current!.clientHeight + "px"
@@ -296,7 +296,7 @@ export default function MusicPlayer() {
                   ? controls.current!.clientHeight + "px"
                   : "100%",
               }}
-              className={`w-[8px] bg-primaryblue rounded-full `}
+              className={`w-[6px] bg-primaryblue rounded-full `}
             />
           </div>
         </div>
