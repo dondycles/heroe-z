@@ -14,7 +14,7 @@ export default function AnnouncementBar() {
   return (
     <div
       className={`fixed bottom-0 left-0 w-screen  duration-300 bg-primaryred text-white z-20  ${
-        cycled && "pointer-events-none"
+        cycled && "opacity-0 pointer-events-none"
       }`}
     >
       <Marquee
@@ -28,10 +28,9 @@ export default function AnnouncementBar() {
           setCycled(true);
         }}
       >
-        <span>
-          {" "}
+        <span className="mx-6">
           Attention to all heroes : be wary of malicious links! Official links
-          can be found on this website. Official team will not DM YOU!{" "}
+          can be found on this website. Official team will not DM YOU!
         </span>
       </Marquee>
     </div>
