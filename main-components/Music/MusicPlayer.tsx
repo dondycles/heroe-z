@@ -173,7 +173,7 @@ export default function MusicPlayer() {
         <div className="flex flex-row gap-3 flex-1">
           <div
             ref={controls}
-            className="flex flex-1 flex-col-reverse sm:flex-col gap-0 sm:gap-3 h-fit"
+            className="flex flex-1 flex-col-reverse sm:flex-col gap-1 sm:gap-3 h-fit"
           >
             <Marquee
               className="h-[16px] overflow-hidden"
