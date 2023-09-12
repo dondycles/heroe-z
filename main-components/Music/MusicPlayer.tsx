@@ -11,6 +11,7 @@ import {
   PiArrowFatLeftFill,
   PiArrowFatRightFill,
 } from "react-icons/pi";
+import music0 from "@/public/music0.png";
 import music1 from "@/public/music1.jpg";
 import music2 from "@/public/music2.png";
 import music3 from "@/public/music3.png";
@@ -33,6 +34,12 @@ export default function MusicPlayer() {
   const audio = useRef<HTMLAudioElement>(null);
 
   const tracks = [
+    {
+      title:
+        "My Hero Academia OST - You Say Run + Jet Set Run (You Say Run v2)",
+      src: "/music0.mp3",
+      art: music0,
+    },
     {
       title: "The Weeknd - Is There Someone Else?",
       src: "/music1.mp3",
