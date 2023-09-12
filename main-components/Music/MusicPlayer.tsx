@@ -2,6 +2,8 @@ import { useMusicStore } from "@/store";
 import { Button, Progress } from "@nextui-org/react";
 import { AnimatePresence } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
+import Marquee from "react-fast-marquee";
+
 import {
   PiPlayFill,
   PiPauseFill,
@@ -19,6 +21,7 @@ export default function MusicPlayer() {
   const musicState = useMusicStore();
   const volumeBar = useRef<HTMLDivElement>(null);
   const controls = useRef<HTMLDivElement>(null);
+  const [cycled, setCycled] = useState(false);
   const [hydrate, setHydrate] = useState(false);
   const [playMusic, setPlayMusic] = useState(false);
   const [stopMusic, setStopMusic] = useState(false);
@@ -30,10 +33,18 @@ export default function MusicPlayer() {
   const audio = useRef<HTMLAudioElement>(null);
 
   const tracks = [
-    { title: "Is There Someone Else?", src: "/music1.mp3", art: music1 },
-    { title: "Raining In Manila", src: "/music2.mp3", art: music2 },
-    { title: "Slow Dancing", src: "/music3.mp3", art: music3 },
-    { title: "Cream Soda", src: "/music4.mp3", art: music4 },
+    {
+      title: "The Weeknd - Is There Someone Else?",
+      src: "/music1.mp3",
+      art: music1,
+    },
+    {
+      title: "Lola Amour - Raining In Manila",
+      src: "/music2.mp3",
+      art: music2,
+    },
+    { title: "V - Slow Dancing", src: "/music3.mp3", art: music3 },
+    { title: "EXO - Cream Soda", src: "/music4.mp3", art: music4 },
   ];
 
   const updateTimeAndProgress = () => {
@@ -94,6 +105,15 @@ export default function MusicPlayer() {
   }, [volumeThumb]);
 
   useEffect(() => {
+    const timeout = setTimeout(() => {
+      if (!cycled) return;
+      setCycled((prev) => !prev);
+    }, 1000);
+
+    return () => clearTimeout(timeout);
+  }, [cycled]);
+
+  useEffect(() => {
     setHydrate(true);
     audio.current!.volume = 0.5;
   }, []);
@@ -127,7 +147,7 @@ export default function MusicPlayer() {
       />
       <div
         onClick={(e) => e.stopPropagation()}
-        className="h-fit w-full max-w-[250px] sm:w-fit sm:max-w-none rounded-xl p-3  duration-500 bg-background/5 flex flex-col sm:flex-row gap-3 backdrop-blur-lg outline-[1px] outline outline-primaryblue"
+        className="h-fit w-full max-w-[250px] sm:max-w-[500px] rounded-xl p-3  duration-500 bg-background/5 flex flex-col sm:flex-row gap-3 backdrop-blur-lg outline-[1px] outline outline-primaryblue"
       >
         <div
           style={{
@@ -154,9 +174,11 @@ export default function MusicPlayer() {
         </div>
         <div className="flex flex-row gap-6 flex-1">
           <div ref={controls} className="flex flex-1 flex-col gap-3 h-fit">
-            <p className="text-primaryblue font-montserrat flex-1">
-              {tracks[musicIndex].title}{" "}
-            </p>
+            <Marquee speed={35} loop={0} pauseOnClick pauseOnHover>
+              <span className="text-primaryblue font-montserrat flex-1 mr-6">
+                {tracks[musicIndex].title}
+              </span>
+            </Marquee>
             {audio.current && (
               <div className="flex items-center gap-2 text-xs text-white">
                 <p>
