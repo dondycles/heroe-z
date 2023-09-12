@@ -77,6 +77,15 @@ export default function MusicPlayer() {
     if (playMusic) {
       setStopMusic(false);
       audio.current!.play();
+      setTimeout(() => {
+        setAudioDuration({
+          min: Math.trunc(audio.current!.duration / 60),
+          sec: Math.trunc(
+            audio.current!.duration %
+              (60 * Math.trunc(audio.current!.duration / 60))
+          ),
+        });
+      }, 50);
     } else {
       audio.current!.pause();
       if (stopMusic) {
@@ -104,7 +113,7 @@ export default function MusicPlayer() {
             (60 * Math.trunc(audio.current!.duration / 60))
         ),
       });
-    }, 500);
+    }, 50);
   }, [musicIndex]);
 
   useEffect(() => {
@@ -137,15 +146,6 @@ export default function MusicPlayer() {
     >
       <audio
         autoPlay={false}
-        onPlay={() => {
-          setAudioDuration({
-            min: Math.trunc(audio.current!.duration / 60),
-            sec: Math.trunc(
-              audio.current!.duration %
-                (60 * Math.trunc(audio.current!.duration / 60))
-            ),
-          });
-        }}
         onTimeUpdate={updateTimeAndProgress}
         onEnded={() => setMusicIndex((prev) => (prev < 3 ? prev + 1 : 0))}
         ref={audio}
