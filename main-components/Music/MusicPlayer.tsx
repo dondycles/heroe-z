@@ -72,19 +72,20 @@ export default function MusicPlayer() {
 
   useEffect(() => {
     if (!hydrate) return;
-    setAudioDuration({
-      min: Math.trunc(audio.current!.duration / 60),
-      sec: Math.trunc(
-        audio.current!.duration %
-          (60 * Math.trunc(audio.current!.duration / 60))
-      ),
-    });
+
     setPlayMusic(true);
     setStopMusic(false);
     setProgressBarValue(0);
     setAudioCurrentTime({ min: 0, sec: 0 });
     setTimeout(() => {
       audio.current!.play();
+      setAudioDuration({
+        min: Math.trunc(audio.current!.duration / 60),
+        sec: Math.trunc(
+          audio.current!.duration %
+            (60 * Math.trunc(audio.current!.duration / 60))
+        ),
+      });
     }, 500);
   }, [musicIndex]);
 
