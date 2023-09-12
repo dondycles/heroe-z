@@ -73,6 +73,13 @@ export default function MusicPlayer() {
 
   useEffect(() => {
     if (!hydrate) return;
+    setAudioDuration({
+      min: Math.trunc(audio.current!.duration / 60),
+      sec: Math.trunc(
+        audio.current!.duration %
+          (60 * Math.trunc(audio.current!.duration / 60))
+      ),
+    });
     setPlayMusic(true);
     setStopMusic(false);
     setProgressBarValue(0);
@@ -100,27 +107,27 @@ export default function MusicPlayer() {
           : "opacity-0 pointer-events-none "
       }`}
     >
+      <audio
+        autoPlay={false}
+        onPlay={() => {
+          setAudioDuration({
+            min: Math.trunc(audio.current!.duration / 60),
+            sec: Math.trunc(
+              audio.current!.duration %
+                (60 * Math.trunc(audio.current!.duration / 60))
+            ),
+          });
+        }}
+        onTimeUpdate={updateTimeAndProgress}
+        onEnded={() => setMusicIndex((prev) => (prev < 3 ? prev + 1 : 0))}
+        ref={audio}
+        src={tracks[musicIndex].src}
+        loop={false}
+      />
       <div
         onClick={(e) => e.stopPropagation()}
         className="h-fit w-full max-w-[250px] sm:w-fit sm:max-w-none rounded-xl p-3  duration-500 bg-background/5 flex flex-col sm:flex-row gap-3 backdrop-blur-lg outline-[1px] outline outline-primaryblue"
       >
-        <audio
-          autoPlay={false}
-          onPlay={() => {
-            setAudioDuration({
-              min: Math.trunc(audio.current!.duration / 60),
-              sec: Math.trunc(
-                audio.current!.duration %
-                  (60 * Math.trunc(audio.current!.duration / 60))
-              ),
-            });
-          }}
-          onTimeUpdate={updateTimeAndProgress}
-          onEnded={() => setMusicIndex((prev) => (prev < 3 ? prev + 1 : 0))}
-          ref={audio}
-          src={tracks[musicIndex].src}
-          loop={false}
-        />
         <div
           style={{
             height: controls.current
