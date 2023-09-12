@@ -94,7 +94,7 @@ export default function MusicPlayer() {
       onClick={() => {
         musicState.setShowPlayer(false);
       }}
-      className={`fixed top-0 left-0 py-6 px-6 md:px-32 lg:px-48 xl:px-72 2xl:px-96 flex justify-end items-end h-screen w-screen duration-150  ${
+      className={`fixed top-0 left-0 py-6 px-6 md:px-32 lg:px-48 xl:px-72 2xl:px-96 flex justify-end items-end h-[100dvh] w-screen duration-150  ${
         musicState.showPlayer
           ? "opacity-100 translate-x-0"
           : "opacity-0 pointer-events-none "
