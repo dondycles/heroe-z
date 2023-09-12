@@ -56,7 +56,6 @@ export default function MusicPlayer() {
 
   useEffect(() => {
     if (!hydrate) return;
-    audio.current!.volume = 0.5;
     if (playMusic) {
       setStopMusic(false);
       audio.current!.play();
@@ -95,6 +94,7 @@ export default function MusicPlayer() {
 
   useEffect(() => {
     setHydrate(true);
+    audio.current!.volume = 0.5;
   }, []);
   return (
     <div
