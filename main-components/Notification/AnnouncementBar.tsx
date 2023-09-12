@@ -13,22 +13,23 @@ export default function AnnouncementBar() {
   }, [cycled]);
   return (
     <div
-      className={`fixed bottom-0 left-0 w-screen  duration-300 bg-primaryred text-white z-20  ${
+      className={`h-[20px] leading-[20px] overflow-hidden  fixed bottom-0 left-0 w-screen  duration-300 bg-primaryred text-white z-20  ${
         cycled && "opacity-0 pointer-events-none"
       }`}
     >
       <Marquee
+        className="overflow-hidden"
         speed={100}
-        play={!cycled}
+        // play={!cycled}
         loop={0}
         delay={0.5}
         pauseOnClick
         pauseOnHover
-        onCycleComplete={() => {
-          setCycled(true);
-        }}
+        // onCycleComplete={() => {
+        //   setCycled(true);
+        // }}
       >
-        <span className="mx-6">
+        <span className="mx-6 ">
           Attention to all heroes : be wary of malicious links! Official links
           can be found on this website. Official team will not DM YOU!
         </span>
