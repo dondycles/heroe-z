@@ -11,7 +11,7 @@ export default function ThemeButton() {
     <Switch
       className="mr-0 ml-0 sm:ml-auto"
       defaultSelected={theme.mode === "light" ? true : false}
-      onClick={() => {
+      onClick={(e) => {
         if (theme.mode === "dark") return theme.toggleMode("light");
         theme.toggleMode("dark");
       }}

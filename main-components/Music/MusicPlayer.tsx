@@ -138,7 +138,7 @@ export default function MusicPlayer() {
       onClick={() => {
         musicState.setShowPlayer(false);
       }}
-      className={`fixed top-0 left-0 py-6 px-6 md:px-32 lg:px-48 xl:px-72 2xl:px-96 flex justify-end items-end h-[100dvh] w-screen duration-150  ${
+      className={`fixed top-0 left-0 py-6 px-6 md:px-12 lg:px-24 xl:px-36 2xl:px-48 flex justify-end items-end h-[100dvh] w-screen duration-150  ${
         musicState.showPlayer
           ? "opacity-100 translate-x-0"
           : "opacity-0 pointer-events-none "
@@ -154,7 +154,7 @@ export default function MusicPlayer() {
       />
       <div
         onClick={(e) => e.stopPropagation()}
-        className="h-fit w-full max-w-[280px] sm:max-w-[500px] rounded-xl p-3  duration-500 bg-background/5 flex flex-row gap-3 backdrop-blur-lg outline-[1px] outline outline-primaryblue"
+        className="h-fit w-full max-w-[280px] sm:max-w-[400px] rounded-xl p-3  duration-500 bg-background/5 flex flex-row gap-3 backdrop-blur-lg outline-[1px] outline outline-primaryblue"
       >
         <div
           style={{
@@ -291,7 +291,7 @@ export default function MusicPlayer() {
           >
             <div
               style={{
-                height: volumeThumb == null ? "50%" : volumeThumb + "0%",
+                height: volumeThumb == null ? "50%" : volumeThumb + "%",
                 maxHeight: controls.current
                   ? controls.current!.clientHeight + "px"
                   : "100%",

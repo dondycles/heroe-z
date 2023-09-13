@@ -1,5 +1,5 @@
 "use client";
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import Menu from "./Menu";
@@ -14,7 +14,36 @@ import {
   useNavigationStore,
   useRandomCurtainColor,
 } from "@/store";
-// import ThemeButton from "../Theme/ThemeButton";
+import { Button, ButtonGroup } from "@nextui-org/react";
+
+import {
+  BsWallet,
+  BsHouse,
+  BsHeart,
+  BsMap,
+  BsBuildings,
+  BsLightbulb,
+  BsBook,
+  BsRocket,
+  BsCollection,
+  BsCheckCircle,
+  BsPeople,
+  BsWalletFill,
+  BsHouseFill,
+  BsHeartFill,
+  BsMapFill,
+  BsBuildingsFill,
+  BsLightbulbFill,
+  BsBookFill,
+  BsRocketFill,
+  BsCollectionFill,
+  BsCheckCircleFill,
+  BsPeopleFill,
+  BsQuestion,
+} from "react-icons/bs";
+import { IconType } from "react-icons";
+import MoreDropDownButton from "./MoreDropDownButton";
+import ThemeButton from "../Theme/ThemeButton";
 export default function TopNav() {
   const pathname = usePathname();
   const searchparams = useSearchParams();
@@ -26,6 +55,71 @@ export default function TopNav() {
   const animate = useAnimateStore();
   const navigation = useNavigationStore();
   const randomcurtain = useRandomCurtainColor();
+
+  type GroupButtonTypes = {
+    type: "button" | "dropdown";
+    title: string;
+    href: string;
+    icon: IconType;
+    filledIcon: IconType;
+    children: null | ChildNode;
+  };
+  let groupButtons = [
+    {
+      type: "button",
+      title: "MAP",
+      href: "/road-map",
+      icon: <BsMap />,
+      filledIcon: <BsMapFill />,
+      children: null,
+    },
+    {
+      type: "button",
+      title: "UNIVERSITY",
+      href: "/heroez-university",
+      icon: <BsBuildings />,
+      filledIcon: <BsBuildingsFill />,
+      children: null,
+    },
+    {
+      type: "button",
+      title: "SYSTEM",
+      href: "/quest-system",
+      icon: <BsLightbulb />,
+      filledIcon: <BsLightbulbFill />,
+      children: null,
+    },
+    {
+      type: "button",
+      title: "NOVEL",
+      href: "/web-novel",
+      icon: <BsBook />,
+      filledIcon: <BsBookFill />,
+      children: null,
+    },
+
+    {
+      type: "button",
+      title: "GALLERY",
+      href: "/gallery",
+      icon: <BsCollection />,
+      filledIcon: <BsCollectionFill />,
+      children: null,
+    },
+    {
+      type: "dropdown",
+      title: "MORE",
+    },
+    {
+      type: "button",
+      title: "CONNECT",
+      href: "/connectwallet",
+      icon: <BsWallet />,
+      filledIcon: <BsWalletFill />,
+      children: null,
+    },
+  ];
+
   useEffect(() => {
     if (!isMounted) return; //? This is to make that this useEffect is only running after the first time TopNav has been mounted.
     if (searchparams.get("chapter")) {
@@ -45,9 +139,27 @@ export default function TopNav() {
       }
     }
   }, [pathname, navigation.willNavigateTo]);
+
+  useEffect(() => {
+    if (!isMounted) return; //? This is to make that this useEffect is only running after the first time TopNav has been mounted.
+    if (searchparams.get("chapter")) {
+      if (
+        String(pathname + "?chapter=" + searchparams.get("chapter")) !=
+        navigation.willNavigateTo
+      )
+        navigation.setWillNavigateTo(
+          pathname + "?chapter=" + searchparams.get("chapter")
+        );
+    } else {
+      if (pathname != navigation.willNavigateTo)
+        navigation.setWillNavigateTo(pathname);
+    }
+  }, [pathname]);
+
   useEffect(() => {
     randomcurtain.setRandomIndex(Math.random() < 0.5 ? 1 : 2);
   }, [navigation.willNavigateTo]);
+
   useEffect(() => {
     if (searchparams.get("chapter")) {
       navigation.setWillNavigateTo(
@@ -67,7 +179,7 @@ export default function TopNav() {
 
   return (
     <motion.nav
-      className={`fixed top-0 left-0 w-full px-6 md:px-32 lg:px-48 xl:px-72 2xl:px-96 flex justify-between items-center max-h-24 h-full z-[100] backdrop-blur-sm duration-500 ${
+      className={`fixed top-0 left-0 w-full px-6 md:px-12 lg:px-24 xl:px-36 2xl:px-48 flex justify-between items-center max-h-24 h-full z-[100] backdrop-blur-sm duration-500 ${
         showMenu && "pr-6 md:pr-6 lg:pr-6 xl:pr-6 2xl:pr-6"
       }`}
     >
@@ -85,7 +197,29 @@ export default function TopNav() {
           priority
         />
       </div>
-      {/* <ThemeButton /> */}
+
+      <ButtonGroup className=" hidden lg:flex ">
+        {groupButtons.map((option, i) => {
+          return (
+            <React.Fragment key={i}>
+              {option.type === "button" ? (
+                <Button
+                  className={`group btn-default text-xs  text-primaryblue bg-primaryblue/10`}
+                >
+                  <span className=" sm:group-hover:translate-x-1 duration-150">
+                    {option.title}
+                  </span>
+                  <span className=" sm:group-hover:text-lg duration-150">
+                    {option.icon}
+                  </span>
+                </Button>
+              ) : (
+                <MoreDropDownButton />
+              )}
+            </React.Fragment>
+          );
+        })}
+      </ButtonGroup>
 
       <MenuButton
         menuStatus={showMenu}
