@@ -1,9 +1,12 @@
+"use client";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   TbPlayerTrackPrevFilled,
   TbPlayerTrackNextFilled,
 } from "react-icons/tb";
 import { Button } from "@nextui-org/react";
+import { useThemeStore } from "@/store";
+import { usePathname } from "next/navigation";
 export default function MenuButton({
   toggleMenu,
   menuStatus,
@@ -11,10 +14,15 @@ export default function MenuButton({
   toggleMenu: () => void;
   menuStatus: boolean;
 }) {
+  const theme = useThemeStore();
+  const pathname = usePathname();
+
   return (
     <Button
       onClick={() => toggleMenu()}
-      className={`group  flex lg:hidden btn-default-menu  z-[51] max-w-[100px] w-full overflow-hidden  text-primaryblue ${
+      className={`group  flex lg:hidden btn-default-menu  z-[51] max-w-[100px] w-full overflow-hidden backdrop-blur-lg text-primaryblue
+      ${theme.mode === "dark" && pathname === "/" && "backdrop-brightness-50"}
+      ${
         menuStatus
           ? "bg-primaryblue text-content1 sm:hover:bg-primaryblue/[10%]  sm:hover:text-primaryblue  "
           : "  bg-primaryblue/[10%] "

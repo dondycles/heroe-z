@@ -179,7 +179,7 @@ export default function TopNav() {
 
   return (
     <motion.nav
-      className={`fixed top-0 left-0 w-full px-6 md:px-12 lg:px-24 xl:px-36 2xl:px-48 flex justify-between items-center max-h-24 h-full z-[100] backdrop-blur-sm duration-500 ${
+      className={`fixed top-0 left-0 w-full px-6 md:px-12 lg:px-24 xl:px-36 2xl:px-48 flex justify-between items-center max-h-24 h-full z-[100]  duration-500 ${
         showMenu && "pr-6 md:pr-6 lg:pr-6 xl:pr-6 2xl:pr-6"
       }`}
     >
@@ -198,12 +198,17 @@ export default function TopNav() {
         />
       </div>
 
-      <ButtonGroup className=" hidden lg:flex ">
+      <ButtonGroup
+        className={`hidden lg:flex backdrop-blur-lg  overflow-hidden rounded-xl ${
+          theme.mode === "dark" && pathname === "/" && "backdrop-brightness-50"
+        }`}
+      >
         {groupButtons.map((option, i) => {
           return (
             <React.Fragment key={i}>
               {option.type === "button" ? (
                 <Button
+                  onClick={() => navigation.setWillNavigateTo(option.href!)}
                   className={`group btn-default text-xs  text-primaryblue bg-primaryblue/10`}
                 >
                   <span className=" sm:group-hover:translate-x-1 duration-150">

@@ -78,7 +78,7 @@ export default function Wallpaper() {
               <Image
                 key={"smwallpaperdark"}
                 className="fixed top-0 left-0 w-screen h-screen object-cover"
-                src={smwallpaperdark}
+                src={lgwallpaperdark}
                 alt="HeroeZ"
                 quality={100}
                 priority
