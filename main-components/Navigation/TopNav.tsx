@@ -180,8 +180,8 @@ export default function TopNav() {
 
   return (
     <motion.nav
-      className={`fixed top-0 left-0 w-full px-6 md:px-12 lg:px-24 xl:px-36 2xl:px-48 flex justify-between items-center max-h-24 h-full z-[100]  duration-500 ${
-        showMenu && "pr-6 md:pr-6 lg:pr-6 xl:pr-6 2xl:pr-6 "
+      className={`fixed top-0 left-0 w-full px-6 md:px-12 lg:px-24 xl:px-36 2xl:px-48 flex justify-between items-center max-h-24 h-full z-[100]  duration-500  bg-gradient-to-t from-transparent to-background/95 ${
+        showMenu && "pr-6 md:pr-6 lg:pr-6 xl:pr-6 2xl:pr-6"
       }`}
     >
       <div

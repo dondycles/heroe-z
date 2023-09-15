@@ -30,7 +30,7 @@ export default function MenuButton({
       }
       ${
         menuStatus
-          ? "bg-primary after:bg-primary/10 hover:after:bg-background/90 text-content1 sm:hover:bg-primary/10  sm:hover:text-primary  "
+          ? "bg-primary after:bg-primary/10 sm:hover:after:bg-background/90 text-content1 sm:hover:bg-primary/10  sm:hover:text-primary  "
           : "  bg-primary/10 after:bg-background/90"
       }`}
     >
