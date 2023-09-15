@@ -122,6 +122,8 @@ export default function MoreDropDownButton() {
           {options.map((option) => {
             return (
               <DropdownItem
+                key={option.title}
+                textValue={option.title}
                 onClick={() => navigation.setWillNavigateTo(option.href)}
                 className={`rounded-none first:rounded-t-xl  p-3 group ${
                   pathname === option.href
@@ -144,6 +146,7 @@ export default function MoreDropDownButton() {
         <DropdownSection className="p-0 m-0">
           <DropdownItem
             isReadOnly
+            textValue={"Theme Button"}
             className={`border-[1px] border-transparent sm:hover:border-transparent  p-3 group hover:bg-transparent`}
           >
             <div className=" flex flex-row items-center justify-around">

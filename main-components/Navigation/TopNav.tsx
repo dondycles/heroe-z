@@ -216,11 +216,10 @@ export default function TopNav() {
             <React.Fragment key={option.title}>
               {option.type === "button" ? (
                 <Button
-                  key={option.title}
                   onClick={() => navigation.setWillNavigateTo(option.href!)}
                   className={`group btn-default text-xs   ${
                     pathname === option.href
-                      ? "bg-primary text-content1 "
+                      ? "bg-primary text-content1 sm:hover:text-primary"
                       : "bg-primary/10 text-primary"
                   }`}
                 >
@@ -228,11 +227,11 @@ export default function TopNav() {
                     {option.title}
                   </span>
                   <span className=" sm:group-hover:text-lg duration-150">
-                    {option.icon}
+                    {pathname === option.href ? option.filledIcon : option.icon}
                   </span>
                 </Button>
               ) : (
-                <MoreDropDownButton key={option.title} />
+                <MoreDropDownButton />
               )}
             </React.Fragment>
           );
