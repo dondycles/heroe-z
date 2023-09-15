@@ -15,9 +15,22 @@
   @apply min-h-[44px] font-montserrat font-black duration-150 sm:active:scale-[97.5%] flex items-center justify-center gap-2 sm:border-[1px] sm:border-transparent  sm:hover:border-primary;
 }
 .btn-default-menu {
-  @apply min-h-[44px] font-montserrat font-black duration-150 sm:active:scale-[97.5%] items-center justify-center gap-2 sm:border-[1px] sm:border-transparent  sm:hover:border-primary;
+  @apply min-h-[44px] font-montserrat font-black duration-150 sm:active:scale-[97.5%] items-center justify-center gap-2;
 }
 
 h1 {
   @apply font-montserrat font-black text-2xl text-content3;
+}
+
+.rotationalpanelborder {
+  animation: rotational 8s 1s linear infinite;
+}
+@keyframes rotational {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
 }

@@ -85,7 +85,10 @@ export default function MoreDropDownButton() {
             pathname === "/about"
               ? "bg-primary text-content1"
               : "bg-primary/10 text-primary"
-          }`}
+          }
+         
+          
+          `}
         >
           <span className=" sm:group-hover:translate-x-1 duration-150">
             MORE
@@ -105,7 +108,14 @@ export default function MoreDropDownButton() {
       <DropdownMenu
         color="primary"
         variant="flat"
-        className=" font-montserrat p-0 m-0 max-w-[175px] rounded-xl bg-background/90"
+        className={`font-montserrat p-0 m-0 max-w-[175px] rounded-xl bg-background/90
+        ${
+          theme.mode === "dark"
+            ? " shadow-[0_0_20px_#ff444466]"
+            : " shadow-[0_0_20px_#0099ff66]"
+        }
+        
+        `}
         aria-label="Dropdown menu"
       >
         <DropdownSection items={options} showDivider className="p-0 m-0 over">

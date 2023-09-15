@@ -1,9 +1,10 @@
 "use client";
 import { Button } from "@nextui-org/react";
 import { MdMusicNote, MdMusicOff } from "react-icons/md";
-import { useMusicStore } from "@/store";
+import { useMusicStore, useThemeStore } from "@/store";
 export default function MusicButtn() {
   const music = useMusicStore();
+  const theme = useThemeStore();
   return (
     <Button
       onClick={() => music.setShowPlayer(!music.showPlayer)}
@@ -11,7 +12,13 @@ export default function MusicButtn() {
         music.showPlayer
           ? "bg-primary text-content1 sm:hover:bg-primary/10 sm:hover:text-primary"
           : "text-primary bg-primary/10 "
-      }`}
+      }
+      ${
+        theme.mode === "dark"
+          ? " shadow-[0_0_20px_#ff4444aa]"
+          : " shadow-[0_0_20px_#0099ff66]"
+      }
+      `}
     >
       {music.playMusic ? <MdMusicNote /> : <MdMusicOff />}
     </Button>

@@ -44,6 +44,7 @@ import {
 import { IconType } from "react-icons";
 import MoreDropDownButton from "./MoreDropDownButton";
 import ThemeButton from "../Theme/ThemeButton";
+import GlowingBorder from "../Styles/GlowingBorder";
 export default function TopNav() {
   const pathname = usePathname();
   const searchparams = useSearchParams();
@@ -180,7 +181,7 @@ export default function TopNav() {
   return (
     <motion.nav
       className={`fixed top-0 left-0 w-full px-6 md:px-12 lg:px-24 xl:px-36 2xl:px-48 flex justify-between items-center max-h-24 h-full z-[100]  duration-500 ${
-        showMenu && "pr-6 md:pr-6 lg:pr-6 xl:pr-6 2xl:pr-6"
+        showMenu && "pr-6 md:pr-6 lg:pr-6 xl:pr-6 2xl:pr-6 "
       }`}
     >
       <div
@@ -199,17 +200,29 @@ export default function TopNav() {
       </div>
 
       <ButtonGroup
-        className={`hidden lg:flex backdrop-blur-lg  overflow-hidden rounded-xl ${
-          theme.mode === "dark" && pathname === "/" && "backdrop-brightness-50"
-        }`}
+        className={`relative hidden lg:flex backdrop-blur-lg rounded-xl overflow-hidden after:content-[""] after:absolute after:bg-background/90 after:inset-[2px] after:rounded-xl after:z-[-1]  after:duration-700 
+        
+        ${theme.mode === "dark" && pathname === "/" && "backdrop-brightness-50"}
+        ${
+          theme.mode === "dark"
+            ? " shadow-[0_0_20px_#ff444466]"
+            : " shadow-[0_0_20px_#0099ff66]"
+        }
+        `}
       >
+        <GlowingBorder />
         {groupButtons.map((option, i) => {
           return (
-            <React.Fragment key={i}>
+            <React.Fragment key={option.title}>
               {option.type === "button" ? (
                 <Button
+                  key={option.title}
                   onClick={() => navigation.setWillNavigateTo(option.href!)}
-                  className={`group btn-default text-xs  text-primary bg-primary/10`}
+                  className={`group btn-default text-xs   ${
+                    pathname === option.href
+                      ? "bg-primary text-content1 "
+                      : "bg-primary/10 text-primary"
+                  }`}
                 >
                   <span className=" sm:group-hover:translate-x-1 duration-150">
                     {option.title}
@@ -219,7 +232,7 @@ export default function TopNav() {
                   </span>
                 </Button>
               ) : (
-                <MoreDropDownButton />
+                <MoreDropDownButton key={option.title} />
               )}
             </React.Fragment>
           );

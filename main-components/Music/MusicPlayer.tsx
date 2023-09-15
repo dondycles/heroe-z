@@ -1,4 +1,4 @@
-import { useMusicStore } from "@/store";
+import { useMusicStore, useThemeStore } from "@/store";
 import { Button, Progress } from "@nextui-org/react";
 import { AnimatePresence } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
@@ -20,6 +20,7 @@ import Image from "next/image";
 
 export default function MusicPlayer() {
   const musicState = useMusicStore();
+  const theme = useThemeStore();
   const volumeBar = useRef<HTMLDivElement>(null);
   const controls = useRef<HTMLDivElement>(null);
   const [cycled, setCycled] = useState(false);
@@ -142,7 +143,8 @@ export default function MusicPlayer() {
         musicState.showPlayer
           ? "opacity-100 translate-x-0"
           : "opacity-0 pointer-events-none "
-      }`}
+      }
+      `}
     >
       <audio
         autoPlay={false}
@@ -154,7 +156,14 @@ export default function MusicPlayer() {
       />
       <div
         onClick={(e) => e.stopPropagation()}
-        className="h-fit w-full max-w-[280px] sm:max-w-[400px] rounded-xl p-3  duration-500 bg-background/5 flex flex-row gap-3 backdrop-blur-lg outline-[1px] outline outline-primary"
+        className={`h-fit w-full max-w-[280px] sm:max-w-[400px] rounded-xl p-3  duration-500 bg-background/5 flex flex-row gap-3 backdrop-blur-lg outline-[1px] outline outline-primary
+      ${
+        theme.mode === "dark"
+          ? " shadow-[0_0_20px_#ff4444aa]"
+          : " shadow-[0_0_20px_#0099ff66]"
+      }
+        
+        `}
       >
         <div
           style={{

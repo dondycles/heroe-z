@@ -20,14 +20,14 @@ export default function AnnouncementBar() {
       <Marquee
         className="overflow-hidden"
         speed={100}
-        // play={!cycled}
+        play={!cycled}
         loop={0}
         delay={0.5}
         pauseOnClick
         pauseOnHover
-        // onCycleComplete={() => {
-        //   setCycled(true);
-        // }}
+        onCycleComplete={() => {
+          setCycled(true);
+        }}
       >
         <span className="mx-6 ">
           Attention to all heroes : be wary of malicious links! Official links
