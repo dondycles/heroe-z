@@ -12,10 +12,10 @@
 }
 
 .btn-default {
-  @apply min-h-[44px] font-montserrat font-black duration-150 sm:active:scale-[97.5%] flex items-center justify-center gap-2 sm:border-[1px] sm:border-transparent  sm:hover:border-primary;
+  @apply min-h-[44px] font-montserrat font-black duration-150 sm:active:scale-[97.5%] flex items-center justify-center gap-2 sm:hover:bg-primary/20;
 }
 .btn-default-menu {
-  @apply min-h-[44px] font-montserrat font-black duration-150 sm:active:scale-[97.5%] items-center justify-center gap-2;
+  @apply min-h-[44px] font-montserrat font-black duration-150 sm:active:scale-[97.5%] items-center justify-center gap-2 sm:hover:bg-primary/20;
 }
 
 h1 {

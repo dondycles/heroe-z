@@ -83,7 +83,7 @@ export default function MoreDropDownButton() {
             pathname === "/updates" ||
             pathname === "/studio-z" ||
             pathname === "/about"
-              ? "bg-primary text-content1"
+              ? "bg-primary text-content1 sm:hover:text-primary"
               : "bg-primary/10 text-primary"
           }
          
@@ -123,10 +123,10 @@ export default function MoreDropDownButton() {
             return (
               <DropdownItem
                 onClick={() => navigation.setWillNavigateTo(option.href)}
-                className={`border-[1px] rounded-none first:rounded-t-xl border-transparent hover:border-primary  p-3 group ${
+                className={`rounded-none first:rounded-t-xl  p-3 group ${
                   pathname === option.href
                     ? "bg-primary text-content1 pointer-events-none"
-                    : "bg-transparent hover:bg-transparent"
+                    : "bg-transparent sm:hover:bg-primary/20"
                 }`}
               >
                 <p className="flex justify-center items-center gap-2 text-xs min-h-[28px]">
@@ -144,10 +144,10 @@ export default function MoreDropDownButton() {
         <DropdownSection className="p-0 m-0">
           <DropdownItem
             isReadOnly
-            className={`border-[1px] border-transparent hover:border-transparent  p-3 group hover:bg-transparent`}
+            className={`border-[1px] border-transparent sm:hover:border-transparent  p-3 group hover:bg-transparent`}
           >
             <div className=" flex flex-row items-center justify-around">
-              <span className="text-xs">DARK MODE</span>
+              <span className="text-xs pointer-events-none">DARK MODE</span>
               <span>
                 <ThemeButton />
               </span>

@@ -30,8 +30,8 @@ export default function MenuButton({
       }
       ${
         menuStatus
-          ? "bg-primary after:bg-primary/10 sm:hover:after:bg-background/90 text-content1 sm:hover:bg-primary/10  sm:hover:text-primary  "
-          : "  bg-primary/10 after:bg-background/90"
+          ? "bg-primary after:bg-primary/10 sm:hover:after:bg-background/50 text-content1 sm:hover:bg-primary/10  sm:hover:text-primary  "
+          : "  bg-primary/10 after:bg-background/90 sm:after:hover:bg-background/50 "
       }`}
     >
       <GlowingBorder />
