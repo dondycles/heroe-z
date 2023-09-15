@@ -36,21 +36,26 @@ export default function Wallpaper() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             key={"lightmode"}
+            className="w-full h-full flex"
           >
             {windowSize.width > 620 ? (
               <Image
                 key={"lgwallpaper"}
-                className="fixed top-0 left-0 w-screen h-screen object-cover"
+                className="object-cover"
                 src={lgwallpaper}
                 alt="HeroeZ"
+                placeholder="blur"
                 quality={100}
                 priority
+                width={8000}
+                height={4500}
               />
             ) : (
               <Image
                 key={"smwallpaper"}
                 className="fixed top-0 left-0 w-screen h-screen object-cover"
                 src={smwallpaper}
+                placeholder="blur"
                 alt="HeroeZ"
                 quality={100}
                 priority
@@ -63,27 +68,31 @@ export default function Wallpaper() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             key={"darkmode"}
-            className="w-full h-full relative"
+            className="w-full h-full flex"
           >
-            {windowSize.width > 620 ? (
-              <Image
-                key={"lgwallpaperdark"}
-                className="fixed top-0 left-0 w-screen h-screen object-cover"
-                src={lgwallpaperdark}
-                alt="HeroeZ"
-                quality={100}
-                priority
-              />
-            ) : (
+            {/* {windowSize.width > 620 ? ( */}
+            <Image
+              key={"lgwallpaperdark"}
+              className="object-cover"
+              src={lgwallpaperdark}
+              placeholder="blur"
+              alt="HeroeZ"
+              quality={100}
+              width={8000}
+              height={4500}
+              priority
+            />
+            {/* ) : (
               <Image
                 key={"smwallpaperdark"}
                 className="fixed top-0 left-0 w-screen h-screen object-cover"
                 src={lgwallpaperdark}
+                placeholder="blur"
                 alt="HeroeZ"
                 quality={100}
                 priority
               />
-            )}
+            )} */}
           </motion.picture>
         )}
       </AnimatePresence>
