@@ -4,7 +4,7 @@ import { Kanit, Montserrat } from "next/font/google";
 import { Providers } from "../main-components/ui-provider";
 const kanit = Kanit({
   subsets: ["latin"],
-  weight: "400",
+  weight: ["200", "400"],
   variable: "--font-kanit",
 });
 const montserrat = Montserrat({

@@ -200,7 +200,7 @@ export default function TopNav() {
       </div>
 
       <ButtonGroup
-        className={`relative hidden lg:flex backdrop-blur-lg rounded-xl overflow-hidden after:content-[""] after:absolute after:bg-background/90 after:inset-[2px] after:rounded-xl after:z-[-1]  after:duration-700 
+        className={`relative hidden lg:flex backdrop-blur-lg rounded-xl overflow-hidden glowing-border
         
         ${theme.mode === "dark" && pathname === "/" && "backdrop-brightness-50"}
         ${

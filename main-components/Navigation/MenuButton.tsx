@@ -21,7 +21,7 @@ export default function MenuButton({
   return (
     <Button
       onClick={() => toggleMenu()}
-      className={`group relative flex lg:hidden btn-default-menu  z-[51] max-w-[100px] w-full overflow-hidden backdrop-blur-lg text-primary after:content-[""] after:absolute after:duration-150 after:inset-[2px] after:rounded-xl after:z-[-1]
+      className={`group relative flex lg:hidden btn-default-menu  z-[51] max-w-[100px] w-full overflow-hidden backdrop-blur-lg text-primary glowing-border
       ${theme.mode === "dark" && pathname === "/" && "backdrop-brightness-50"}
       ${
         theme.mode === "dark"

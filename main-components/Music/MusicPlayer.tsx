@@ -159,7 +159,7 @@ export default function MusicPlayer() {
         className={`h-fit w-full max-w-[280px] sm:max-w-[400px] rounded-xl p-3  duration-500 bg-background/5 flex flex-row gap-3 backdrop-blur-lg outline-[1px] outline outline-primary
       ${
         theme.mode === "dark"
-          ? " shadow-[0_0_20px_#ff4444aa]"
+          ? " shadow-[0_0_20px_#ff444466]"
           : " shadow-[0_0_20px_#0099ff66]"
       }
         
@@ -207,8 +207,8 @@ export default function MusicPlayer() {
               </div>
               <div className="flex flex-col gap-3 flex-1">
                 {audio.current && (
-                  <div className="flex items-center gap-2 text-xs text-white">
-                    <p>
+                  <div className="flex items-center gap-2 text-xs text-white ">
+                    <p className="font-extralight font-kanit">
                       0{audioCurrentTime.min}:
                       {audioCurrentTime.sec < 10
                         ? "0" + audioCurrentTime.sec
@@ -224,7 +224,7 @@ export default function MusicPlayer() {
                       size="sm"
                       value={progressBarValue}
                     />
-                    <p>
+                    <p className="font-extralight font-kanit">
                       0{audioDuration.min}:
                       {audioDuration.sec < 10
                         ? "0" + audioDuration.sec
@@ -237,15 +237,15 @@ export default function MusicPlayer() {
                     onClick={() => {
                       setMusicIndex((prev) => (prev > 0 ? prev - 1 : prev));
                     }}
-                    className=" h-[32px] min-w-[32px]  rounded-full p-0 bg-primary/10 text-primary"
+                    className=" h-[32px] min-w-[32px]  rounded-full p-0 bg-primary/10 text-primary sm:hover:bg-primary/20"
                   >
                     <PiArrowFatLeftFill />
                   </Button>
                   <Button
-                    className={` h-[32px] min-w-[32px] sm:h-[44px] sm:min-w-[44px] rounded-full p-0 ${
+                    className={` h-[32px] min-w-[32px] sm:h-[44px] sm:min-w-[44px] rounded-full p-0 sm:hover:bg-primary/20 ${
                       !stopMusic
-                        ? "bg-primary text-content1"
-                        : "bg-primary/10 text-primary"
+                        ? "bg-primary text-content1 sm:hover:text-primary"
+                        : "bg-primary/10 text-primary "
                     }`}
                     onClick={() => setPlayMusic((prev) => !prev)}
                   >
@@ -254,9 +254,9 @@ export default function MusicPlayer() {
                     </AnimatePresence>
                   </Button>
                   <Button
-                    className={` h-[32px] min-w-[32px] rounded-full p-0 ${
+                    className={` h-[32px] min-w-[32px] rounded-full p-0 sm:hover:bg-primary/20 ${
                       stopMusic
-                        ? "bg-primary text-content1"
+                        ? "bg-primary text-content1 sm:hover:text-primary"
                         : "bg-primary/10 text-primary"
                     }`}
                     onClick={() => {
@@ -271,7 +271,7 @@ export default function MusicPlayer() {
                       // audio.current!.currentTime = 180;
                       setMusicIndex((prev) => (prev < 3 ? prev + 1 : 0));
                     }}
-                    className=" h-[32px] min-w-[32px] rounded-full p-0 bg-primary/10 text-primary"
+                    className=" h-[32px] min-w-[32px] rounded-full p-0 bg-primary/10 text-primary sm:hover:bg-primary/20"
                   >
                     <PiArrowFatRightFill />
                   </Button>
