@@ -8,7 +8,7 @@ export default function About() {
   return (
     <>
       <h1 className="mb-6">
-        ROAD <span className="text-primaryblue">MAP</span>{" "}
+        ROAD <span className="text-primary">MAP</span>{" "}
       </h1>
       <Component />
     </>

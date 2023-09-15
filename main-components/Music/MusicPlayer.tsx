@@ -154,7 +154,7 @@ export default function MusicPlayer() {
       />
       <div
         onClick={(e) => e.stopPropagation()}
-        className="h-fit w-full max-w-[280px] sm:max-w-[400px] rounded-xl p-3  duration-500 bg-background/5 flex flex-row gap-3 backdrop-blur-lg outline-[1px] outline outline-primaryblue"
+        className="h-fit w-full max-w-[280px] sm:max-w-[400px] rounded-xl p-3  duration-500 bg-background/5 flex flex-row gap-3 backdrop-blur-lg outline-[1px] outline outline-primary"
       >
         <div
           style={{
@@ -182,7 +182,7 @@ export default function MusicPlayer() {
               pauseOnClick
               pauseOnHover
             >
-              <span className="text-primaryblue text-sm sm:text-base leading-none  sm:font-montserrat flex-1 mr-3">
+              <span className="text-primary text-sm sm:text-base leading-none  sm:font-montserrat flex-1 mr-3">
                 {tracks[musicIndex].title}
               </span>
             </Marquee>
@@ -208,9 +208,9 @@ export default function MusicPlayer() {
                     <Progress
                       aria-label="Music Progress Bar"
                       classNames={{
-                        indicator: "bg-primaryblue",
+                        indicator: "bg-primary",
                         track:
-                          "bg-primaryblue/10  outline outline-[1px] outline-primaryblue",
+                          "bg-primary/10  outline outline-[1px] outline-primary",
                       }}
                       size="sm"
                       value={progressBarValue}
@@ -228,15 +228,15 @@ export default function MusicPlayer() {
                     onClick={() => {
                       setMusicIndex((prev) => (prev > 0 ? prev - 1 : prev));
                     }}
-                    className=" h-[32px] min-w-[32px]  rounded-full p-0 bg-primaryblue/10 text-primaryblue"
+                    className=" h-[32px] min-w-[32px]  rounded-full p-0 bg-primary/10 text-primary"
                   >
                     <PiArrowFatLeftFill />
                   </Button>
                   <Button
                     className={` h-[32px] min-w-[32px] sm:h-[44px] sm:min-w-[44px] rounded-full p-0 ${
                       !stopMusic
-                        ? "bg-primaryblue text-content1"
-                        : "bg-primaryblue/10 text-primaryblue"
+                        ? "bg-primary text-content1"
+                        : "bg-primary/10 text-primary"
                     }`}
                     onClick={() => setPlayMusic((prev) => !prev)}
                   >
@@ -247,8 +247,8 @@ export default function MusicPlayer() {
                   <Button
                     className={` h-[32px] min-w-[32px] rounded-full p-0 ${
                       stopMusic
-                        ? "bg-primaryblue text-content1"
-                        : "bg-primaryblue/10 text-primaryblue"
+                        ? "bg-primary text-content1"
+                        : "bg-primary/10 text-primary"
                     }`}
                     onClick={() => {
                       setStopMusic(true);
@@ -262,7 +262,7 @@ export default function MusicPlayer() {
                       // audio.current!.currentTime = 180;
                       setMusicIndex((prev) => (prev < 3 ? prev + 1 : 0));
                     }}
-                    className=" h-[32px] min-w-[32px] rounded-full p-0 bg-primaryblue/10 text-primaryblue"
+                    className=" h-[32px] min-w-[32px] rounded-full p-0 bg-primary/10 text-primary"
                   >
                     <PiArrowFatRightFill />
                   </Button>
@@ -282,7 +282,7 @@ export default function MusicPlayer() {
                   100
               );
             }}
-            className="w-[6px]  bg-primaryblue/10 outline outline-[1px] outline-primaryblue flex items-end rounded-full cursor-pointer "
+            className="w-[6px]  bg-primary/10 outline outline-[1px] outline-primary flex items-end rounded-full cursor-pointer "
             style={{
               height: controls.current
                 ? controls.current!.clientHeight + "px"
@@ -296,7 +296,7 @@ export default function MusicPlayer() {
                   ? controls.current!.clientHeight + "px"
                   : "100%",
               }}
-              className={`w-[6px] bg-primaryblue rounded-full `}
+              className={`w-[6px] bg-primary rounded-full `}
             />
           </div>
         </div>

@@ -9,8 +9,8 @@ export default function MusicButtn() {
       onClick={() => music.setShowPlayer(!music.showPlayer)}
       className={`z-[21] fixed btn-default bottom-6 left-6 md:left-12 lg:left-24 xl:left-36 2xl:left-48 rounded-full text-xl p-0 min-w-[44px] ${
         music.showPlayer
-          ? "bg-primaryblue text-content1 sm:hover:bg-primaryblue/10 sm:hover:text-primaryblue"
-          : "text-primaryblue bg-primaryblue/10 "
+          ? "bg-primary text-content1 sm:hover:bg-primary/10 sm:hover:text-primary"
+          : "text-primary bg-primary/10 "
       }`}
     >
       {music.playMusic ? <MdMusicNote /> : <MdMusicOff />}

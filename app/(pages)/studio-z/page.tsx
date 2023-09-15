@@ -8,7 +8,7 @@ export default function StudioZ() {
   return (
     <>
       <h1 className="mb-6">
-        STUDIO <span className=" text-primaryblue">Z</span>{" "}
+        STUDIO <span className=" text-primary">Z</span>{" "}
       </h1>
 
       <Component />

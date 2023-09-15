@@ -20,12 +20,12 @@ export default function MenuButton({
   return (
     <Button
       onClick={() => toggleMenu()}
-      className={`group  flex lg:hidden btn-default-menu  z-[51] max-w-[100px] w-full overflow-hidden backdrop-blur-lg text-primaryblue
+      className={`group  flex lg:hidden btn-default-menu  z-[51] max-w-[100px] w-full overflow-hidden backdrop-blur-lg text-primary
       ${theme.mode === "dark" && pathname === "/" && "backdrop-brightness-50"}
       ${
         menuStatus
-          ? "bg-primaryblue text-content1 sm:hover:bg-primaryblue/[10%]  sm:hover:text-primaryblue  "
-          : "  bg-primaryblue/[10%] "
+          ? "bg-primary text-content1 sm:hover:bg-primary/[10%]  sm:hover:text-primary  "
+          : "  bg-primary/10 "
       }`}
     >
       <AnimatePresence initial={false}>

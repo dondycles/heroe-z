@@ -9,7 +9,7 @@ export default function HeroezUniversity() {
   return (
     <>
       <h1 className="mb-6">
-        HERO <span className=" text-primaryblue">UNIVERSITY</span>{" "}
+        HERO <span className=" text-primary">UNIVERSITY</span>{" "}
       </h1>
       <Component />
     </>

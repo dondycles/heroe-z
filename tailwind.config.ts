@@ -33,8 +33,8 @@ const config: Config = {
         },
         dark: {
           colors: {
-            primary: "#11bbff",
-            secondary: "#e11d48",
+            secondary: "#11bbff",
+            primary: "#e11d48",
             background: "#1d1d1d",
             content1: "#1d1d1d",
             content2: "#ffffff",

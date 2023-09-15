@@ -59,7 +59,7 @@ export default function ReadChapter() {
             className="flex gap-2 w-full justify-center items-center mt-6"
           >
             <Button
-              className="bg-primaryblue/10 text-primaryblue"
+              className="bg-primary/10 text-primary"
               size="sm"
               variant="flat"
               onPress={() => {
@@ -90,14 +90,14 @@ export default function ReadChapter() {
                 item: "bg-transparent hover:bg-transparent active:bg-transparent  max-h-[32px] pointer-events-none",
                 cursor: `${
                   currentPage >= 1 && currentPage <= 2
-                    ? " bg-primaryblue/10 text-primaryblue max-h-[32px] "
+                    ? " bg-primary/10 text-primary max-h-[32px] "
                     : "invisible"
                 }`,
               }}
             />
 
             <Button
-              className="bg-primaryblue/10 text-primaryblue"
+              className="bg-primary/10 text-primary"
               size="sm"
               variant="flat"
               onPress={() => {

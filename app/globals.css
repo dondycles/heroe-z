@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 * {
-  @apply scrollbar scrollbar-thumb-primaryblue scrollbar-track-transparent;
+  @apply scrollbar scrollbar-thumb-primary scrollbar-track-transparent;
 }
 
 *::-webkit-scrollbar-thumb {
@@ -12,10 +12,10 @@
 }
 
 .btn-default {
-  @apply min-h-[44px] font-montserrat font-black duration-150 sm:active:scale-[97.5%] flex items-center justify-center gap-2 sm:border-[1px] sm:border-transparent  sm:hover:border-primaryblue;
+  @apply min-h-[44px] font-montserrat font-black duration-150 sm:active:scale-[97.5%] flex items-center justify-center gap-2 sm:border-[1px] sm:border-transparent  sm:hover:border-primary;
 }
 .btn-default-menu {
-  @apply min-h-[44px] font-montserrat font-black duration-150 sm:active:scale-[97.5%] items-center justify-center gap-2 sm:border-[1px] sm:border-transparent  sm:hover:border-primaryblue;
+  @apply min-h-[44px] font-montserrat font-black duration-150 sm:active:scale-[97.5%] items-center justify-center gap-2 sm:border-[1px] sm:border-transparent  sm:hover:border-primary;
 }
 
 h1 {

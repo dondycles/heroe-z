@@ -12,7 +12,7 @@ export default function Chapter1() {
         exit={{ x: 10 }}
         className="mb-6"
       >
-        CHAPTER <span className="text-primaryblue">1</span>
+        CHAPTER <span className="text-primary">1</span>
       </motion.h1>
       {animate.mode && (
         <motion.div

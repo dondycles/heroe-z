@@ -162,7 +162,7 @@ export default function ({
                                 closeMenu();
                               }, 500);
                             }}
-                            className={` w-full btn-default rounded-lg text-xs sm:hover:bg-primaryblue/10 sm:hover:text-primaryblue sm:hover:border-[1px] sm:border-transparent 
+                            className={` w-full btn-default rounded-lg text-xs sm:hover:bg-primary/10 sm:hover:text-primary sm:hover:border-[1px] sm:border-transparent 
                            ${
                              option.href.toLowerCase() ===
                              pathname!.toLowerCase()
@@ -199,7 +199,7 @@ export default function ({
                 </div>
 
                 <Divider orientation="vertical" className="  flex sm:hidden" />
-                <div className="flex gap-4 rounded-xl bg-accent sm:text-content1 sm:p-6 sm:w-full items-center justify-center sm:bg-primaryred">
+                <div className="flex gap-4 rounded-xl bg-accent sm:text-content1 sm:p-6 sm:w-full items-center justify-center sm:bg-secondary">
                   <Link href={"https://discord.gg/64nt9zk6x7"} target="_blank">
                     <BsDiscord />
                   </Link>

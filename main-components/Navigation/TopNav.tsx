@@ -209,7 +209,7 @@ export default function TopNav() {
               {option.type === "button" ? (
                 <Button
                   onClick={() => navigation.setWillNavigateTo(option.href!)}
-                  className={`group btn-default text-xs  text-primaryblue bg-primaryblue/10`}
+                  className={`group btn-default text-xs  text-primary bg-primary/10`}
                 >
                   <span className=" sm:group-hover:translate-x-1 duration-150">
                     {option.title}

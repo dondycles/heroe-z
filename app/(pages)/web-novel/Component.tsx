@@ -84,7 +84,7 @@ export default function Component() {
                         onClick={() => {
                           navigation.setWillNavigateTo(part.link);
                         }}
-                        className=" group btn-default text-primaryblue px-6 w-fit sm:hover:translate-x-1 shadow-md bg-primaryblue/10"
+                        className=" group btn-default text-primary px-6 w-fit sm:hover:translate-x-1 shadow-md bg-primary/10"
                       >
                         <p className="flex w-full items-center justify-center text-xs gap-1">
                           <span className=" sm:group-hover:-translate-x-1 duration-150">

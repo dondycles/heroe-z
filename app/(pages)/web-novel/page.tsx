@@ -9,7 +9,7 @@ export default function WebNovel() {
   return (
     <>
       <h1 className="mb-6">
-        WEB <span className="text-primaryblue">NOVEL</span>
+        WEB <span className="text-primary">NOVEL</span>
       </h1>
       <Component />
     </>

@@ -74,7 +74,7 @@ export default function MoreDropDownButton() {
   return (
     <Dropdown
       backdrop="opaque"
-      className={`bg-transparent shadow-none p-0 m-0 text-primaryblue ${theme.mode}`}
+      className={`bg-transparent shadow-none p-0 m-0 text-primary ${theme.mode}`}
     >
       <DropdownTrigger>
         <Button
@@ -83,8 +83,8 @@ export default function MoreDropDownButton() {
             pathname === "/updates" ||
             pathname === "/studio-z" ||
             pathname === "/about"
-              ? "bg-primaryblue text-content1"
-              : "bg-primaryblue/10 text-primaryblue"
+              ? "bg-primary text-content1"
+              : "bg-primary/10 text-primary"
           }`}
         >
           <span className=" sm:group-hover:translate-x-1 duration-150">
@@ -113,9 +113,9 @@ export default function MoreDropDownButton() {
             return (
               <DropdownItem
                 onClick={() => navigation.setWillNavigateTo(option.href)}
-                className={`border-[1px] rounded-none first:rounded-t-xl border-transparent hover:border-primaryblue  p-3 group ${
+                className={`border-[1px] rounded-none first:rounded-t-xl border-transparent hover:border-primary  p-3 group ${
                   pathname === option.href
-                    ? "bg-primaryblue text-content1 pointer-events-none"
+                    ? "bg-primary text-content1 pointer-events-none"
                     : "bg-transparent hover:bg-transparent"
                 }`}
               >

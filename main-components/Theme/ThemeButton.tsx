@@ -25,10 +25,10 @@ export default function ThemeButton() {
         )
       }
       classNames={{
-        wrapper: "bg-primaryblue/10 m-0",
+        wrapper: "bg-primary/10 m-0",
         thumb: "bg-white",
         startContent: "text-white",
-        endContent: "text-primaryblue",
+        endContent: "text-primary",
       }}
     ></Switch>
   );

@@ -13,7 +13,7 @@ export default function AnnouncementBar() {
   }, [cycled]);
   return (
     <div
-      className={`h-[20px] leading-[20px] overflow-hidden  fixed bottom-0 left-0 w-screen  duration-300 bg-primaryred text-white z-20  ${
+      className={`h-[20px] leading-[20px] overflow-hidden  fixed bottom-0 left-0 w-screen  duration-300 bg-primary text-content3 z-20  ${
         cycled && "opacity-0 pointer-events-none"
       }`}
     >
