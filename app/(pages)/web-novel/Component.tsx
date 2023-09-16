@@ -11,13 +11,13 @@ import { Card, CardHeader, CardFooter, Button } from "@nextui-org/react";
 export default function Component() {
   let novelParts = [
     {
-      title: "Chapter 1",
+      title: "TO AETHEREA / HAO YUA",
       desc: "",
       src: chatp1,
       link: "/web-novel/read?chapter=1",
     },
     {
-      title: "Chapter 2",
+      title: "THE NIGHT THAT STARS FELL",
       desc: "",
       src: chatp2,
       link: "/web-novel/read?chapter=2",
@@ -49,11 +49,11 @@ export default function Component() {
                     isFooterBlurred
                     className="w-full h-[300px] col-span-12 sm:col-span-7 "
                   >
-                    <CardHeader className="absolute z-10 top-1 flex-col items-start">
+                    {/* <CardHeader className="absolute z-10 top-1 flex-col items-start">
                       <h4 className="text-white/90 font-medium text-xl">
                         Chapter Title
                       </h4>
-                    </CardHeader>
+                    </CardHeader> */}
                     <Image
                       alt={part.title}
                       className="z-0 w-full h-full object-cover"
@@ -76,7 +76,7 @@ export default function Component() {
                             {part.title}
                           </p>
                           <p className="text-tiny text-white/60">
-                            Chapter Title
+                            Chapter {i + 1}
                           </p>
                         </div>
                       </div>

@@ -38,7 +38,7 @@ const config: Config = {
             background: "#1d1d1d",
             content1: "#1d1d1d",
             content2: "#ffffff",
-            content3: "#cccccc",
+            content3: "#dddddd",
           },
         },
       },
