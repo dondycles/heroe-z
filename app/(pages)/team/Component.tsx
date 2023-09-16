@@ -9,7 +9,7 @@ import JovzkyAnimation from "@/public/team/JovzkyAnimation.webp";
 import EscoCobarseth from "@/public/team/EscoCobarseth.webp";
 import xJudaseth from "@/public/team/xJudaseth.webp";
 import Fonso from "@/public/team/Fonso.webp";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Chip, Divider } from "@nextui-org/react";
 
 import {
@@ -26,6 +26,7 @@ import Link from "next/link";
 export default function Component() {
   const theme = useThemeStore();
   const animate = useAnimateStore();
+  const [animateGlowingBorder, setAnimateGlowingBorder] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const [heroIndexToShow, setHeroIndexToShow] = useState(0);
   const team = [
@@ -113,7 +114,17 @@ export default function Component() {
       img: xJudaseth,
     },
   ];
-
+  useEffect(() => {
+    if (showModal) {
+      setTimeout(() => {
+        setAnimateGlowingBorder(true);
+      }, 500);
+    } else {
+      setTimeout(() => {
+        setAnimateGlowingBorder(false);
+      }, 150);
+    }
+  }, [showModal]);
   return (
     <AnimatePresence>
       {animate.mode && (
@@ -185,161 +196,159 @@ export default function Component() {
                 : "backdrop-blur-none backdrop-brightness-100 pointer-events-none"
             }`}
           >
-            <AnimatePresence mode="wait">
-              {showModal && (
-                <motion.div
-                  key={"heromodal"}
-                  initial={{ opacity: 0, scale: 0 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0 }}
+            <div
+              className={`max-h-[70dvh] h-screen max-w-[350px] w-screen    relative z-10 glowing-border rounded-xl overflow-hidden duration-500 ${
+                showModal ? "opacity-100" : "opacity-0 pointer-events-none"
+              }`}
+            >
+              <div className="absolute  top-0 left-0 bottom-0 right-0 ">
+                <div
+                  key={"glowingborder"}
+                  className={`absolute bg-gradient-to-b blur-lg from-primary via-transparent to-primary top-[0dvh] left-[-350px] translate-x-[-50%] translate-y-[-50%]   aspect-square w-auto h-[100dvh] object-center  z-[-1] rotationalpanelborder duration-[2000ms] pointer-events-none `}
+                />
+              </div>
+              <div className=" absolute top-[12px] left-[12px] right-[12px] bottom-[12px] z-10 overflow-y-auto overflow-x-hidden rounded-xl">
+                <div
+                  onClick={(e) => e.stopPropagation()}
+                  className=" rounded-xl flex gap-3 flex-col"
                 >
-                  <div
-                    onClick={(e) => e.stopPropagation()}
-                    className=" w-full max-w-[400px] h-fit glowing-border overflow-hidden relative  p-6 rounded-xl flex gap-3 flex-col"
-                  >
-                    <Image
-                      src={team[heroIndexToShow].img}
-                      alt={team[heroIndexToShow].name}
-                      priority
-                      className="rounded-xl w-full h-auto object-cover"
-                    />
-                    <div>
-                      <p className="font-montserrat text-primary text-2xl">
-                        {team[heroIndexToShow].name}
-                      </p>
-                      {team[heroIndexToShow].moto && (
-                        <p className=" text-warning italic text-sm">
-                          "{team[heroIndexToShow].moto}"
-                        </p>
-                      )}
-                    </div>
-                    <Divider className="" />
-                    <p className="text-sm">
-                      {team[heroIndexToShow].description}
+                  <Image
+                    src={team[heroIndexToShow].img}
+                    alt={team[heroIndexToShow].name}
+                    priority
+                    className="rounded-xl w-full h-auto object-cover"
+                  />
+                  <div>
+                    <p className="font-montserrat text-primary text-2xl">
+                      {team[heroIndexToShow].name}
                     </p>
-                    <Divider className="" />
-                    <div className="flex flex-wrap gap-1">
-                      Roles:{" "}
-                      {team[heroIndexToShow].roles.map((role) => {
-                        return (
-                          <Chip
-                            key={role}
-                            color={
-                              role.includes("HEROEZ!")
-                                ? "primary"
-                                : role.includes("Founder")
-                                ? "secondary"
-                                : "warning"
-                            }
-                            variant="dot"
-                            size="sm"
-                            className={
-                              role.includes("HEROEZ!")
-                                ? "border-primary"
-                                : role.includes("Founder")
-                                ? "border-secondary"
-                                : "border-warning"
-                            }
-                          >
-                            {role}
-                          </Chip>
-                        );
-                      })}
-                    </div>
-                    {team[heroIndexToShow].communities && (
-                      <>
-                        <Divider className="" />
-
-                        <div className=" flex flex-wrap items-center gap-1">
-                          Communities:{" "}
-                          {team[heroIndexToShow].communities?.map(
-                            (community) => {
-                              return (
-                                <Chip
-                                  key={community}
-                                  color="default"
-                                  variant="bordered"
-                                  size="sm"
-                                  className="text-xs text-content2"
-                                >
-                                  {community}
-                                </Chip>
-                              );
-                            }
-                          )}
-                        </div>
-                      </>
+                    {team[heroIndexToShow].moto && (
+                      <p className=" text-warning italic text-sm">
+                        "{team[heroIndexToShow].moto}"
+                      </p>
                     )}
-                    {team[heroIndexToShow].socials && (
-                      <>
-                        <Divider className="" />
-                        <div className=" flex flex-wrap gap-1 items-center">
-                          Connect:{" "}
-                          {team[heroIndexToShow].socials?.map((social) => {
-                            return (
-                              <Link
-                                key={social.link}
-                                target="_blank"
-                                href={social.link}
-                                className="p-2 bg-content2/10 rounded-xl text-xl"
-                              >
-                                {social.type === "x" && (
-                                  <span className=" text-content2">
-                                    <FaXTwitter />
-                                  </span>
-                                )}
-                                {social.type === "dc" && (
-                                  <span className=" text-indigo-500">
-                                    <FaDiscord />
-                                  </span>
-                                )}
-                                {social.type === "fb" && (
-                                  <span className=" text-blue-500">
-                                    <FaFacebookF />
-                                  </span>
-                                )}
-                                {social.type === "ig" && (
-                                  <span className=" text-pink-500 ">
-                                    <FaInstagram />
-                                  </span>
-                                )}
-                                {social.type === "tt" && (
-                                  <span className=" text-fuchsia-500 ">
-                                    <FaTiktok />
-                                  </span>
-                                )}
-                                {social.type === "yt" && (
-                                  <span className=" text-red-500">
-                                    <FaYoutube />
-                                  </span>
-                                )}
-                                {social.type === "elixir" && (
-                                  <Image
-                                    src={elixer}
-                                    alt="elixir"
-                                    width={20}
-                                    height={20}
-                                  />
-                                )}
-                                {social.type === "rtk" && (
-                                  <Image
-                                    src={rethinkable}
-                                    alt="rethinkable"
-                                    width={20}
-                                    height={20}
-                                  />
-                                )}
-                              </Link>
-                            );
-                          })}
-                        </div>
-                      </>
-                    )}
-                    <div className="absolute bg-gradient-to-b blur-lg from-primary via-transparent to-primary top-[-404.5] left-[202] translate-x-[-50%] translate-y-[-50%] h-screen  w-screen object-center  z-[-1] rotationalpanelborder duration-150 pointer-events-none" />
                   </div>
-                </motion.div>
-              )}
-            </AnimatePresence>
+                  <Divider className="" />
+                  <p className="text-sm">{team[heroIndexToShow].description}</p>
+                  <Divider className="" />
+                  <div className="flex flex-wrap gap-1">
+                    Roles:{" "}
+                    {team[heroIndexToShow].roles.map((role) => {
+                      return (
+                        <Chip
+                          key={role}
+                          color={
+                            role.includes("HEROEZ!")
+                              ? "primary"
+                              : role.includes("Founder")
+                              ? "secondary"
+                              : "warning"
+                          }
+                          variant="dot"
+                          size="sm"
+                          className={
+                            role.includes("HEROEZ!")
+                              ? "border-primary"
+                              : role.includes("Founder")
+                              ? "border-secondary"
+                              : "border-warning"
+                          }
+                        >
+                          {role}
+                        </Chip>
+                      );
+                    })}
+                  </div>
+                  {team[heroIndexToShow].communities && (
+                    <>
+                      <Divider className="" />
+
+                      <div className=" flex flex-wrap items-center gap-1">
+                        Communities:{" "}
+                        {team[heroIndexToShow].communities?.map((community) => {
+                          return (
+                            <Chip
+                              key={community}
+                              color="default"
+                              variant="bordered"
+                              size="sm"
+                              className="text-xs text-content2"
+                            >
+                              {community}
+                            </Chip>
+                          );
+                        })}
+                      </div>
+                    </>
+                  )}
+                  {team[heroIndexToShow].socials && (
+                    <>
+                      <Divider className="" />
+                      <div className=" flex flex-wrap gap-1 items-center">
+                        Connect:{" "}
+                        {team[heroIndexToShow].socials?.map((social) => {
+                          return (
+                            <Link
+                              key={social.link}
+                              target="_blank"
+                              href={social.link}
+                              className="p-2 bg-content2/10 rounded-xl text-xl"
+                            >
+                              {social.type === "x" && (
+                                <span className=" text-content2">
+                                  <FaXTwitter />
+                                </span>
+                              )}
+                              {social.type === "dc" && (
+                                <span className=" text-indigo-500">
+                                  <FaDiscord />
+                                </span>
+                              )}
+                              {social.type === "fb" && (
+                                <span className=" text-blue-500">
+                                  <FaFacebookF />
+                                </span>
+                              )}
+                              {social.type === "ig" && (
+                                <span className=" text-pink-500 ">
+                                  <FaInstagram />
+                                </span>
+                              )}
+                              {social.type === "tt" && (
+                                <span className=" text-fuchsia-500 ">
+                                  <FaTiktok />
+                                </span>
+                              )}
+                              {social.type === "yt" && (
+                                <span className=" text-red-500">
+                                  <FaYoutube />
+                                </span>
+                              )}
+                              {social.type === "elixir" && (
+                                <Image
+                                  src={elixer}
+                                  alt="elixir"
+                                  width={20}
+                                  height={20}
+                                />
+                              )}
+                              {social.type === "rtk" && (
+                                <Image
+                                  src={rethinkable}
+                                  alt="rethinkable"
+                                  width={20}
+                                  height={20}
+                                />
+                              )}
+                            </Link>
+                          );
+                        })}
+                      </div>
+                    </>
+                  )}
+                </div>
+              </div>
+            </div>
           </motion.div>
 
           <motion.p

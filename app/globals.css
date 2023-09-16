@@ -7,8 +7,9 @@
 }
 
 *::-webkit-scrollbar-thumb {
-  border-left: 8px transparent solid;
+  border-left: 12px transparent solid;
   background-clip: padding-box;
+  @apply rounded-full;
 }
 
 .btn-default {
