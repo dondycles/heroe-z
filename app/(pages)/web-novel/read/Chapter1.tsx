@@ -10,7 +10,7 @@ export default function Chapter1() {
         initial={{ x: 10 }}
         animate={{ x: 0 }}
         exit={{ x: 10 }}
-        className="mb-6"
+        className="mb-3"
       >
         CHAPTER <span className="text-primary">1</span>
       </motion.h1>
@@ -20,7 +20,7 @@ export default function Chapter1() {
           initial="hidden"
           animate="visible"
           exit={{ opacity: 0 }}
-          className=" flex flex-col gap-6 overflow-y-auto overflow-x-hidden h-screen max-h-full"
+          className=" flex flex-col gap-3 overflow-y-auto overflow-x-hidden h-screen max-h-full"
         >
           <motion.p variants={item}>
             Lorem ipsum dolor sit amet consectetur, adipisicing elit. cumque,

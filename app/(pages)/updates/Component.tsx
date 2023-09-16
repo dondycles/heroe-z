@@ -12,14 +12,14 @@ export default function Component() {
           initial="hidden"
           animate="visible"
           exit={{ opacity: 0 }}
-          className="w-full flex flex-col gap-6 h-screen max-h-[calc(100%-60px)]"
+          className="w-full flex flex-col gap-3 h-screen max-h-[calc(100%-60px)]"
         >
-          <motion.div className="max-w-[500px] ">
+          <motion.div className="max-w-[500px] flex flex-col gap-3">
             <motion.p variants={item}>
               This page is intended for announcements that revolves around
               HEROEZ!
             </motion.p>
-            <motion.p variants={item} className=" text-warning mt-6">
+            <motion.p variants={item} className=" text-warning">
               We will let everyone know once this page is up and running.{" "}
             </motion.p>
           </motion.div>

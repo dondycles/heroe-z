@@ -7,7 +7,7 @@ export const metadata: Metadata = {
 export default function About() {
   return (
     <>
-      <h1 className="mb-6">
+      <h1 className="mb-3">
         ROAD <span className="text-primary">MAP</span>{" "}
       </h1>
       <Component />

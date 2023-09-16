@@ -8,7 +8,7 @@ export const metadata: Metadata = {
 export default function WebNovel() {
   return (
     <>
-      <h1 className="mb-6">
+      <h1 className="mb-3">
         WEB <span className="text-primary">NOVEL</span>
       </h1>
       <Component />

@@ -14,9 +14,9 @@ export default function Component() {
           initial="hidden"
           animate="visible"
           exit={{ opacity: 0 }}
-          className=" flex flex-col gap-6 overflow-y-auto overflow-x-hidden h-screen max-h-[calc(100%-60px)] pb-6"
+          className=" flex flex-col gap-3 overflow-y-auto overflow-x-hidden h-screen max-h-[calc(100%-60px)] pb-3"
         >
-          <motion.ul className="grid gap-y-6 grid-cols-1 sm:grid-cols-2 md:grid-cols-3  lg:grid-cols-4 lg:gap-x-6 gap-x-4 lg:gap-y-2  lg:col-span-3">
+          <motion.ul className="grid gap-3 grid-cols-1 sm:grid-cols-2 md:grid-cols-3    ">
             {Array.from({ length: 100 }, (_: any, i: number) => {
               return (
                 <motion.li variants={item} key={i}>

@@ -8,7 +8,7 @@ export const metadata: Metadata = {
 export default function HeroezUniversity() {
   return (
     <>
-      <h1 className="mb-6">
+      <h1 className="mb-3">
         HERO <span className=" text-primary">UNIVERSITY</span>{" "}
       </h1>
       <Component />

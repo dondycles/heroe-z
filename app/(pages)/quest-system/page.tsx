@@ -8,7 +8,7 @@ export const metadata: Metadata = {
 export default function QuestSystem() {
   return (
     <>
-      <h1 className="mb-6">
+      <h1 className="mb-3">
         QUEST <span className=" text-primary">SYSTEM</span>{" "}
       </h1>
       <Component />

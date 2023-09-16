@@ -12,7 +12,7 @@ export default function Component() {
           initial="hidden"
           animate="visible"
           exit={{ opacity: 0 }}
-          className=" flex flex-col gap-6 overflow-y-auto h-screen max-h-[calc(100%-60px)]"
+          className=" flex flex-col gap-3 overflow-y-auto h-screen max-h-[calc(100%-60px)]"
         >
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi
           inventore laudantium aspernatur deserunt iste unde fugit, quas ipsa

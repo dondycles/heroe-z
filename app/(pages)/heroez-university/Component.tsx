@@ -13,7 +13,7 @@ export default function Component() {
           initial="hidden"
           animate="visible"
           exit={{ opacity: 0 }}
-          className="w-full flex flex-col items-start justify-start gap-6 h-full max-h-[calc(100%-60px)] overflow-y-auto"
+          className="w-full flex flex-col items-start justify-start gap-3 h-full max-h-[calc(100%-60px)] overflow-y-auto"
         >
           <motion.p variants={item}>
             Claiming of Hero license is not yet available. This feature will be

@@ -56,7 +56,7 @@ export default function ReadChapter() {
         {currentPage !== 0 && (
           <motion.div
             layout
-            className="flex gap-2 w-full justify-center items-center mt-6"
+            className="flex gap-2 w-full justify-center items-center mt-3"
           >
             <Button
               className="bg-primary/10 text-primary"

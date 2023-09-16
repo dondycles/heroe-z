@@ -7,7 +7,7 @@ export const metadata: Metadata = {
 export default function StudioZ() {
   return (
     <>
-      <h1 className="mb-6">
+      <h1 className="mb-3">
         STUDIO <span className=" text-primary">Z</span>{" "}
       </h1>
 

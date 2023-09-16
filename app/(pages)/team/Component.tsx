@@ -133,7 +133,7 @@ export default function Component() {
           initial="hidden"
           animate="visible"
           exit={{ opacity: 0 }}
-          className=" flex flex-col gap-6 h-screen max-h-[calc(100%-60px)] "
+          className=" flex flex-col gap-3 h-screen max-h-[calc(100%-60px)] "
         >
           <motion.p variants={item}>
             Meet the Founding heroes behind this epic journey.
@@ -141,11 +141,11 @@ export default function Component() {
 
           <motion.div
             variants={item}
-            className=" max-h-full overflow-auto w-full  p-6 rounded-xl
+            className=" max-h-full overflow-auto w-full  p-1 rounded-xl
             
             "
           >
-            <motion.ul className="grid gap-6 grid-cols-1 sm:grid-cols-2 md:grid-cols-3    ">
+            <motion.ul className="grid gap-3 grid-cols-1 sm:grid-cols-2 md:grid-cols-3    ">
               {team.map((hero, i) => {
                 return (
                   <motion.li
@@ -155,15 +155,15 @@ export default function Component() {
                     }}
                     variants={item}
                     key={hero.name}
-                    className=""
                   >
                     <div
-                      className={`border-none glowing-border relative overflow-hidden max-w-[500px] w-full h-auto aspect-square p-[2px] rounded-xl bg-primary/30
+                      className={`border-none glowing-border relative overflow-hidden max-w-[500px] w-full h-auto aspect-square p-[2px] rounded-xl bg-transparent 
+                      sm:hover:scale-[99%] cursor-pointer duration-150
                     
                     ${
                       theme.mode === "dark"
-                        ? " drop-shadow-[0_0_10px_#ff444488]"
-                        : " drop-shadow-[0_0_10px_#0099ff88]"
+                        ? " drop-shadow-[0_0_4px_#ff444488]"
+                        : " drop-shadow-[0_0_4px_#0099ff88]"
                     }
                     `}
                     >
@@ -197,17 +197,24 @@ export default function Component() {
             }`}
           >
             <div
-              className={`max-h-[70dvh] h-screen max-w-[350px] w-screen    relative z-10 glowing-border rounded-xl overflow-hidden duration-500 ${
-                showModal ? "opacity-100" : "opacity-0 pointer-events-none"
-              }`}
+              className={`max-h-[70dvh] h-screen max-w-[350px] w-screen    relative z-10 glowing-border rounded-xl overflow-hidden duration-500 
+              ${showModal ? "opacity-100" : "opacity-0 pointer-events-none"}
+              ${
+                theme.mode === "dark"
+                  ? " drop-shadow-[0_0_4px_#ff444488]"
+                  : " drop-shadow-[0_0_4px_#0099ff88]"
+              }
+              `}
             >
-              <div className="absolute  top-0 left-0 bottom-0 right-0 ">
+              <div className="absolute top-0 left-0 bottom-0 right-0">
                 <div
                   key={"glowingborder"}
                   className={`absolute bg-gradient-to-b blur-lg from-primary via-transparent to-primary top-[0dvh] left-[-350px] translate-x-[-50%] translate-y-[-50%]   aspect-square w-auto h-[100dvh] object-center  z-[-1] rotationalpanelborder duration-[2000ms] pointer-events-none `}
                 />
               </div>
-              <div className=" absolute top-[12px] left-[12px] right-[12px] bottom-[12px] z-10 overflow-y-auto overflow-x-hidden rounded-xl">
+              <div
+                className={`absolute top-[12px] left-[12px] right-[12px] bottom-[12px] z-10 overflow-y-auto overflow-x-hidden rounded-xl`}
+              >
                 <div
                   onClick={(e) => e.stopPropagation()}
                   className=" rounded-xl flex gap-3 flex-col"
@@ -353,7 +360,7 @@ export default function Component() {
 
           <motion.p
             variants={item}
-            className="mb-0 mt-auto text-warning text-center"
+            className="mb-0 text-xs font-thin mt-auto text-warning text-center"
           >
             Powered by : Motion Cabin
           </motion.p>

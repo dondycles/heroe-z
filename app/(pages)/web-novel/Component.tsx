@@ -33,7 +33,7 @@ export default function Component() {
           initial="hidden"
           animate="visible"
           exit={{ opacity: 0 }}
-          className="w-full flex flex-col gap-6 h-screen max-h-[calc(100%-60px)] overflow-y-auto "
+          className="w-full flex flex-col gap-3 h-screen max-h-[calc(100%-60px)] overflow-y-auto "
         >
           <motion.h2 variants={item}>
             The plot centers on Alexiel Reidhart, a top-ranking hero of the
@@ -41,7 +41,7 @@ export default function Component() {
             magic. She investigates the cause of this strange phenomena and
             confronts impending threats of the new world.
           </motion.h2>
-          <ul className="flex-1 overflow-y-auto self-stretch flex flex-col gap-6  pb-6">
+          <ul className="flex-1 overflow-y-auto self-stretch flex flex-col gap-3  pb-3">
             {novelParts.map((part, i) => {
               return (
                 <motion.li key={i} variants={item}>

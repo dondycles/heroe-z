@@ -7,7 +7,7 @@ export const metadata: Metadata = {
 export default function Updates() {
   return (
     <>
-      <h1 className="text-primary mb-6">UPDATES</h1>
+      <h1 className="text-primary mb-3">UPDATES</h1>
       <Component />
     </>
   );
