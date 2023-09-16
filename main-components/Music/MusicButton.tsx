@@ -23,7 +23,7 @@ export default function MusicButtn() {
               music.setShowPlayer(!music.showPlayer);
               music.setPlayMusic(true);
             }}
-            className={` btn-default  rounded-full text-xl p-0 min-w-[44px] glowing-border after:rounded-full after:bg-background/80 ${
+            className={`  rounded-full text-xl p-0 h-[32px] min-w-[32px] aspect-square glowing-border after:rounded-full after:bg-background/80 ${
               music.showPlayer
                 ? "bg-primary after:bg-primary sm:hover:after:bg-transparent text-content1 sm:hover:bg-primary/10 sm:hover:text-primary"
                 : "text-primary bg-primary/10 sm:hover:after:bg-transparent"
