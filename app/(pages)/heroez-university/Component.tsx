@@ -53,7 +53,7 @@ export default function Component() {
             dignissimosrecusandae fugiat harum blanditiis explicabo illo ducimus
             sunt facilis. Quo, dolore.
           </motion.p>
-          <motion.p>
+          <motion.p variants={item}>
             Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sit, illo
             id nemo sint expedita dignissimos adipisci quas quod impedit commodi
             magni repudiandae accusamus nihil ut natus voluptatum quasi cumque

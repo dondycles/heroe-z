@@ -11,11 +11,11 @@ import {
   PiArrowFatLeftFill,
   PiArrowFatRightFill,
 } from "react-icons/pi";
-import music0 from "@/public/music0.png";
-import music1 from "@/public/music1.jpg";
-import music2 from "@/public/music2.png";
-import music3 from "@/public/music3.png";
-import music4 from "@/public/music4.png";
+import music0 from "@/public/images/music-art/music0.png";
+import music1 from "@/public/images/music-art/music1.jpg";
+import music2 from "@/public/images/music-art/music2.png";
+import music3 from "@/public/images/music-art/music3.png";
+import music4 from "@/public/images/music-art/music4.png";
 import Image from "next/image";
 import GlowingBorder from "../Styles/GlowingBorder";
 
@@ -43,21 +43,21 @@ export default function MusicPlayer() {
     {
       title:
         "My Hero Academia OST - You Say Run + Jet Set Run (You Say Run v2)",
-      src: "/music0.mp3",
+      src: "/audios/music0.mp3",
       art: music0,
     },
     {
       title: "The Weeknd - Is There Someone Else?",
-      src: "/music1.mp3",
+      src: "/audios/music1.mp3",
       art: music1,
     },
     {
       title: "Lola Amour - Raining In Manila",
-      src: "/music2.mp3",
+      src: "/audios/music2.mp3",
       art: music2,
     },
-    { title: "V - Slow Dancing", src: "/music3.mp3", art: music3 },
-    { title: "EXO - Cream Soda", src: "/music4.mp3", art: music4 },
+    { title: "V - Slow Dancing", src: "/audios/music3.mp3", art: music3 },
+    { title: "EXO - Cream Soda", src: "/audios/music4.mp3", art: music4 },
   ];
 
   const updateTimeAndProgress = () => {
@@ -254,7 +254,7 @@ export default function MusicPlayer() {
             <div className="flex flex-row gap-3 flex-1  z-[2]">
               <div
                 ref={controls}
-                className="flex flex-1 flex-col-reverse sm:flex-col gap-1 sm:gap-3 h-fit"
+                className="flex flex-1 flex-col-reverse sm:flex-col gap-1 sm:gap-3 "
               >
                 <Marquee
                   className="h-[16px] overflow-hidden"
@@ -277,10 +277,10 @@ export default function MusicPlayer() {
                       className="w-full h-full object-cover"
                     />
                   </div>
-                  <div className="flex flex-col gap-3 flex-1">
+                  <div className="flex flex-col flex-1">
                     {audio.current && (
-                      <div className="flex items-center gap-2 text-xs text-white ">
-                        <p className="font-extralight font-kanit">
+                      <div className="flex items-center gap-2 text-white ">
+                        <p className="font-extralight  text-xs">
                           0{audioCurrentTime.min}:
                           {audioCurrentTime.sec < 10
                             ? "0" + audioCurrentTime.sec
@@ -296,7 +296,7 @@ export default function MusicPlayer() {
                           size="sm"
                           value={progressBarValue}
                         />
-                        <p className="font-extralight font-kanit">
+                        <p className="font-extralight  text-xs">
                           0{audioDuration.min}:
                           {audioDuration.sec < 10
                             ? "0" + audioDuration.sec
@@ -304,7 +304,7 @@ export default function MusicPlayer() {
                         </p>
                       </div>
                     )}
-                    <div className="flex flex-row items-center justify-center gap-3 ">
+                    <div className="flex flex-row items-center h-full justify-center gap-3 ">
                       <Button
                         onClick={() => {
                           setAnimationDirection("left");

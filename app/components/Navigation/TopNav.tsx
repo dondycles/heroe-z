@@ -5,8 +5,8 @@ import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import Menu from "./Menu";
 import MenuButton from "./MenuButton";
 import Curtain from "./Curtain";
-import logo256dark from "@/public/logo256-dark.png";
-import logo256 from "@/public/logo256.png";
+import logo256dark from "@/public/images/icons/logo256-dark.png";
+import logo256 from "@/public/images/icons/logo256.png";
 import Image from "next/image";
 import {
   useThemeStore,
@@ -18,32 +18,19 @@ import { Button, ButtonGroup } from "@nextui-org/react";
 
 import {
   BsWallet,
-  BsHouse,
-  BsHeart,
   BsMap,
   BsBuildings,
   BsLightbulb,
   BsBook,
-  BsRocket,
   BsCollection,
-  BsCheckCircle,
-  BsPeople,
   BsWalletFill,
-  BsHouseFill,
-  BsHeartFill,
   BsMapFill,
   BsBuildingsFill,
   BsLightbulbFill,
   BsBookFill,
-  BsRocketFill,
   BsCollectionFill,
-  BsCheckCircleFill,
-  BsPeopleFill,
-  BsQuestion,
 } from "react-icons/bs";
-import { IconType } from "react-icons";
 import MoreDropDownButton from "./MoreDropDownButton";
-import ThemeButton from "../Theme/ThemeButton";
 import GlowingBorder from "../Styles/GlowingBorder";
 export default function TopNav() {
   const pathname = usePathname();
@@ -57,14 +44,6 @@ export default function TopNav() {
   const navigation = useNavigationStore();
   const randomcurtain = useRandomCurtainColor();
 
-  type GroupButtonTypes = {
-    type: "button" | "dropdown";
-    title: string;
-    href: string;
-    icon: IconType;
-    filledIcon: IconType;
-    children: null | ChildNode;
-  };
   let groupButtons = [
     {
       type: "button",

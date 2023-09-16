@@ -6,7 +6,7 @@ import {
   useNavigationStore,
   useRandomCurtainColor,
 } from "@/store";
-import logohighres from "@/public/logohighres.webp";
+import logohighres from "@/public/images/icons/logohighres.webp";
 import { useEffect, useState } from "react";
 import { Spinner } from "@nextui-org/react";
 export default function Curtain({

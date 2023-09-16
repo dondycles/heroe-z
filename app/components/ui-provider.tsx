@@ -46,7 +46,7 @@ export function Providers({ children }: { children: React.ReactNode }) {
             className={`fixed top-0 left-0 z-50 w-screen h-screen  font-bold flex items-center justify-center  bg-background
              
     `}
-          ></motion.section>
+          />
         )}
       </AnimatePresence>
     </NextUIProvider>

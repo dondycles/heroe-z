@@ -1,9 +1,9 @@
 "use client";
 import Image from "next/image";
-import lgwallpaperdark from "@/public/lg-dark-wallpaper.webp";
-import smwallpaperdark from "@/public/sm-dark-wallpaper.webp";
-import lgwallpaper from "@/public/lg-wallpaper.webp";
-import smwallpaper from "@/public/sm-wallpaper.webp";
+import lgwallpaperdark from "@/public/images/wallpaper/lg-dark-wallpaper.webp";
+// import smwallpaperdark from "@/public/sm-dark-wallpaper.webp";
+import lgwallpaper from "@/public/images/wallpaper/lg-wallpaper.webp";
+import smwallpaper from "@/public/images/wallpaper/sm-wallpaper.webp";
 import { useEffect, useState } from "react";
 import { useThemeStore } from "@/store";
 import { AnimatePresence, motion } from "framer-motion";

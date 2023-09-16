@@ -4,11 +4,11 @@ import { useAnimateStore, useThemeStore } from "@/store";
 import { container, item } from "@/transitions";
 import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image";
-import Kazma from "@/public/team/Kazma.webp";
-import JovzkyAnimation from "@/public/team/JovzkyAnimation.webp";
-import EscoCobarseth from "@/public/team/EscoCobarseth.webp";
-import xJudaseth from "@/public/team/xJudaseth.webp";
-import Fonso from "@/public/team/Fonso.webp";
+import Kazma from "@/public/images/team/Kazma.webp";
+import JovzkyAnimation from "@/public/images/team/JovzkyAnimation.webp";
+import EscoCobarseth from "@/public/images/team/EscoCobarseth.webp";
+import xJudaseth from "@/public/images/team/xJudaseth.webp";
+import Fonso from "@/public/images/team/Fonso.webp";
 import { useEffect, useState } from "react";
 import { Chip, Divider } from "@nextui-org/react";
 
@@ -20,8 +20,8 @@ import {
   FaYoutube,
   FaFacebookF,
 } from "react-icons/fa6";
-import elixer from "@/public/icons/elixir.ico";
-import rethinkable from "@/public/icons/rethinkable.ico";
+import elixer from "@/public/images/icons/elixir.ico";
+import rethinkable from "@/public/images/icons/rethinkable.ico";
 import Link from "next/link";
 export default function Component() {
   const theme = useThemeStore();

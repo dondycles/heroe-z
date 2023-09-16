@@ -7,39 +7,21 @@ import {
   DropdownMenu,
   DropdownSection,
   DropdownTrigger,
-  NextUIProvider,
 } from "@nextui-org/react";
 import { usePathname } from "next/navigation";
 
 import {
-  BsWallet,
-  BsHouse,
   BsHeart,
-  BsMap,
-  BsBuildings,
-  BsLightbulb,
-  BsBook,
   BsRocket,
-  BsCollection,
   BsCheckCircle,
   BsPeople,
-  BsWalletFill,
-  BsHouseFill,
   BsHeartFill,
-  BsMapFill,
-  BsBuildingsFill,
-  BsLightbulbFill,
-  BsBookFill,
   BsRocketFill,
-  BsCollectionFill,
   BsCheckCircleFill,
   BsPeopleFill,
-  BsQuestion,
-  BsFillPeopleFill,
 } from "react-icons/bs";
 import { TbPlayerTrackNextFilled, TbPlayerTrackNext } from "react-icons/tb";
 import ThemeButton from "../Theme/ThemeButton";
-import { useState } from "react";
 export default function MoreDropDownButton() {
   const navigation = useNavigationStore();
   const theme = useThemeStore();

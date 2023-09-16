@@ -1,7 +1,7 @@
 import "./globals.css";
 import type { Metadata } from "next";
 import { Kanit, Montserrat } from "next/font/google";
-import { Providers } from "../main-components/ui-provider";
+import { Providers } from "./components/ui-provider";
 const kanit = Kanit({
   subsets: ["latin"],
   weight: ["200", "400"],
