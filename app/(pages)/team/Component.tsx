@@ -10,7 +10,19 @@ import EscoCobarseth from "@/public/team/EscoCobarseth.webp";
 import xJudaseth from "@/public/team/xJudaseth.webp";
 import Fonso from "@/public/team/Fonso.webp";
 import { useState } from "react";
-import { Chip } from "@nextui-org/react";
+import { Chip, Divider } from "@nextui-org/react";
+
+import {
+  FaTiktok,
+  FaDiscord,
+  FaXTwitter,
+  FaInstagram,
+  FaYoutube,
+  FaFacebookF,
+} from "react-icons/fa6";
+import elixer from "@/public/icons/elixir.ico";
+import rethinkable from "@/public/icons/rethinkable.ico";
+import Link from "next/link";
 export default function Component() {
   const theme = useThemeStore();
   const animate = useAnimateStore();
@@ -20,7 +32,7 @@ export default function Component() {
     {
       name: "Kazma",
       moto: "Always believe.",
-      roles: ["HEROEZ!", "Creative Director", "Founder"],
+      roles: ["HEROEZ!", "Founder", "Creative Director"],
       description:
         "Animator/Illustrator for decades. Worked for numerous well-known brands such as but not limited to; MARVEL (Hitmonkey), Teenage Mutant Ninja Turtle (NETFLIX), Dora the explorer, LEGO etc.,",
       socials: null,
@@ -48,8 +60,8 @@ export default function Component() {
       moto: "Impossible is for the willing.",
       roles: [
         "HEROEZ!",
-        "Collaborations/Partnerships Manager",
         "Head Strategist",
+        "Collaborations/Partnerships Manager",
       ],
       description:
         "Living in the space for almost three years now and counting. I’ve handled a lot of projects as their Collaborations/Partnerships Manager and Head Strategist.",
@@ -63,7 +75,7 @@ export default function Component() {
     {
       name: "EscoCobarseth",
       moto: null,
-      roles: ["HEROEZ!", "Collaborations/Partnerships Manager", "Strategist"],
+      roles: ["HEROEZ!", "Strategist", "Collaborations/Partnerships Manager"],
       description:
         "Currently holding Alpha groups,Projects, outreach team, Agencies as Collab Manager.",
       socials: [
@@ -86,7 +98,7 @@ export default function Component() {
     {
       name: "xJudas.eth",
       moto: "The best way to predict the future is to create it.",
-      roles: ["HEROEZ!", "Collaborations/Partnerships Manager", "Strategist"],
+      roles: ["HEROEZ!", "Strategist", "Collaborations/Partnerships Manager"],
       description:
         "An NFT Holder of various projects, Professional and experienced in various web3 works like Project Outreach, Marketing Lead, Project Moderation and a Collab Manager. Already built great connections in web3 for the past. A dad in real life and a professional web3 guy.",
       socials: [
@@ -101,6 +113,7 @@ export default function Component() {
       img: xJudaseth,
     },
   ];
+
   return (
     <AnimatePresence>
       {animate.mode && (
@@ -109,7 +122,7 @@ export default function Component() {
           initial="hidden"
           animate="visible"
           exit={{ opacity: 0 }}
-          className=" flex flex-col gap-6 h-screen max-h-[calc(100%-60px)]"
+          className=" flex flex-col gap-6 h-screen max-h-[calc(100%-60px)] "
         >
           <motion.p variants={item}>
             Meet the Founding heroes behind this epic journey.
@@ -149,6 +162,7 @@ export default function Component() {
                         quality={100}
                         src={hero.img}
                         alt={hero.name}
+                        priority
                       />
                       <div
                         className={`justify-center overflow-hidden text-center py-1 absolute rounded-xl bottom-2 left-2 right-2 shadow-small z-10 backdrop-brightness-[30%] `}
@@ -163,64 +177,170 @@ export default function Component() {
               })}
             </motion.ul>
           </motion.div>
-          <AnimatePresence>
-            {showModal && (
-              <motion.div
-                key={"heromodal"}
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                onClick={() => setShowModal(false)}
-                className="fixed flex items-center justify-center top-0 left-0 w-[100dvw] h-[100dvh] backdrop-blur-sm backdrop-brightness-50 p-6"
-              >
-                <div
-                  onClick={(e) => e.stopPropagation()}
-                  className=" w-full max-w-[400px] h-fit glowing-border overflow-hidden relative  p-6 rounded-xl gap-3 flex flex-col"
+          <motion.div
+            onClick={() => setShowModal(false)}
+            className={`fixed flex items-center justify-center top-0 left-0 bottom-0 right-0 overflow-hidden duration-150 p-6 ${
+              showModal
+                ? "backdrop-blur-sm backdrop-brightness-50"
+                : "backdrop-blur-none backdrop-brightness-100 pointer-events-none"
+            }`}
+          >
+            <AnimatePresence mode="wait">
+              {showModal && (
+                <motion.div
+                  key={"heromodal"}
+                  initial={{ opacity: 0, scale: 0 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0 }}
                 >
-                  <Image
-                    src={team[heroIndexToShow].img}
-                    alt={team[heroIndexToShow].name}
-                    className="rounded-xl w-full h-auto object-cover"
-                  />
-                  <p className="font-montserrat text-primary text-xl">
-                    {team[heroIndexToShow].name}
-                  </p>
-                  <div className="flex flex-wrap gap-1">
-                    {team[heroIndexToShow].roles.map((role) => {
-                      return (
-                        <Chip
-                          color="primary"
-                          variant="dot"
-                          size="sm"
-                          className="text-content2 text-xs border-primary"
-                        >
-                          {role}
-                        </Chip>
-                      );
-                    })}
-                  </div>
-                  {team[heroIndexToShow].moto && (
-                    <p className=" text-warning italic">
-                      "{team[heroIndexToShow].moto}"
+                  <div
+                    onClick={(e) => e.stopPropagation()}
+                    className=" w-full max-w-[400px] h-fit glowing-border overflow-hidden relative  p-6 rounded-xl flex gap-3 flex-col"
+                  >
+                    <Image
+                      src={team[heroIndexToShow].img}
+                      alt={team[heroIndexToShow].name}
+                      priority
+                      className="rounded-xl w-full h-auto object-cover"
+                    />
+                    <div>
+                      <p className="font-montserrat text-primary text-2xl">
+                        {team[heroIndexToShow].name}
+                      </p>
+                      {team[heroIndexToShow].moto && (
+                        <p className=" text-warning italic text-sm">
+                          "{team[heroIndexToShow].moto}"
+                        </p>
+                      )}
+                    </div>
+                    <Divider className="" />
+                    <p className="text-sm">
+                      {team[heroIndexToShow].description}
                     </p>
-                  )}
-
-                  <p className=" text-content2 text-sm">
-                    {team[heroIndexToShow].description}
-                  </p>
-                  {team[heroIndexToShow].socials && (
-                    <footer>
-                      {team[heroIndexToShow].socials?.map((social) => {
-                        return <p>{social.type}</p>;
+                    <Divider className="" />
+                    <div className="flex flex-wrap gap-1">
+                      Roles:{" "}
+                      {team[heroIndexToShow].roles.map((role) => {
+                        return (
+                          <Chip
+                            key={role}
+                            color={
+                              role.includes("HEROEZ!")
+                                ? "primary"
+                                : role.includes("Founder")
+                                ? "secondary"
+                                : "warning"
+                            }
+                            variant="dot"
+                            size="sm"
+                            className={
+                              role.includes("HEROEZ!")
+                                ? "border-primary"
+                                : role.includes("Founder")
+                                ? "border-secondary"
+                                : "border-warning"
+                            }
+                          >
+                            {role}
+                          </Chip>
+                        );
                       })}
-                    </footer>
-                  )}
+                    </div>
+                    {team[heroIndexToShow].communities && (
+                      <>
+                        <Divider className="" />
 
-                  <GlowingBorder />
-                </div>
-              </motion.div>
-            )}
-          </AnimatePresence>
+                        <div className=" flex flex-wrap items-center gap-1">
+                          Communities:{" "}
+                          {team[heroIndexToShow].communities?.map(
+                            (community) => {
+                              return (
+                                <Chip
+                                  key={community}
+                                  color="default"
+                                  variant="bordered"
+                                  size="sm"
+                                  className="text-xs text-content2"
+                                >
+                                  {community}
+                                </Chip>
+                              );
+                            }
+                          )}
+                        </div>
+                      </>
+                    )}
+                    {team[heroIndexToShow].socials && (
+                      <>
+                        <Divider className="" />
+                        <div className=" flex flex-wrap gap-1 items-center">
+                          Connect:{" "}
+                          {team[heroIndexToShow].socials?.map((social) => {
+                            return (
+                              <Link
+                                key={social.link}
+                                target="_blank"
+                                href={social.link}
+                                className="p-2 bg-content2/10 rounded-xl text-xl"
+                              >
+                                {social.type === "x" && (
+                                  <span className=" text-content2">
+                                    <FaXTwitter />
+                                  </span>
+                                )}
+                                {social.type === "dc" && (
+                                  <span className=" text-indigo-500">
+                                    <FaDiscord />
+                                  </span>
+                                )}
+                                {social.type === "fb" && (
+                                  <span className=" text-blue-500">
+                                    <FaFacebookF />
+                                  </span>
+                                )}
+                                {social.type === "ig" && (
+                                  <span className=" text-pink-500 ">
+                                    <FaInstagram />
+                                  </span>
+                                )}
+                                {social.type === "tt" && (
+                                  <span className=" text-fuchsia-500 ">
+                                    <FaTiktok />
+                                  </span>
+                                )}
+                                {social.type === "yt" && (
+                                  <span className=" text-red-500">
+                                    <FaYoutube />
+                                  </span>
+                                )}
+                                {social.type === "elixir" && (
+                                  <Image
+                                    src={elixer}
+                                    alt="elixir"
+                                    width={20}
+                                    height={20}
+                                  />
+                                )}
+                                {social.type === "rtk" && (
+                                  <Image
+                                    src={rethinkable}
+                                    alt="rethinkable"
+                                    width={20}
+                                    height={20}
+                                  />
+                                )}
+                              </Link>
+                            );
+                          })}
+                        </div>
+                      </>
+                    )}
+                    <div className="absolute bg-gradient-to-b blur-lg from-primary via-transparent to-primary top-[-404.5] left-[202] translate-x-[-50%] translate-y-[-50%] h-screen  w-screen object-center  z-[-1] rotationalpanelborder duration-150 pointer-events-none" />
+                  </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </motion.div>
 
           <motion.p
             variants={item}
