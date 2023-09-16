@@ -60,7 +60,7 @@ export default function Curtain({
               src={logohighres}
               alt="HeroeZ"
             />
-            <p className=" text-xs">
+            {/* <p className=" text-xs">
               {navigation.willNavigateTo === "/"
                 ? ""
                 : "Navigating you to " +
@@ -68,7 +68,7 @@ export default function Curtain({
                     .replace("/", "")
                     .replace("-", " ")
                     .toLocaleUpperCase()}
-            </p>
+            </p> */}
             <Spinner color="current" />
           </motion.div>
         )}
