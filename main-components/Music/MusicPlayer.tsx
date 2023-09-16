@@ -119,7 +119,7 @@ export default function MusicPlayer() {
             (60 * Math.trunc(audio.current!.duration / 60))
         ),
       });
-    }, 50);
+    }, 500);
   }, [musicIndex]);
 
   useEffect(() => {
