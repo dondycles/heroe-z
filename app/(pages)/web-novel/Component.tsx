@@ -35,12 +35,12 @@ export default function Component() {
           exit={{ opacity: 0 }}
           className="w-full flex flex-col gap-3 h-screen max-h-[calc(100%-60px)] overflow-y-auto "
         >
-          <motion.h2 variants={item}>
+          <motion.p variants={item}>
             The plot centers on Alexiel Reidhart, a top-ranking hero of the
             society who is mysteriously summoned into the world of sword and
             magic. She investigates the cause of this strange phenomena and
             confronts impending threats of the new world.
-          </motion.h2>
+          </motion.p>
           <ul className="flex-1 overflow-y-auto self-stretch flex flex-col gap-3  pb-3">
             {novelParts.map((part, i) => {
               return (
@@ -49,11 +49,11 @@ export default function Component() {
                     isFooterBlurred
                     className="w-full h-[300px] col-span-12 sm:col-span-7 "
                   >
-                    {/* <CardHeader className="absolute z-10 top-1 flex-col items-start">
-                      <h4 className="text-white/90 font-medium text-xl">
-                        Chapter Title
+                    <CardHeader className="absolute z-10 top-1 flex-col items-start">
+                      <h4 className="text-white drop-shadow-[0_2px_2px_#000000aa] font-montserrat text-xl">
+                        {part.title}
                       </h4>
-                    </CardHeader> */}
+                    </CardHeader>
                     <Image
                       alt={part.title}
                       className="z-0 w-full h-full object-cover"
