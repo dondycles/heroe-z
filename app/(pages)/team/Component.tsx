@@ -133,7 +133,7 @@ export default function Component() {
           initial="hidden"
           animate="visible"
           exit={{ opacity: 0 }}
-          className=" flex flex-col gap-3 h-screen max-h-[calc(100%-60px)] "
+          className=" flex flex-col gap-3 h-screen max-h-[calc(100%-44px)] "
         >
           <motion.p variants={item}>
             Meet the Founding heroes behind this epic journey.
@@ -222,6 +222,8 @@ export default function Component() {
                   <Image
                     src={team[heroIndexToShow].img}
                     alt={team[heroIndexToShow].name}
+                    placeholder="blur"
+                    quality={100}
                     priority
                     className="rounded-xl w-full h-auto object-cover"
                   />
@@ -236,10 +238,7 @@ export default function Component() {
                     )}
                   </div>
                   <Divider className="" />
-                  <p className="text-sm">{team[heroIndexToShow].description}</p>
-                  <Divider className="" />
                   <div className="flex flex-wrap gap-1">
-                    Roles:{" "}
                     {team[heroIndexToShow].roles.map((role) => {
                       return (
                         <Chip
@@ -261,17 +260,21 @@ export default function Component() {
                               : "border-warning"
                           }
                         >
-                          {role}
+                          <p>{role}</p>
                         </Chip>
                       );
                     })}
                   </div>
+                  <Divider className="" />
+                  <p className="text-sm">{team[heroIndexToShow].description}</p>
+
                   {team[heroIndexToShow].communities && (
                     <>
                       <Divider className="" />
 
                       <div className=" flex flex-wrap items-center gap-1">
-                        Communities:{" "}
+                        <p>Communities:</p>
+
                         {team[heroIndexToShow].communities?.map((community) => {
                           return (
                             <Chip
@@ -292,7 +295,6 @@ export default function Component() {
                     <>
                       <Divider className="" />
                       <div className=" flex flex-wrap gap-1 items-center">
-                        Connect:{" "}
                         {team[heroIndexToShow].socials?.map((social) => {
                           return (
                             <Link

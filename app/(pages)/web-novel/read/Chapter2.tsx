@@ -18,6 +18,7 @@ export default function Chapter2() {
       {animate.mode && (
         <motion.div
           variants={container}
+          key={"chapter2"}
           initial="hidden"
           animate="visible"
           exit={{ opacity: 0 }}

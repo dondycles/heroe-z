@@ -12,7 +12,7 @@ export default function Component() {
           initial="hidden"
           animate="visible"
           exit={{ opacity: 0 }}
-          className="w-full flex flex-col gap-3 h-screen max-h-[calc(100%-60px)]"
+          className="w-full flex flex-col gap-3 h-screen max-h-[calc(100%-44px)]"
         >
           <motion.div className="max-w-[500px] flex flex-col gap-3">
             <motion.p variants={item}>

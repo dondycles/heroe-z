@@ -33,7 +33,7 @@ export default function Component() {
           initial="hidden"
           animate="visible"
           exit={{ opacity: 0 }}
-          className="w-full flex flex-col gap-3 h-screen max-h-[calc(100%-60px)] overflow-y-auto "
+          className="w-full flex flex-col gap-3 h-screen max-h-[calc(100%-44px)] overflow-y-auto "
         >
           <motion.p variants={item}>
             The plot centers on Alexiel Reidhart, a top-ranking hero of the
