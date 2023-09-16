@@ -194,7 +194,7 @@ export default function MusicPlayer() {
             onClick={(e) => {
               e.stopPropagation();
             }}
-            className={`h-screen max-h-[104px] sm:max-h-[124px] w-screen max-w-[280px] sm:max-w-[400px] rounded-xl p-3  flex flex-row gap-3 backdrop-blur-lg  glowing-border overflow-hidden after:bg-transparent
+            className={`h-screen max-h-[104px] sm:max-h-[124px] w-screen max-w-full sm:max-w-[400px] rounded-xl p-3  flex flex-row gap-3 backdrop-blur-lg  glowing-border overflow-hidden after:bg-transparent
       ${
         theme.mode === "dark"
           ? " shadow-[0_0_20px_#ff444466]"
@@ -225,7 +225,7 @@ export default function MusicPlayer() {
                   fill
                   placeholder="blur"
                   className="w-full h-full object-cover rounded-xl brightness-50 opacity-75 blur-[1px] "
-                ></Image>
+                />
               </motion.div>
             </AnimatePresence>
 
@@ -269,7 +269,7 @@ export default function MusicPlayer() {
                 </Marquee>
                 <div className="flex gap-3 flex-row flex-1">
                   <div
-                    className={`bg-black h-[60px] aspect-square rounded-lg overflow-hidden block sm:hidden`}
+                    className={`bg-black h-[64px] aspect-square rounded-lg overflow-hidden block sm:hidden`}
                   >
                     <Image
                       src={tracks[musicIndex].art}
