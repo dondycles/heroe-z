@@ -138,7 +138,7 @@ export default function ({
               damping: 15,
             }}
             onClick={(e) => e.stopPropagation()}
-            className=" w-full gap-6  sm:w-2/3 h-full bg-background/90  px-6 pb-6 flex flex-col "
+            className=" w-full gap-3  sm:w-2/3 h-full bg-background/90  px-6 pb-6 flex flex-col "
           >
             <Divider className="mt-24" />
             <motion.ul className="flex flex-col gap-1 overflow-y-auto overflow-x-hidden ">
@@ -190,7 +190,7 @@ export default function ({
             <Divider />
             <motion.footer
               layout
-              className=" text-2xl flex flex-col gap-4 justify-center items-center mt-auto mb-0 "
+              className=" text-2xl flex flex-col gap-3 justify-center items-center mt-auto mb-0 "
             >
               <div className="w-full flex flex-row-reverse items-center justify-between sm:flex-col gap-6">
                 <div className="flex items-center gap-1 mr-0 ml-auto">
