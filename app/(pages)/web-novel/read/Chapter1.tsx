@@ -1,8 +1,10 @@
 "use client";
+
+import { Divider } from "@nextui-org/react";
 import { useAnimateStore } from "@/store";
 import { container, item } from "@/transitions";
-import { Divider } from "@nextui-org/react";
 import { AnimatePresence, motion } from "framer-motion";
+
 export default function Chapter1() {
   const animate = useAnimateStore();
   return (

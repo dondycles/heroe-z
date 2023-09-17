@@ -17,7 +17,6 @@ export default function Curtain({
   navigate: () => void;
 }) {
   const animate = useAnimateStore();
-  const navigation = useNavigationStore();
   const randomcurtain = useRandomCurtainColor();
   const [timesCurtainsMoved, setTimesCurtainsMoved] = useState<number>(0);
   useEffect(() => {
@@ -29,7 +28,7 @@ export default function Curtain({
   }, [isNavigating]);
 
   return (
-    <div className=" fixed top-0 left-0 w-screen h-screen z-[51] pointer-events-none">
+    <div className=" fixed top-0 left-0 w-screen h-screen z-[100] pointer-events-none">
       <AnimatePresence initial={false}>
         {isNavigating && (
           <motion.div

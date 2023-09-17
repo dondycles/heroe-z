@@ -8,7 +8,7 @@ export const metadata: Metadata = {
 export default function Gallery({ children }: { children: React.ReactNode }) {
   return (
     <>
-      <h1 className="mb-3 text-primary">GALLERY</h1>
+      <h1 className="text-primary">GALLERY</h1>
       {children}
     </>
   );

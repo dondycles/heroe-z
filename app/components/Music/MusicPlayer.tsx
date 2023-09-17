@@ -1,9 +1,12 @@
-import { useMusicStore, useThemeStore } from "@/store";
+import Image from "next/image";
+import Marquee from "react-fast-marquee";
+import GlowingBorder from "../Styles/GlowingBorder";
+
+import { MusicData } from "./music-data";
 import { Button, Progress } from "@nextui-org/react";
 import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
-import Marquee from "react-fast-marquee";
-
+import { useMusicStore, useThemeStore } from "@/store";
 import {
   PiPlayFill,
   PiPauseFill,
@@ -11,55 +14,37 @@ import {
   PiArrowFatLeftFill,
   PiArrowFatRightFill,
 } from "react-icons/pi";
-import music0 from "@/public/images/music-art/music0.png";
-import music1 from "@/public/images/music-art/music1.jpg";
-import music2 from "@/public/images/music-art/music2.png";
-import music3 from "@/public/images/music-art/music3.png";
-import music4 from "@/public/images/music-art/music4.png";
-import Image from "next/image";
-import GlowingBorder from "../Styles/GlowingBorder";
 
+type PlayerStateTypes = {
+  play: boolean;
+  stop: boolean;
+  index: number;
+  animate: "left" | "right" | undefined;
+};
 export default function MusicPlayer() {
-  const musicState = useMusicStore();
+  const playerGlobalState = useMusicStore();
   const theme = useThemeStore();
-  const [hasInteracted, setHasInteracted] = useState(false);
-  const volumeBar = useRef<HTMLDivElement>(null);
+
+  const audio = useRef<HTMLAudioElement>(null);
   const controls = useRef<HTMLDivElement>(null);
+  const volumeBar = useRef<HTMLDivElement>(null);
+
+  const [playerState, setPlayerState] = useState<PlayerStateTypes>({
+    play: false,
+    stop: false,
+    index: 0,
+    animate: undefined,
+  });
+
   const [cycled, setCycled] = useState(false);
   const [hydrate, setHydrate] = useState(false);
-  const [playMusic, setPlayMusic] = useState(false);
-  const [stopMusic, setStopMusic] = useState(false);
   const [volumeThumb, setVolumeThumb] = useState<number | null>(null);
-  const [musicIndex, setMusicIndex] = useState(0);
-  const [audioCurrentTime, setAudioCurrentTime] = useState({ min: 0, sec: 0 });
+  const [hasInteracted, setHasInteracted] = useState(false);
   const [audioDuration, setAudioDuration] = useState({ min: 0, sec: 0 });
+  const [audioCurrentTime, setAudioCurrentTime] = useState({ min: 0, sec: 0 });
   const [progressBarValue, setProgressBarValue] = useState(0);
-  const [animationDirection, setAnimationDirection] = useState<
-    "left" | "right" | ""
-  >("");
-  const audio = useRef<HTMLAudioElement>(null);
 
-  const tracks = [
-    {
-      title:
-        "My Hero Academia OST - You Say Run + Jet Set Run (You Say Run v2)",
-      src: "/audios/music0.mp3",
-      art: music0,
-    },
-    {
-      title: "The Weeknd - Is There Someone Else?",
-      src: "/audios/music1.mp3",
-      art: music1,
-    },
-    {
-      title: "Lola Amour - Raining In Manila",
-      src: "/audios/music2.mp3",
-      art: music2,
-    },
-    { title: "V - Slow Dancing", src: "/audios/music3.mp3", art: music3 },
-    { title: "EXO - Cream Soda", src: "/audios/music4.mp3", art: music4 },
-  ];
-
+  const tracks = MusicData;
   const updateTimeAndProgress = () => {
     setProgressBarValue(
       Math.floor(
@@ -80,8 +65,8 @@ export default function MusicPlayer() {
 
   useEffect(() => {
     if (!hydrate) return;
-    if (playMusic) {
-      setStopMusic(false);
+    if (playerState.play) {
+      setPlayerState({ ...playerState, stop: false });
       audio.current!.play();
       setTimeout(() => {
         setAudioDuration({
@@ -94,20 +79,19 @@ export default function MusicPlayer() {
       }, 50);
     } else {
       audio.current!.pause();
-      if (stopMusic) {
+      if (playerState.stop) {
         audio.current!.currentTime = 0;
         setProgressBarValue(0);
         setAudioCurrentTime({ min: 0, sec: 0 });
       }
     }
-    musicState.setPlayMusic(playMusic);
-  }, [playMusic]);
+    playerGlobalState.setPlayMusic(playerState.play);
+  }, [playerState.play]);
 
   useEffect(() => {
     if (!hydrate) return;
-
-    setPlayMusic(true);
-    setStopMusic(false);
+    setPlayerState({ ...playerState, play: true });
+    setPlayerState({ ...playerState, stop: false });
     setProgressBarValue(0);
     setAudioCurrentTime({ min: 0, sec: 0 });
     setTimeout(() => {
@@ -120,7 +104,7 @@ export default function MusicPlayer() {
         ),
       });
     }, 500);
-  }, [musicIndex]);
+  }, [playerState.index]);
 
   useEffect(() => {
     audio.current!.volume = Number(volumeThumb) / 100;
@@ -136,14 +120,14 @@ export default function MusicPlayer() {
   }, [cycled]);
 
   useEffect(() => {
-    if (!hasInteracted && musicState.playMusic) {
-      setPlayMusic(true);
+    if (!hasInteracted && playerGlobalState.playMusic) {
+      setPlayerState({ ...playerState, play: true });
       setHasInteracted(false);
       setTimeout(() => {
         setHasInteracted(true);
       }, 100);
     }
-  }, [musicState.playMusic]);
+  }, [playerGlobalState.playMusic]);
 
   useEffect(() => {
     setHydrate(true);
@@ -153,23 +137,30 @@ export default function MusicPlayer() {
   return (
     <motion.div
       onClick={() => {
-        musicState.setShowPlayer(false);
+        playerGlobalState.setShowPlayer(false);
       }}
       className={`fixed top-0 left-0 py-6 px-6 md:px-12 lg:px-24 xl:px-36 2xl:px-48 flex justify-start items-end h-[100dvh] w-screen duration-150  ${
-        musicState.showPlayer ? " translate-x-0" : " pointer-events-none "
+        playerGlobalState.showPlayer
+          ? " translate-x-0"
+          : " pointer-events-none "
       }
       `}
     >
       <audio
         autoPlay={false}
         onTimeUpdate={updateTimeAndProgress}
-        onEnded={() => setMusicIndex((prev) => (prev < 3 ? prev + 1 : 0))}
+        onEnded={() => {
+          setPlayerState({
+            ...playerState,
+            index: playerState.index < 3 ? playerState.index + 1 : 0,
+          });
+        }}
         ref={audio}
-        src={tracks[musicIndex].src}
+        src={tracks[playerState.index].src}
         loop={false}
       />
       <AnimatePresence>
-        {musicState.showPlayer && (
+        {playerGlobalState.showPlayer && (
           <motion.div
             key={"audioplayer"}
             initial={{
@@ -207,21 +198,22 @@ export default function MusicPlayer() {
 
             <AnimatePresence>
               <motion.div
-                key={tracks[musicIndex].title}
+                key={tracks[playerState.index].title}
                 initial={{
                   opacity: 0,
-                  translateX: animationDirection === "right" ? "50px" : "-50px",
+                  translateX:
+                    playerState.animate === "right" ? "50px" : "-50px",
                 }}
                 animate={{ opacity: 1, translateX: "0px" }}
                 exit={{
                   opacity: 0,
-                  translateX: animationDirection === "right" ? "0px" : "0px",
+                  translateX: playerState.animate === "right" ? "0px" : "0px",
                 }}
                 className=" absolute top-[2px] left-[2px] bottom-[2px] right-[2px] z-[0]  pointer-events-none bg-primary/10 rounded-xl"
               >
                 <Image
-                  src={tracks[musicIndex].art}
-                  alt={tracks[musicIndex].src}
+                  src={tracks[playerState.index].art}
+                  alt={tracks[playerState.index].src}
                   fill
                   placeholder="blur"
                   className="w-full h-full object-cover rounded-xl brightness-50 opacity-75 blur-[1px] "
@@ -234,15 +226,15 @@ export default function MusicPlayer() {
             >
               <AnimatePresence initial={false}>
                 <motion.div
-                  key={tracks[musicIndex].title}
+                  key={tracks[playerState.index].title}
                   initial={{ opacity: 0, translateX: "20px" }}
                   animate={{ opacity: 1, translateX: "0px" }}
                   exit={{ opacity: 0, translateX: "20px" }}
                   className="absolute top-0 left-0 h-full w-full"
                 >
                   <Image
-                    src={tracks[musicIndex].art}
-                    alt={tracks[musicIndex].title}
+                    src={tracks[playerState.index].art}
+                    alt={tracks[playerState.index].title}
                     className="w-full h-full object-cover"
                     quality={50}
                     placeholder="blur"
@@ -264,7 +256,7 @@ export default function MusicPlayer() {
                   pauseOnHover
                 >
                   <span className="text-primary text-sm sm:text-base leading-none  sm:font-montserrat flex-1 mr-3">
-                    {tracks[musicIndex].title}
+                    {tracks[playerState.index].title}
                   </span>
                 </Marquee>
                 <div className="flex gap-3 flex-row flex-1">
@@ -272,8 +264,8 @@ export default function MusicPlayer() {
                     className={`bg-black h-[64px] aspect-square rounded-lg overflow-hidden block sm:hidden`}
                   >
                     <Image
-                      src={tracks[musicIndex].art}
-                      alt={tracks[musicIndex].title}
+                      src={tracks[playerState.index].art}
+                      alt={tracks[playerState.index].title}
                       className="w-full h-full object-cover"
                     />
                   </div>
@@ -307,10 +299,14 @@ export default function MusicPlayer() {
                     <div className="flex flex-row items-center h-full justify-center gap-3 ">
                       <Button
                         onClick={() => {
-                          setAnimationDirection("left");
-                          setMusicIndex((prev) =>
-                            prev > 0 ? prev - 1 : tracks.length - 1
-                          );
+                          setPlayerState({
+                            ...playerState,
+                            index:
+                              playerState.index > 0
+                                ? playerState.index - 1
+                                : tracks.length - 1,
+                            animate: "left",
+                          });
                         }}
                         className=" h-[32px] min-w-[32px]  rounded-full p-0 bg-primary/10 text-primary sm:hover:bg-primary/20"
                       >
@@ -318,25 +314,33 @@ export default function MusicPlayer() {
                       </Button>
                       <Button
                         className={` h-[32px] min-w-[32px] sm:h-[44px] sm:min-w-[44px] rounded-full p-0 sm:hover:bg-primary/20 ${
-                          !stopMusic
+                          !playerState.stop
                             ? "bg-primary text-content1 sm:hover:text-primary"
                             : "bg-primary/10 text-primary "
                         }`}
-                        onClick={() => setPlayMusic((prev) => !prev)}
+                        onClick={() => {
+                          setPlayerState({
+                            ...playerState,
+                            play: !playerState.play,
+                          });
+                        }}
                       >
                         <AnimatePresence>
-                          {playMusic ? <PiPauseFill /> : <PiPlayFill />}
+                          {playerState.play ? <PiPauseFill /> : <PiPlayFill />}
                         </AnimatePresence>
                       </Button>
                       <Button
                         className={` h-[32px] min-w-[32px] rounded-full p-0 sm:hover:bg-primary/20 ${
-                          stopMusic
+                          playerState.stop
                             ? "bg-primary text-content1 sm:hover:text-primary"
                             : "bg-primary/10 text-primary"
                         }`}
                         onClick={() => {
-                          setStopMusic(true);
-                          setPlayMusic(false);
+                          setPlayerState({
+                            ...playerState,
+                            play: false,
+                            stop: true,
+                          });
                         }}
                       >
                         <PiStopFill />
@@ -344,10 +348,15 @@ export default function MusicPlayer() {
                       <Button
                         onClick={() => {
                           // audio.current!.currentTime = 180;
-                          setAnimationDirection("right");
-                          setMusicIndex((prev) =>
-                            prev < tracks.length - 1 ? prev + 1 : 0
-                          );
+
+                          setPlayerState({
+                            ...playerState,
+                            index:
+                              playerState.index < tracks.length - 1
+                                ? playerState.index + 1
+                                : 0,
+                            animate: "right",
+                          });
                         }}
                         className=" h-[32px] min-w-[32px] rounded-full p-0 bg-primary/10 text-primary sm:hover:bg-primary/20"
                       >

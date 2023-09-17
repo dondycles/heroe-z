@@ -7,7 +7,7 @@ export const metadata: Metadata = {
 export default function WebNovel({ children }: { children: React.ReactNode }) {
   return (
     <>
-      <h1 className="mb-3">
+      <h1>
         WEB <span className="text-primary">NOVEL</span>
       </h1>
       {children}

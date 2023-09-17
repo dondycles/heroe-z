@@ -11,7 +11,7 @@ export default function HeroezUniversity({
 }) {
   return (
     <>
-      <h1 className="mb-3">
+      <h1>
         HERO <span className=" text-primary">UNIVERSITY</span>{" "}
       </h1>
       {children}

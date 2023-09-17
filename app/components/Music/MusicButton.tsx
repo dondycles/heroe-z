@@ -1,9 +1,11 @@
 "use client";
 import { Button } from "@nextui-org/react";
+import { AnimatePresence, motion } from "framer-motion";
 import { MdMusicNote, MdMusicOff } from "react-icons/md";
 import { useMusicStore, useThemeStore } from "@/store";
+
 import GlowingBorder from "../Styles/GlowingBorder";
-import { AnimatePresence, motion } from "framer-motion";
+
 export default function MusicButtn() {
   const music = useMusicStore();
   const theme = useThemeStore();

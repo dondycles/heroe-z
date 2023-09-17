@@ -1,50 +1,44 @@
 "use client";
-import { useAnimateStore } from "@/store";
-import { container, item } from "@/transitions";
-import { AnimatePresence, motion } from "framer-motion";
 import { Card, CardFooter } from "@nextui-org/react";
 import Image from "next/image";
+import Scrollable from "@/app/components/Layouts/Scrollable";
+import UL_Grid from "@/app/components/Layouts/Scrollable_UL";
+import Paragraph from "@/app/components/AnimatedTags/Paragraph";
+import List from "@/app/components/AnimatedTags/List";
 export default function Page() {
-  const animate = useAnimateStore();
   return (
-    <AnimatePresence>
-      {animate.mode && (
-        <motion.div
-          variants={container}
-          initial="hidden"
-          animate="visible"
-          exit={{ opacity: 0 }}
-          className=" flex flex-col gap-3 overflow-y-auto overflow-x-hidden h-screen max-h-[calc(100%-44px)] pb-3"
-        >
-          <motion.ul className="grid gap-3 grid-cols-1 sm:grid-cols-2 md:grid-cols-3    ">
-            {Array.from({ length: 100 }, (_: any, i: number) => {
-              return (
-                <motion.li variants={item} key={i}>
-                  <Card
-                    isFooterBlurred
-                    radius="lg"
-                    className="border-none aspect-square"
-                  >
-                    <Image
-                      className="object-cover"
-                      height={1200}
-                      src={`https://picsum.photos/id/${i + i}/1200/1200`}
-                      alt={String(i)}
-                      width={1200}
-                    />
-                    <CardFooter className="justify-center before:bg-white/10 border-white/20 border-1 overflow-hidden py-1 absolute before:rounded-xl rounded-large bottom-1 w-[calc(100%_-_8px)] shadow-small ml-1 z-10">
-                      <p className="text-tiny text-white/80">
-                        <span>{i % 2 === 0 ? "Hero" : "Villain"}</span>
-                        <span className="text-sm font-semibold"> #{i}</span>
-                      </p>
-                    </CardFooter>
-                  </Card>
-                </motion.li>
-              );
-            })}
-          </motion.ul>
-        </motion.div>
-      )}
-    </AnimatePresence>
+    <Scrollable>
+      <Paragraph className="">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus, velit
+        fuga. Qui!
+      </Paragraph>
+      <UL_Grid type="grid">
+        {Array.from({ length: 100 }, (_: any, i: number) => {
+          return (
+            <List className="" key={i}>
+              <Card
+                isFooterBlurred
+                radius="lg"
+                className="border-none aspect-square"
+              >
+                <Image
+                  className="object-cover"
+                  height={1200}
+                  src={`https://picsum.photos/id/${i + i}/1200/1200`}
+                  alt={String(i)}
+                  width={1200}
+                />
+                <CardFooter className="justify-center before:bg-white/10 border-white/20 border-1 overflow-hidden py-1 absolute before:rounded-xl rounded-large bottom-1 w-[calc(100%_-_8px)] shadow-small ml-1 z-10">
+                  <p className="text-tiny text-white/80">
+                    <span>{i % 2 === 0 ? "Hero" : "Villain"}</span>
+                    <span className="text-sm font-semibold"> #{i}</span>
+                  </p>
+                </CardFooter>
+              </Card>
+            </List>
+          );
+        })}
+      </UL_Grid>
+    </Scrollable>
   );
 }

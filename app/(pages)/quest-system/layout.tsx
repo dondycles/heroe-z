@@ -11,7 +11,7 @@ export default function QuestSystem({
 }) {
   return (
     <>
-      <h1 className="mb-3">
+      <h1>
         QUEST <span className=" text-primary">SYSTEM</span>{" "}
       </h1>
       {children}

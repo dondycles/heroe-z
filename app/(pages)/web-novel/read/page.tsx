@@ -1,16 +1,18 @@
 "use client";
 
 import { useSearchParams } from "next/navigation";
-import React, { useEffect, useState } from "react";
 import { Pagination, Button } from "@nextui-org/react";
-import { AnimatePresence, motion } from "framer-motion";
 import { useNavigationStore } from "@/store";
-import Chapter1 from "./Chapter1";
-import Chapter2 from "./Chapter2";
+import { AnimatePresence, motion } from "framer-motion";
+import React, { useEffect, useState } from "react";
 import {
   TbPlayerTrackPrevFilled,
   TbPlayerTrackNextFilled,
 } from "react-icons/tb";
+
+import Chapter1 from "./Chapter1";
+import Chapter2 from "./Chapter2";
+
 export default function ReadChapter() {
   const searchparams = useSearchParams();
   const navigation = useNavigationStore();
@@ -18,7 +20,7 @@ export default function ReadChapter() {
   const [currentPage, setCurrentPage] = useState<number>(
     Number(searchparams.get("chapter"))
   );
-  let chapters = [
+  const chapters = [
     {
       chapter: (
         <motion.div>
@@ -31,11 +33,6 @@ export default function ReadChapter() {
   ];
 
   useEffect(() => {
-    if (!searchparams.get("chapter"))
-      return navigation.setWillNavigateTo("/web-novel");
-    setIsMounted(true);
-  }, []);
-  useEffect(() => {
     if (!isMounted) return;
     window.history.pushState(
       null,
@@ -43,6 +40,12 @@ export default function ReadChapter() {
       `?chapter=${currentPage}`
     );
   }, [currentPage]);
+
+  useEffect(() => {
+    if (!searchparams.get("chapter"))
+      return navigation.setWillNavigateTo("/web-novel");
+    setIsMounted(true);
+  }, []);
 
   if (searchparams.get("chapter"))
     return (
@@ -95,7 +98,6 @@ export default function ReadChapter() {
                 }`,
               }}
             />
-
             <Button
               className="bg-primary/10 text-primary"
               size="sm"
