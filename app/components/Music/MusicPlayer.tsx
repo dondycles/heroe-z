@@ -224,6 +224,7 @@ export default function MusicPlayer() {
           >
             <GlowingBorder />
 
+            {/* //* Background Art */}
             <AnimatePresence>
               <motion.div
                 key={tracks[playerState.index].title}
@@ -249,6 +250,7 @@ export default function MusicPlayer() {
               </motion.div>
             </AnimatePresence>
 
+            {/* //* Art for Desktop View*/}
             <div
               className={`bg-transparent h-[100px]  aspect-square rounded-lg overflow-hidden hidden sm:block relative z-[2]`}
             >
@@ -276,6 +278,7 @@ export default function MusicPlayer() {
                 ref={controls}
                 className="flex flex-col-reverse flex-1 gap-1 sm:flex-col sm:gap-3 "
               >
+                {/* //* Music Title */}
                 <Marquee
                   className="h-[16px] overflow-hidden"
                   speed={35}
@@ -288,6 +291,7 @@ export default function MusicPlayer() {
                   </span>
                 </Marquee>
                 <div className="flex flex-row flex-1 gap-3">
+                  {/* //* Art For Mobile View */}
                   <div
                     className={`bg-black h-[64px] aspect-square rounded-lg overflow-hidden block sm:hidden`}
                   >
@@ -298,6 +302,7 @@ export default function MusicPlayer() {
                     />
                   </div>
                   <div className="flex flex-col flex-1">
+                    {/* //*Progress */}
                     {audio.current && (
                       <div className="flex items-center gap-2 text-white ">
                         <p className="text-xs font-extralight">
@@ -321,6 +326,7 @@ export default function MusicPlayer() {
                         </p>
                       </div>
                     )}
+                    {/* //* Controls */}
                     <div className="flex flex-row items-center justify-center h-full gap-3 ">
                       <Button
                         onClick={() => {
@@ -372,8 +378,6 @@ export default function MusicPlayer() {
                       </Button>
                       <Button
                         onClick={() => {
-                          // audio.current!.currentTime = 180;
-
                           setPlayerState({
                             ...playerState,
                             index:
@@ -391,6 +395,7 @@ export default function MusicPlayer() {
                   </div>
                 </div>
               </div>
+              {/* //* Volume Bar */}
               <div
                 ref={volumeBar}
                 onDrag={(e) => {

@@ -18,7 +18,7 @@ export default function MusicButtn() {
           animate={{ opacity: 1, scale: 1 }}
           exit={{ opacity: 0, scale: 0 }}
           transition={{ type: "spring" }}
-          className={` bottom-6 fixed left-6 md:left-12 lg:left-24 xl:left-36 2xl:left-48 z-[21]`}
+          className={`bottom-6 fixed left-6 md:left-12 lg:left-24 xl:left-36 2xl:left-48 z-[21]`}
         >
           <Button
             onClick={() => {

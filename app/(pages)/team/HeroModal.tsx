@@ -14,6 +14,7 @@ import rethinkable from "@/public/images/icons/rethinkable.ico";
 
 import { TeamData } from "./hero-data";
 import { Chip, Divider } from "@nextui-org/react";
+import GlowingBorder from "@/app/components/Styles/GlowingBorder";
 
 type HeroModalTypes = {
   showModal: boolean;
@@ -48,18 +49,15 @@ export default function HeroModal({
               }
               `}
       >
-        <div className="absolute top-0 left-0 bottom-0 right-0">
-          <div
-            key={"glowingborder"}
-            className={`absolute bg-gradient-to-b blur-lg from-primary via-transparent to-primary top-[0dvh] left-[-350px] translate-x-[-50%] translate-y-[-50%]   aspect-square w-auto h-[100dvh] object-center  z-[-1] rotationalpanelborder duration-[2000ms] pointer-events-none `}
-          />
+        <div className="absolute top-0 bottom-0 left-0 right-0">
+          <GlowingBorder />
         </div>
         <div
           className={`absolute top-[12px] left-[12px] right-[12px] bottom-[12px] z-10 overflow-y-auto overflow-x-hidden rounded-xl`}
         >
           <div
             onClick={(e) => e.stopPropagation()}
-            className=" rounded-xl flex gap-3 flex-col"
+            className="flex flex-col gap-3 rounded-xl"
           >
             <Image
               src={team[heroIndexToShow].img}
@@ -67,14 +65,14 @@ export default function HeroModal({
               placeholder="blur"
               quality={100}
               priority
-              className="rounded-xl w-full h-auto object-cover"
+              className="object-cover w-full h-auto rounded-xl"
             />
             <div>
-              <p className="font-montserrat text-primary text-2xl">
+              <p className="text-2xl font-montserrat text-primary">
                 {team[heroIndexToShow].name}
               </p>
               {team[heroIndexToShow].moto && (
-                <p className=" text-warning italic text-sm">
+                <p className="text-sm italic text-warning">
                   "{team[heroIndexToShow].moto}"
                 </p>
               )}
@@ -114,7 +112,7 @@ export default function HeroModal({
               <>
                 <Divider className="" />
 
-                <div className=" flex flex-wrap items-center gap-1">
+                <div className="flex flex-wrap items-center gap-1 ">
                   <p>Communities:</p>
 
                   {team[heroIndexToShow].communities?.map((community) => {
@@ -136,14 +134,14 @@ export default function HeroModal({
             {team[heroIndexToShow].socials && (
               <>
                 <Divider className="" />
-                <div className=" flex flex-wrap gap-1 items-center">
+                <div className="flex flex-wrap items-center gap-1 ">
                   {team[heroIndexToShow].socials?.map((social) => {
                     return (
                       <Link
                         key={social.link}
                         target="_blank"
                         href={social.link}
-                        className="p-2 bg-content2/10 rounded-xl text-xl"
+                        className="p-2 text-xl bg-content2/10 rounded-xl"
                       >
                         {social.type === "x" && (
                           <span className=" text-content2">
@@ -151,27 +149,27 @@ export default function HeroModal({
                           </span>
                         )}
                         {social.type === "dc" && (
-                          <span className=" text-indigo-500">
+                          <span className="text-indigo-500 ">
                             <FaDiscord />
                           </span>
                         )}
                         {social.type === "fb" && (
-                          <span className=" text-blue-500">
+                          <span className="text-blue-500 ">
                             <FaFacebookF />
                           </span>
                         )}
                         {social.type === "ig" && (
-                          <span className=" text-pink-500 ">
+                          <span className="text-pink-500 ">
                             <FaInstagram />
                           </span>
                         )}
                         {social.type === "tt" && (
-                          <span className=" text-fuchsia-500 ">
+                          <span className=" text-fuchsia-500">
                             <FaTiktok />
                           </span>
                         )}
                         {social.type === "yt" && (
-                          <span className=" text-red-500">
+                          <span className="text-red-500 ">
                             <FaYoutube />
                           </span>
                         )}
