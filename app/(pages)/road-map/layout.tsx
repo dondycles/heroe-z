@@ -3,6 +3,7 @@ export const metadata: Metadata = {
   title: "HeroeZ | Road Map",
   description: "Heroes in 6th Dimension.",
 };
+
 export default function RoadMap({ children }: { children: React.ReactNode }) {
   return (
     <>

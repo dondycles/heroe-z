@@ -9,12 +9,7 @@ export default function Chapter1() {
   const animate = useAnimateStore();
   return (
     <AnimatePresence>
-      <motion.h1
-        initial={{ x: 10 }}
-        animate={{ x: 0 }}
-        exit={{ x: 10 }}
-        className="mb-3"
-      >
+      <motion.h1 initial={{ x: 10 }} animate={{ x: 0 }} exit={{ x: 10 }}>
         CHAPTER <span className="text-primary">1</span>
       </motion.h1>
       {animate.mode && (
@@ -28,7 +23,7 @@ export default function Chapter1() {
         >
           <motion.h2
             variants={item}
-            className="font-montserrat text-primary text-lg"
+            className="text-lg font-montserrat text-primary"
           >
             TO AETHEREA
           </motion.h2>
@@ -339,7 +334,7 @@ export default function Chapter1() {
           <Divider />
           <motion.h2
             variants={item}
-            className="font-montserrat text-primary text-lg"
+            className="text-lg font-montserrat text-primary"
           >
             HAO YUA
           </motion.h2>

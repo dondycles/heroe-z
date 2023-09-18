@@ -3,6 +3,7 @@ export const metadata: Metadata = {
   title: "HeroeZ | Studio Z",
   description: "Heroes in 6th Dimension.",
 };
+
 export default function StudioZ({ children }: { children: React.ReactNode }) {
   return (
     <>

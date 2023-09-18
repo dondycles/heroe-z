@@ -5,18 +5,18 @@ import { Link } from "@nextui-org/react";
 export default function Page() {
   return (
     <Scrollable>
-      <Paragraph className="">
+      <Paragraph>
         Claiming of Hero license is not yet available. This feature will be
         unlocked in future events.
       </Paragraph>
-      <Paragraph className=" text-warning ">
+      <Paragraph className=" text-warning">
         (Please check the{" "}
         <Link underline="always" href="/updates" className="text-primaryblue">
           updates
         </Link>{" "}
         section for announcements, stay tune.)
       </Paragraph>
-      <Paragraph className="">
+      <Paragraph>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. A beatae dolor
         atque corporis, deserunt nam molestiae ab? Commodi non autem nulla minus
         nisi porro facilis incidunt repellat officiis expedita fugit placeat, ur

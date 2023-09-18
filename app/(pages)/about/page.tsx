@@ -1,13 +1,12 @@
 "use client";
 import Paragraph from "@/app/components/AnimatedTags/Paragraph";
 import Scrollable from "@/app/components/Layouts/Scrollable";
+
 export default function Page() {
   return (
     <Scrollable>
-      <Paragraph className="">
-        Lorem ipsum dolor sit amet consectetur.
-      </Paragraph>
-      <Paragraph className="">
+      <Paragraph>Lorem ipsum dolor sit amet consectetur.</Paragraph>
+      <Paragraph>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi dolores
         molestiae, natus rerum optio ad eum facilis labore saepe illo nostrum
         odio dolor officia quis inventore nisi corporis distinctio deleniti.

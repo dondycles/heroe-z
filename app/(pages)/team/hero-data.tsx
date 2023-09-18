@@ -3,6 +3,7 @@ import JovzkyAnimation from "@/public/images/team/JovzkyAnimation.webp";
 import EscoCobarseth from "@/public/images/team/EscoCobarseth.webp";
 import xJudaseth from "@/public/images/team/xJudaseth.webp";
 import Fonso from "@/public/images/team/Fonso.webp";
+
 export const TeamData = [
   {
     name: "Kazma",

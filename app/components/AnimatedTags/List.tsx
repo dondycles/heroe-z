@@ -1,12 +1,11 @@
-import { Key } from "react";
+import { HTMLAttributes, Key } from "react";
 import { item } from "@/transitions";
 import { motion } from "framer-motion";
 
-type ListTypes = {
+interface ListTypes extends HTMLAttributes<HTMLLIElement> {
   children: React.ReactNode;
   key: Key;
-  className: string | undefined;
-};
+}
 
 export default function List({ children, key, className }: ListTypes) {
   return (

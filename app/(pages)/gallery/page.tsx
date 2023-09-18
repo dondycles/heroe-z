@@ -1,14 +1,16 @@
 "use client";
-import { Card, CardFooter } from "@nextui-org/react";
+import List from "@/app/components/AnimatedTags/List";
 import Image from "next/image";
-import Scrollable from "@/app/components/Layouts/Scrollable";
 import UL_Grid from "@/app/components/Layouts/Scrollable_UL";
 import Paragraph from "@/app/components/AnimatedTags/Paragraph";
-import List from "@/app/components/AnimatedTags/List";
+import Scrollable from "@/app/components/Layouts/Scrollable";
+
+import { Card, CardFooter } from "@nextui-org/react";
+
 export default function Page() {
   return (
     <Scrollable>
-      <Paragraph className="">
+      <Paragraph className="text-black">
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus, velit
         fuga. Qui!
       </Paragraph>

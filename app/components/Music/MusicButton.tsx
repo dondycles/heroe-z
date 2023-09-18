@@ -18,14 +18,14 @@ export default function MusicButtn() {
           animate={{ opacity: 1, scale: 1 }}
           exit={{ opacity: 0, scale: 0 }}
           transition={{ type: "spring" }}
-          className={`fixed bottom-6 left-6 md:left-12 lg:left-24 xl:left-36 2xl:left-48 z-[21]`}
+          className={` bottom-6 fixed left-6 md:left-12 lg:left-24 xl:left-36 2xl:left-48 z-[21]`}
         >
           <Button
             onClick={() => {
               music.setShowPlayer(!music.showPlayer);
               music.setPlayMusic(true);
             }}
-            className={`  rounded-full text-xl p-0 h-[32px] min-w-[32px] aspect-square glowing-border after:rounded-full after:bg-background/80 ${
+            className={` rounded-full text-xl p-0 h-[32px] min-w-[32px] aspect-square glowing-border after:rounded-full after:bg-background/80 ${
               music.showPlayer
                 ? "bg-primary after:bg-primary sm:hover:after:bg-transparent text-content1 sm:hover:bg-primary/10 sm:hover:text-primary"
                 : "text-primary bg-primary/10 sm:hover:after:bg-transparent"

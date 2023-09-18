@@ -8,12 +8,12 @@ export default function Scrollable_UL({
   return (
     <>
       {type === "flex" && (
-        <ul className="flex-1 overflow-y-auto overflow-x-hidden flex flex-col gap-3 rounded-xl pb-12 ">
+        <ul className="flex flex-col flex-1 gap-3 pb-12 overflow-x-hidden overflow-y-auto rounded-xl ">
           {children}
         </ul>
       )}
       {type === "grid" && (
-        <ul className="grid gap-3 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 overflow-y-auto overflow-x-hidden rounded-xl pb-12">
+        <ul className="grid grid-cols-1 gap-3 pb-12 overflow-x-hidden overflow-y-auto sm:grid-cols-2 md:grid-cols-3 rounded-xl">
           {children}
         </ul>
       )}

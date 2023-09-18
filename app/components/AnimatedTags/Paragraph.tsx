@@ -1,14 +1,14 @@
 import { item } from "@/transitions";
 import { motion } from "framer-motion";
+import { HTMLAttributes } from "react";
 
-type ParagraphTypes = {
+interface ParagraphTypes extends HTMLAttributes<HTMLParagraphElement> {
   children: React.ReactNode;
-  className: string | "";
-};
+}
 
-export default function Paragraph({ children, className }: ParagraphTypes) {
+export default function Paragraph({ className, children }: ParagraphTypes) {
   return (
-    <motion.p className={className} variants={item}>
+    <motion.p className={"" + className} variants={item}>
       {children}
     </motion.p>
   );

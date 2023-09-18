@@ -59,7 +59,7 @@ export default function ReadChapter() {
         {currentPage !== 0 && (
           <motion.div
             layout
-            className="flex gap-2 w-full justify-center items-center mt-3"
+            className="flex items-center justify-center w-full gap-2 mt-3"
           >
             <Button
               className="bg-primary/10 text-primary"
@@ -67,11 +67,6 @@ export default function ReadChapter() {
               variant="flat"
               onPress={() => {
                 setCurrentPage((prev: number) => (prev > 1 ? prev - 1 : prev));
-                // window.history.pushState(
-                //   null,
-                //   "/web-novel/read",
-                //   `?chapter=${currentPage}`
-                // );
               }}
             >
               <TbPlayerTrackPrevFilled />

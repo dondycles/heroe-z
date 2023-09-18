@@ -9,12 +9,7 @@ export default function Chapter2() {
   const animate = useAnimateStore();
   return (
     <AnimatePresence>
-      <motion.h1
-        initial={{ x: 10 }}
-        animate={{ x: 0 }}
-        exit={{ x: 10 }}
-        className="mb-3"
-      >
+      <motion.h1 initial={{ x: 10 }} animate={{ x: 0 }} exit={{ x: 10 }}>
         CHAPTER <span className="text-primary">2</span>
       </motion.h1>
       {animate.mode && (
@@ -24,11 +19,11 @@ export default function Chapter2() {
           initial="hidden"
           animate="visible"
           exit={{ opacity: 0 }}
-          className=" flex flex-col gap-3 overflow-y-auto overflow-x-hidden h-screen max-h-full"
+          className="flex flex-col h-screen max-h-full gap-3 overflow-x-hidden overflow-y-auto "
         >
           <motion.h2
             variants={item}
-            className="font-montserrat text-primary text-lg"
+            className="text-lg font-montserrat text-primary"
           >
             ALEXIEL REIDHART
           </motion.h2>
@@ -362,7 +357,7 @@ export default function Chapter2() {
           //!!Part 2
           <motion.h2
             variants={item}
-            className="font-montserrat text-primary text-lg"
+            className="text-lg font-montserrat text-primary"
           >
             DAILY REAPER LIFE
           </motion.h2>
@@ -706,7 +701,7 @@ export default function Chapter2() {
           <Divider />
           <motion.h2
             variants={item}
-            className="font-montserrat text-primary text-lg"
+            className="text-lg font-montserrat text-primary"
           >
             FATEFUL DAY
           </motion.h2>

@@ -19,9 +19,7 @@ export default function Page() {
 
   return (
     <Scrollable>
-      <Paragraph className="">
-        Meet the Founding heroes behind this epic journey
-      </Paragraph>
+      <Paragraph>Meet the Founding heroes behind this epic journey</Paragraph>
       <UL_Grid type="grid">
         {team.map((hero, i) => {
           return (
@@ -59,7 +57,7 @@ export default function Page() {
         })}
         <List
           key="motioncabin"
-          className="mb-0 text-xs font-thin mt-auto text-warning text-center bg-black"
+          className="mt-auto mb-0 text-xs font-thin text-center bg-black text-warning"
         >
           Powered by : Motion Cabin
         </List>

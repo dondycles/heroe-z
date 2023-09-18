@@ -1,13 +1,11 @@
 "use client";
-import { item } from "@/transitions";
-import { motion } from "framer-motion";
 import { Link } from "@nextui-org/react";
 import Scrollable from "@/app/components/Layouts/Scrollable";
 import Paragraph from "@/app/components/AnimatedTags/Paragraph";
 export default function Page() {
   return (
     <Scrollable>
-      <Paragraph className="">
+      <Paragraph>
         Claiming of Hero license is not yet available. This feature will be
         unlocked in future events.
       </Paragraph>
@@ -18,7 +16,7 @@ export default function Page() {
         </Link>{" "}
         section for announcements, stay tune.)
       </Paragraph>
-      <Paragraph className="">
+      <Paragraph>
         Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sit, illo id
         nemo sint expedita dignissimos adipisci quas quod impedit commodi magni
         repudiandae accusamus nihil ut natus voluptatum quasi cumque rum unde
@@ -29,7 +27,7 @@ export default function Page() {
         dignissimosrecusandae fugiat harum blanditiis explicabo illo ducimus
         sunt facilis. Quo, dolore.
       </Paragraph>
-      <Paragraph className="">
+      <Paragraph>
         Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sit, illo id
         nemo sint expedita dignissimos adipisci quas quod impedit commodi magni
         repudiandae accusamus nihil ut natus voluptatum quasi cumque rum unde
@@ -40,7 +38,7 @@ export default function Page() {
         dignissimosrecusandae fugiat harum blanditiis explicabo illo ducimus
         sunt facilis. Quo, dolore.
       </Paragraph>
-      <Paragraph className="">
+      <Paragraph>
         Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sit, illo id
         nemo sint expedita dignissimos adipisci quas quod impedit commodi magni
         repudiandae accusamus nihil ut natus voluptatum quasi cumque rum unde
