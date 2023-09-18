@@ -83,7 +83,7 @@ export default function MusicPlayer() {
   };
 
   const playAndStopMusic = () => {
-    if (!hydrate) return; // ?
+    if (!hydrate) return; // ? This function will only go if ALREADY mounted
 
     if (playerState.play) {
       setPlayerState({ ...playerState, stop: false });
@@ -109,7 +109,8 @@ export default function MusicPlayer() {
   };
 
   const resetAndPlayNextMusic = () => {
-    if (!hydrate) return;
+    if (!hydrate) return; // ? This function will only go if ALREADY mounted
+
     setPlayerState({
       ...playerState,
       play: true,
@@ -157,8 +158,10 @@ export default function MusicPlayer() {
   }, [cycled]);
 
   useEffect(() => {
-    setHydrate(true);
-    setVolume(playerState.volume);
+    setVolume(playerState.volume); //? playerState.volume is 0.5 at default
+    setTimeout(() => {
+      setHydrate(true); //? This is to trigger the functions that would only when hydrated or mounted
+    }, 500);
   }, []);
 
   return (
@@ -212,14 +215,12 @@ export default function MusicPlayer() {
             onClick={(e) => {
               e.stopPropagation();
             }}
-            className={`h-screen max-h-[104px] sm:max-h-[124px] w-screen max-w-full sm:max-w-[400px] rounded-xl p-3  flex flex-row gap-3 backdrop-blur-lg  glowing-border overflow-hidden after:bg-transparent
-      ${
-        theme.mode === "dark"
-          ? " shadow-[0_0_20px_#ff444466]"
-          : " shadow-[0_0_20px_#0099ff66]"
-      }
-        
-        `}
+            className={`h-screen max-h-[104px] sm:max-h-[124px] w-screen max-w-full sm:max-w-[400px] rounded-xl p-3  flex flex-row gap-3 backdrop-blur-lg  glowing-border overflow-hidden after:bg-transparent 
+            ${
+              theme.mode === "dark"
+                ? " shadow-[0_0_20px_#ff444466]"
+                : " shadow-[0_0_20px_#0099ff66]"
+            }`}
           >
             <GlowingBorder />
 
