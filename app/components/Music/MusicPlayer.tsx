@@ -19,9 +19,17 @@ type PlayerStateTypes = {
   play: boolean;
   stop: boolean;
   index: number;
+  volume: number;
   animate: "left" | "right" | undefined;
+  progress: { time: { min: number; sec: number }; bar: number };
 };
 export default function MusicPlayer() {
+  const [cycled, setCycled] = useState(false);
+  const [hydrate, setHydrate] = useState(false);
+  const [hasInteracted, setHasInteracted] = useState(false);
+
+  const tracks = MusicData;
+
   const playerGlobalState = useMusicStore();
   const theme = useThemeStore();
 
@@ -34,81 +42,110 @@ export default function MusicPlayer() {
     stop: false,
     index: 0,
     animate: undefined,
+    volume: 0.5,
+    progress: { time: { min: 0, sec: 0 }, bar: 0 },
   });
 
-  const [cycled, setCycled] = useState(false);
-  const [hydrate, setHydrate] = useState(false);
-  const [volumeThumb, setVolumeThumb] = useState<number | null>(null);
-  const [hasInteracted, setHasInteracted] = useState(false);
-  const [audioDuration, setAudioDuration] = useState({ min: 0, sec: 0 });
-  const [audioCurrentTime, setAudioCurrentTime] = useState({ min: 0, sec: 0 });
-  const [progressBarValue, setProgressBarValue] = useState(0);
-
-  const tracks = MusicData;
   const updateTimeAndProgress = () => {
-    setProgressBarValue(
-      Math.floor(
-        (Math.trunc(audio.current!.currentTime) * 100) / audio.current!.duration
-      )
-    );
-    setAudioCurrentTime({
-      min: Math.trunc(audio.current!.currentTime / 60),
-      sec:
-        Math.trunc(audio.current!.currentTime / 60) === 0
-          ? Math.trunc(audio.current!.currentTime % 60)
-          : Math.trunc(
-              audio.current!.currentTime %
-                (60 * Math.trunc(audio.current!.currentTime / 60))
-            ),
+    setPlayerState({
+      ...playerState,
+      progress: {
+        bar: Math.floor(
+          (Math.trunc(audio.current!.currentTime) * 100) /
+            audio.current!.duration
+        ),
+        time: {
+          min: Math.trunc(audio.current!.currentTime / 60),
+          sec:
+            Math.trunc(audio.current!.currentTime / 60) === 0
+              ? Math.trunc(audio.current!.currentTime % 60)
+              : Math.trunc(
+                  audio.current!.currentTime %
+                    (60 * Math.trunc(audio.current!.currentTime / 60))
+                ),
+        },
+      },
     });
   };
 
-  useEffect(() => {
-    if (!hydrate) return;
+  const playMusicOnMusicButtonClick = () => {
+    // ? this is to play music at very moment MusicButton is clicked for the first time
+    // ? hasInteracted is false at first render
+    // ? but if the MusicButtn is pressed for the very first time, hasInteract will become true and this function will not work again unless browser is reloaded
+
+    if (!hasInteracted && playerGlobalState.playMusic) {
+      setPlayerState({ ...playerState, play: true });
+      setHasInteracted(false);
+      setTimeout(() => {
+        setHasInteracted(true);
+      }, 100);
+    }
+  };
+
+  const playAndStopMusic = () => {
+    if (!hydrate) return; // ?
+
     if (playerState.play) {
       setPlayerState({ ...playerState, stop: false });
       audio.current!.play();
-      setTimeout(() => {
-        setAudioDuration({
-          min: Math.trunc(audio.current!.duration / 60),
-          sec: Math.trunc(
-            audio.current!.duration %
-              (60 * Math.trunc(audio.current!.duration / 60))
-          ),
-        });
-      }, 50);
     } else {
       audio.current!.pause();
       if (playerState.stop) {
         audio.current!.currentTime = 0;
-        setProgressBarValue(0);
-        setAudioCurrentTime({ min: 0, sec: 0 });
+        setPlayerState({
+          ...playerState,
+          progress: {
+            bar: 0,
+            time: {
+              min: 0,
+              sec: 0,
+            },
+          },
+        });
       }
     }
+
     playerGlobalState.setPlayMusic(playerState.play);
+  };
+
+  const resetAndPlayNextMusic = () => {
+    if (!hydrate) return;
+    setPlayerState({
+      ...playerState,
+      play: true,
+      stop: false,
+      progress: {
+        bar: 0,
+        time: {
+          min: 0,
+          sec: 0,
+        },
+      },
+    });
+    setTimeout(() => {
+      audio.current!.play();
+    }, 500);
+  };
+
+  const setVolume = (value: any) => {
+    audio.current!.volume = value;
+  };
+
+  useEffect(() => {
+    playAndStopMusic();
   }, [playerState.play]);
 
   useEffect(() => {
-    if (!hydrate) return;
-    setPlayerState({ ...playerState, play: true });
-    setPlayerState({ ...playerState, stop: false });
-    setProgressBarValue(0);
-    setAudioCurrentTime({ min: 0, sec: 0 });
-    setTimeout(() => {
-      audio.current!.play();
-      setAudioDuration({
-        min: Math.trunc(audio.current!.duration / 60),
-        sec: Math.trunc(
-          audio.current!.duration %
-            (60 * Math.trunc(audio.current!.duration / 60))
-        ),
-      });
-    }, 500);
+    resetAndPlayNextMusic();
   }, [playerState.index]);
 
   useEffect(() => {
-    audio.current!.volume = Number(volumeThumb) / 100;
-  }, [volumeThumb]);
+    playMusicOnMusicButtonClick();
+  }, [playerGlobalState.playMusic]);
+
+  useEffect(() => {
+    setVolume(Number(playerState.volume) / 100);
+  }, [playerState.volume]);
 
   useEffect(() => {
     const timeout = setTimeout(() => {
@@ -120,20 +157,10 @@ export default function MusicPlayer() {
   }, [cycled]);
 
   useEffect(() => {
-    if (!hasInteracted && playerGlobalState.playMusic) {
-      setPlayerState({ ...playerState, play: true });
-      setHasInteracted(false);
-      setTimeout(() => {
-        setHasInteracted(true);
-      }, 100);
-    }
-  }, [playerGlobalState.playMusic]);
-
-  useEffect(() => {
     setHydrate(true);
-
-    audio.current!.volume = 0.5;
+    setVolume(playerState.volume);
   }, []);
+
   return (
     <motion.div
       onClick={() => {
@@ -230,12 +257,12 @@ export default function MusicPlayer() {
                   initial={{ opacity: 0, translateX: "20px" }}
                   animate={{ opacity: 1, translateX: "0px" }}
                   exit={{ opacity: 0, translateX: "20px" }}
-                  className="absolute top-0 left-0 h-full w-full"
+                  className="absolute top-0 left-0 w-full h-full"
                 >
                   <Image
                     src={tracks[playerState.index].art}
                     alt={tracks[playerState.index].title}
-                    className="w-full h-full object-cover"
+                    className="object-cover w-full h-full"
                     quality={50}
                     placeholder="blur"
                   />
@@ -246,7 +273,7 @@ export default function MusicPlayer() {
             <div className="flex flex-row gap-3 flex-1  z-[2]">
               <div
                 ref={controls}
-                className="flex flex-1 flex-col-reverse sm:flex-col gap-1 sm:gap-3 "
+                className="flex flex-col-reverse flex-1 gap-1 sm:flex-col sm:gap-3 "
               >
                 <Marquee
                   className="h-[16px] overflow-hidden"
@@ -255,28 +282,28 @@ export default function MusicPlayer() {
                   pauseOnClick
                   pauseOnHover
                 >
-                  <span className="text-primary text-sm sm:text-base leading-none  sm:font-montserrat flex-1 mr-3">
+                  <span className="flex-1 mr-3 text-sm leading-none text-primary sm:text-base sm:font-montserrat">
                     {tracks[playerState.index].title}
                   </span>
                 </Marquee>
-                <div className="flex gap-3 flex-row flex-1">
+                <div className="flex flex-row flex-1 gap-3">
                   <div
                     className={`bg-black h-[64px] aspect-square rounded-lg overflow-hidden block sm:hidden`}
                   >
                     <Image
                       src={tracks[playerState.index].art}
                       alt={tracks[playerState.index].title}
-                      className="w-full h-full object-cover"
+                      className="object-cover w-full h-full"
                     />
                   </div>
                   <div className="flex flex-col flex-1">
                     {audio.current && (
                       <div className="flex items-center gap-2 text-white ">
-                        <p className="font-extralight  text-xs">
-                          0{audioCurrentTime.min}:
-                          {audioCurrentTime.sec < 10
-                            ? "0" + audioCurrentTime.sec
-                            : audioCurrentTime.sec}
+                        <p className="text-xs font-extralight">
+                          0{playerState.progress.time.min}:
+                          {playerState.progress.time.sec < 10
+                            ? "0" + playerState.progress.time.sec
+                            : playerState.progress.time.sec}
                         </p>
                         <Progress
                           aria-label="Music Progress Bar"
@@ -286,17 +313,14 @@ export default function MusicPlayer() {
                               "bg-primary/10  outline outline-[1px] outline-primary",
                           }}
                           size="sm"
-                          value={progressBarValue}
+                          value={playerState.progress.bar}
                         />
-                        <p className="font-extralight  text-xs">
-                          0{audioDuration.min}:
-                          {audioDuration.sec < 10
-                            ? "0" + audioDuration.sec
-                            : audioDuration.sec}
+                        <p className="text-xs font-extralight">
+                          {tracks[playerState.index].duration}
                         </p>
                       </div>
                     )}
-                    <div className="flex flex-row items-center h-full justify-center gap-3 ">
+                    <div className="flex flex-row items-center justify-center h-full gap-3 ">
                       <Button
                         onClick={() => {
                           setPlayerState({
@@ -368,15 +392,27 @@ export default function MusicPlayer() {
               </div>
               <div
                 ref={volumeBar}
-                onDoubleClickCapture={() => console.log("ano")}
+                onDrag={(e) => {
+                  if (!volumeBar.current || !controls.current) return;
+                  setPlayerState({
+                    ...playerState,
+                    volume:
+                      ((volumeBar.current.getBoundingClientRect().bottom -
+                        e.clientY) /
+                        controls.current.clientHeight) *
+                      100,
+                  });
+                }}
                 onClick={(e) => {
                   if (!volumeBar.current || !controls.current) return;
-                  setVolumeThumb(
-                    ((volumeBar.current.getBoundingClientRect().bottom -
-                      e.clientY) /
-                      controls.current.clientHeight) *
-                      100
-                  );
+                  setPlayerState({
+                    ...playerState,
+                    volume:
+                      ((volumeBar.current.getBoundingClientRect().bottom -
+                        e.clientY) /
+                        controls.current.clientHeight) *
+                      100,
+                  });
                 }}
                 className="w-[6px]  bg-primary/10 outline outline-[1px] outline-primary flex items-end rounded-full cursor-pointer "
                 style={{
@@ -387,12 +423,12 @@ export default function MusicPlayer() {
               >
                 <div
                   style={{
-                    height: volumeThumb == null ? "50%" : volumeThumb + "%",
+                    height: audio.current!.volume * 100 + "%",
                     maxHeight: controls.current
                       ? controls.current!.clientHeight + "px"
                       : "100%",
                   }}
-                  className={`w-[6px] bg-primary rounded-full `}
+                  className={`w-[6px] bg-primary rounded-full`}
                 />
               </div>
             </div>
