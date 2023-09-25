@@ -3,11 +3,11 @@ import Image from "next/image";
 import lgwallpaperdark from "@/public/images/wallpaper/lg-dark-wallpaper.webp";
 // import smwallpaperdark from "@/public/sm-dark-wallpaper.webp";
 import lgwallpaper from "@/public/images/wallpaper/lg-wallpaper.webp";
-import smwallpaper from "@/public/images/wallpaper/sm-wallpaper.webp";
+// import smwallpaper from "@/public/images/wallpaper/sm-wallpaper.webp";
 import { useEffect, useRef, useState } from "react";
 import { useThemeStore } from "@/store";
 import { AnimatePresence, motion } from "framer-motion";
-import logogif from "@/public/images/wallpaper/logo.gif";
+import circularlogo from "@/public/images/wallpaper/circular-logo.webp";
 
 export default function Wallpaper() {
   const theme = useThemeStore();
@@ -37,29 +37,32 @@ export default function Wallpaper() {
   }, []);
 
   return (
-    <div className="fixed top-0 bottom-0 left-0 right-0 w-screen h-screen z-[-1]">
+    <div className="fixed top-0 bottom-0 left-0 right-0 w-screen h-screen z-[-1] bg-background ">
       <AnimatePresence>
-        {theme.mode === "light" ? (
-          <motion.picture
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            key={"lightmode"}
-            className="w-full h-full flex"
-          >
-            {windowSize.width > 620 ? (
-              <Image
-                key={"lgwallpaper"}
-                className="object-cover"
-                src={lgwallpaper}
-                alt="HeroeZ"
-                placeholder="blur"
-                quality={100}
-                priority
-                width={8000}
-                height={4500}
-              />
-            ) : (
+        {/* {windowSize.width > 620 ? ( */}
+        <Image
+          key={"lgwallpaper"}
+          className={` absolute top-0 left-0 w-full h-full object-cover duration-300 ${
+            theme.mode === "dark" ? "opacity-0" : "opacity-100"
+          }`}
+          src={lgwallpaper}
+          alt="HeroeZ"
+          placeholder="blur"
+          quality={100}
+          priority
+        />
+        <Image
+          key={"lgwallpaperdark"}
+          className={` absolute top-0 left-0 w-full h-full object-cover duration-300 ${
+            theme.mode === "light" ? "opacity-0" : "opacity-100"
+          }`}
+          src={lgwallpaperdark}
+          placeholder="blur"
+          alt="HeroeZ"
+          quality={100}
+          priority
+        />
+        {/*) : (
               <Image
                 key={"smwallpaper"}
                 className="fixed top-0 left-0 w-screen h-screen object-cover"
@@ -70,48 +73,17 @@ export default function Wallpaper() {
                 priority
               />
             )}
-          </motion.picture>
-        ) : (
-          <motion.picture
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            key={"darkmode"}
-            className="w-full h-full flex"
-          >
-            {/* {windowSize.width > 620 ? ( */}
-            <Image
-              key={"lgwallpaperdark"}
-              className="object-cover"
-              src={lgwallpaperdark}
-              placeholder="blur"
-              alt="HeroeZ"
-              quality={100}
-              width={8000}
-              height={4500}
-              priority
-            />
-            {/* ) : (
-              <Image
-                key={"smwallpaperdark"}
-                className="fixed top-0 left-0 w-screen h-screen object-cover"
-                src={lgwallpaperdark}
-                placeholder="blur"
-                alt="HeroeZ"
-                quality={100}
-                priority
-              />
-            )} */}
-          </motion.picture>
-        )}
+           */}
       </AnimatePresence>
-      <div className="fixed top-0 left-0 z-[-1] h-screen w-screen bg-background">
+      <div className="fixed top-0 left-0 h-full w-full z-[-1] spin-slow">
         <Image
-          className="w-full h-full object-cover scale-150"
-          alt="Logo GIF"
-          src={logogif.src}
-          fill
+          priority
+          quality={50}
+          src={circularlogo}
           placeholder="blur"
+          alt="Circular Logo"
+          fill
+          className="w-full h-full object-cover sm:object-contain"
         />
       </div>
     </div>

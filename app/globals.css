@@ -42,3 +42,13 @@ p {
     transform: rotate(360deg);
   }
 }
+
+.spin-slow {
+  animation: spin-slow 32s linear infinite;
+}
+
+@keyframes spin-slow {
+  to {
+    transform: rotate(-360deg);
+  }
+}

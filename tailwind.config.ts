@@ -35,7 +35,7 @@ const config: Config = {
           colors: {
             secondary: "#11bbff",
             primary: "#e11d48",
-            background: "#1d1d1d",
+            background: "#0d0d0d",
             content1: "#1d1d1d",
             content2: "#ffffff",
             content3: "#dddddd",

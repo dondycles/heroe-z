@@ -10,7 +10,7 @@ import { Card, CardFooter } from "@nextui-org/react";
 export default function Page() {
   return (
     <Scrollable>
-      <Paragraph className="text-black">
+      <Paragraph>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus, velit
         fuga. Qui!
       </Paragraph>
