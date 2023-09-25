@@ -7,6 +7,7 @@ import smwallpaper from "@/public/images/wallpaper/sm-wallpaper.webp";
 import { useEffect, useRef, useState } from "react";
 import { useThemeStore } from "@/store";
 import { AnimatePresence, motion } from "framer-motion";
+import logogif from "@/public/images/wallpaper/logo.gif";
 
 export default function Wallpaper() {
   const theme = useThemeStore();
@@ -105,15 +106,10 @@ export default function Wallpaper() {
         )}
       </AnimatePresence>
       <div className="fixed top-0 left-0 z-[-1] h-screen w-screen bg-background">
-        <video
-          ref={video}
-          className=" object-cover h-full w-full scale-150"
-          controls={false}
-          autoPlay={true}
-          loop
-          muted
-          playsInline
-          src={"/videos/heroez.mp4"}
+        <Image
+          className="w-full h-full object-cover scale-150"
+          alt="Logo GIF"
+          src={logogif}
         />
       </div>
     </div>
