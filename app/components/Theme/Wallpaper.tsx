@@ -109,7 +109,8 @@ export default function Wallpaper() {
         <Image
           className="w-full h-full object-cover scale-150"
           alt="Logo GIF"
-          src={logogif}
+          src={logogif.src}
+          fill
         />
       </div>
     </div>
