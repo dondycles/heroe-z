@@ -4,11 +4,14 @@ import lgwallpaperdark from "@/public/images/wallpaper/lg-dark-wallpaper.webp";
 // import smwallpaperdark from "@/public/sm-dark-wallpaper.webp";
 import lgwallpaper from "@/public/images/wallpaper/lg-wallpaper.webp";
 import smwallpaper from "@/public/images/wallpaper/sm-wallpaper.webp";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useThemeStore } from "@/store";
 import { AnimatePresence, motion } from "framer-motion";
+
 export default function Wallpaper() {
   const theme = useThemeStore();
+  const [hydrated, setHydrated] = useState(false);
+  const video = useRef<HTMLVideoElement>(null);
   const [windowSize, setWindowSize] = useState({ width: 0, height: 0 });
   const handleResize = () => {
     setWindowSize({
@@ -18,6 +21,11 @@ export default function Wallpaper() {
   };
 
   useEffect(() => {
+    if (hydrated) video.current?.play();
+  }, [hydrated]);
+
+  useEffect(() => {
+    setHydrated(true);
     window.addEventListener("resize", handleResize);
     handleResize();
 
@@ -96,6 +104,18 @@ export default function Wallpaper() {
           </motion.picture>
         )}
       </AnimatePresence>
+      <div className="fixed top-0 left-0 z-[-1] h-screen w-screen">
+        <video
+          ref={video}
+          className=" object-cover h-full w-full scale-150"
+          controls={false}
+          autoPlay={true}
+          loop
+          muted
+          playsInline
+          src={"/videos/heroez.mp4"}
+        />
+      </div>
     </div>
   );
 }
