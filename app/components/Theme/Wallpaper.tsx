@@ -104,7 +104,7 @@ export default function Wallpaper() {
           </motion.picture>
         )}
       </AnimatePresence>
-      <div className="fixed top-0 left-0 z-[-1] h-screen w-screen">
+      <div className="fixed top-0 left-0 z-[-1] h-screen w-screen bg-background">
         <video
           ref={video}
           className=" object-cover h-full w-full scale-150"
