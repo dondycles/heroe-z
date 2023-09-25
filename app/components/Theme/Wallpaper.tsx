@@ -111,6 +111,7 @@ export default function Wallpaper() {
           alt="Logo GIF"
           src={logogif.src}
           fill
+          placeholder="blur"
         />
       </div>
     </div>
