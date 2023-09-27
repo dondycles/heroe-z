@@ -49,6 +49,7 @@ export default function Page() {
             const [showDetails, setShowDetails] = useState(false);
             return (
               <div
+                onClick={() => setShowDetails(false)}
                 key={i * i}
                 className=" h-full w-auto aspect-square glowing-border p-1 bg-primary/20 rounded-xl relative overflow-hidden"
               >
@@ -60,6 +61,7 @@ export default function Page() {
                 />
 
                 <div
+                  onClick={(e) => e.stopPropagation()}
                   className={`
                   absolute bottom-4 h-1/2 left-4 right-4 rounded-xl text-white flex duration-300 z-10 flex-col bg-black/50 backdrop-blur-[2px] backdrop-brightness-75 cursor-pointer overflow-hidden ${
                     !showDetails ? "max-h-[40px]" : "max-h-[400px]"
