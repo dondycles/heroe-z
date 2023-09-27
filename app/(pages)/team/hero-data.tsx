@@ -3,6 +3,7 @@ import JovzkyAnimation from "@/public/images/team/JovzkyAnimation.webp";
 import EscoCobarseth from "@/public/images/team/EscoCobarseth.webp";
 import xJudaseth from "@/public/images/team/xJudaseth.webp";
 import Fonso from "@/public/images/team/Fonso.webp";
+import Dondy from "@/public/images/team/dondy.webp";
 
 export const TeamData = [
   {
@@ -87,5 +88,23 @@ export const TeamData = [
     ],
     communities: ["Surgence", "AlphaPH", "IndexApp", "HouseHades"],
     img: xJudaseth,
+  },
+  {
+    name: "Dondy",
+    moto: "Make a step everyday. It will matter, someday.",
+    roles: ["HEROEZ!", "Front-End Web Dev."],
+    description: `An aspiring web developer who pulls up an all-nighter, splits his time between creating piano covers on  YouTube and exploring the world of web development.`,
+    socials: [
+      { type: "fb", link: "https://facebook.com/dondycles" },
+      { type: "ig", link: "https://instagram.com/dondycles" },
+      { type: "yt", link: "https://youtube.com/johnroddondoyano" },
+      { type: "tt", link: "https://tiktok.com/@dondycles" },
+      { type: "x", link: "https://twitter.com/dondycles" },
+      {
+        type: "dc",
+        link: "https://discordapp.com/users/812590637303463956",
+      },
+    ],
+    img: Dondy,
   },
 ];

@@ -15,7 +15,7 @@ export default function Page() {
         fuga. Qui!
       </Paragraph>
       <UL_Grid type="grid">
-        {Array.from({ length: 100 }, (_: any, i: number) => {
+        {Array.from({ length: 6 }, (_: any, i: number) => {
           return (
             <List className="" key={i}>
               <Card
@@ -26,7 +26,7 @@ export default function Page() {
                 <Image
                   className="object-cover"
                   height={1200}
-                  src={`https://picsum.photos/id/${i + i}/1200/1200`}
+                  src={`/images/nfts/${i + 1}.webp`}
                   alt={String(i)}
                   width={1200}
                 />

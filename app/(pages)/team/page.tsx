@@ -8,7 +8,7 @@ import Scrollable from "@/app/components/Layouts/Scrollable";
 import GlowingBorder from "@/app/components/Styles/GlowingBorder";
 
 import { TeamData } from "./hero-data";
-import { useState } from "react";
+import React, { useState } from "react";
 import { useThemeStore } from "@/store";
 
 export default function Page() {
@@ -30,7 +30,6 @@ export default function Page() {
                   setHeroIndexToShow(i);
                 }}
                 className={`border-none glowing-border relative overflow-hidden max-w-[500px] w-full h-auto aspect-square p-[2px] rounded-xl bg-transparent sm:hover:scale-[99%] cursor-pointer duration-150
-                    
                     ${
                       theme.mode === "dark"
                         ? " drop-shadow-[0_0_4px_#ff444488]"
@@ -55,13 +54,13 @@ export default function Page() {
             </List>
           );
         })}
-        <List
-          key="motioncabin"
-          className="mt-auto mb-0 text-xs font-thin text-center bg-black text-warning"
-        >
-          Powered by : Motion Cabin
-        </List>
       </UL_Grid>
+      <div
+        key="motioncabin"
+        className="mt-auto mb-0 text-xs font-thin text-center text-warning"
+      >
+        Powered by : Motion Cabin
+      </div>
       <HeroModal
         heroIndexToShow={heroIndexToShow}
         setShowModal={(state) => setShowModal(state)}

@@ -40,7 +40,7 @@ export default function HeroModal({
       }`}
     >
       <div
-        className={`max-h-[70dvh] h-screen max-w-[350px] w-screen    relative z-10 glowing-border rounded-xl overflow-hidden duration-500 
+        className={`max-h-[70dvh] h-screen max-w-[425px] w-screen    relative z-10 glowing-border rounded-xl overflow-hidden duration-500 
               ${showModal ? "opacity-100" : "opacity-0 pointer-events-none"}
               ${
                 theme === "dark"
@@ -65,7 +65,7 @@ export default function HeroModal({
               placeholder="blur"
               quality={100}
               priority
-              className="object-cover w-full h-auto rounded-xl"
+              className="object-cover w-full h-auto aspect-square rounded-xl"
             />
             <div>
               <p className="text-2xl font-montserrat text-primary">
@@ -100,7 +100,7 @@ export default function HeroModal({
                         : "border-warning"
                     }
                   >
-                    <p>{role}</p>
+                    <p className="text-sm sm:text-base">{role}</p>
                   </Chip>
                 );
               })}
