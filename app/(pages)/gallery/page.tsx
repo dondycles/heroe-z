@@ -43,7 +43,7 @@ export default function Page() {
             const [showDetails, setShowDetails] = useState(false);
             return (
               <div
-                key={i}
+                key={i * i}
                 className=" h-full w-auto aspect-square glowing-border p-1 bg-primary/20 rounded-xl relative overflow-hidden"
               >
                 <img
@@ -61,7 +61,7 @@ export default function Page() {
                   absolute bottom-1 h-1/2 left-1 right-1 rounded-b-xl flex duration-300 z-10 flex-col bg-background/50 cursor-pointer ${
                     showDetails
                       ? "translate-y-[0%]"
-                      : "translate-y-[calc(100%-40px)]"
+                      : "translate-y-[calc(100%-36px)]"
                   }`}
                 >
                   <Button
@@ -96,30 +96,64 @@ export default function Page() {
             );
           })}
         </div>
-        {/* <div className=" flex flex-row gap-4  con-partition">
+        <div className=" flex flex-row gap-4 con-partition ">
           {nfts.map((nft, i) => {
+            const [showDetails, setShowDetails] = useState(false);
             return (
               <div
-                key={nft.src}
+                key={i}
                 className=" h-full w-auto aspect-square glowing-border p-1 bg-primary/20 rounded-xl relative overflow-hidden"
               >
                 <img
                   className="h-full w-auto aspect-square object-cover rounded-xl duration-100 "
                   src={nft.src}
                   alt={String(nft.src)}
-                />{" "}
+                />
                 <div className="absolute top-4 left-4 rounded-md bg-background/50 px-4 flex items-center justify-center">
-                  <p className="text-sizing text-white drop-shadow-[0_1px_1px_#00000088]">
+                  <p className="text-sizing text-white drop-shadow-[0_1px_1px_#00000088] font-montserrat">
                     Hero Name
                   </p>
                 </div>
+                <div
+                  className={`
+                  absolute bottom-1 h-1/2 left-1 right-1 rounded-b-xl flex duration-300 z-10 flex-col bg-background/50 cursor-pointer ${
+                    showDetails
+                      ? "translate-y-[0%]"
+                      : "translate-y-[calc(100%-36px)]"
+                  }`}
+                >
+                  <Button
+                    onClick={() => setShowDetails((prev) => !prev)}
+                    className="bg-transparent min-h-[40px]"
+                  >
+                    <MdOutlineKeyboardArrowUp />
+                  </Button>
+                  <div className="max-h-full overflow-auto p-4">
+                    <p>
+                      Skills: ipsum dolor sit amet consectetur adipisicing elit.
+                      Tempora
+                    </p>
+                    <br />
+                    <p>
+                      Skills: ipsum dolor sit amet consectetur adipisicing elit.
+                      Tempora
+                    </p>
+                    <br />
+
+                    <p>
+                      Skills: ipsum dolor sit amet consectetur adipisicing elit.
+                      Tempora
+                    </p>
+                  </div>
+                </div>
+
                 <div className="absolute top-0 bottom-0 left-0 right-0">
                   <GlowingBorder />
                 </div>
               </div>
             );
           })}
-        </div> */}
+        </div>
       </div>
     </Scrollable>
   );
