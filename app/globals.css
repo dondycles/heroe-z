@@ -52,3 +52,20 @@ p {
     transform: rotate(-360deg);
   }
 }
+
+.container:hover .con-partition {
+  animation-play-state: paused;
+}
+
+.con-partition {
+  animation: slide 30s linear infinite;
+}
+
+@keyframes slide {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}

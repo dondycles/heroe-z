@@ -1,46 +1,89 @@
 "use client";
-import List from "@/app/components/AnimatedTags/List";
 import Image from "next/image";
-import UL_Grid from "@/app/components/Layouts/Scrollable_UL";
 import Paragraph from "@/app/components/AnimatedTags/Paragraph";
 import Scrollable from "@/app/components/Layouts/Scrollable";
 
-import { Card, CardFooter } from "@nextui-org/react";
+import { useState } from "react";
+import GlowingBorder from "@/app/components/Styles/GlowingBorder";
 
 export default function Page() {
+  const [nfts, setNfts] = useState([
+    {
+      src: `/images/nfts/1.webp`,
+    },
+    {
+      src: `/images/nfts/2.webp`,
+    },
+    {
+      src: `/images/nfts/3.webp`,
+    },
+    {
+      src: `/images/nfts/4.webp`,
+    },
+    {
+      src: `/images/nfts/5.webp`,
+    },
+    {
+      src: `/images/nfts/6.webp`,
+    },
+  ]);
+
   return (
     <Scrollable>
       <Paragraph>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus, velit
         fuga. Qui!
       </Paragraph>
-      <UL_Grid type="grid">
-        {Array.from({ length: 6 }, (_: any, i: number) => {
-          return (
-            <List className="" key={i}>
-              <Card
-                isFooterBlurred
-                radius="lg"
-                className="border-none aspect-square"
+      <div className=" flex flex-row gap-4 max-h-[300px] sm:max-h-[400px] md:max-h-[500px] h-full overflow-hidden group container p-4">
+        <div className=" flex flex-row gap-4 con-partition">
+          {nfts.map((nft, i) => {
+            return (
+              <div
+                key={nft.id}
+                className=" h-full w-auto aspect-square glowing-border p-1 bg-primary/20 rounded-xl relative overflow-hidden"
               >
-                <Image
-                  className="object-cover"
-                  height={1200}
-                  src={`/images/nfts/${i + 1}.webp`}
-                  alt={String(i)}
-                  width={1200}
+                <img
+                  className="h-full w-auto aspect-square object-cover rounded-xl duration-100 "
+                  src={nft.src}
+                  alt={String(nft.id)}
                 />
-                <CardFooter className="justify-center before:bg-white/10 border-white/20 border-1 overflow-hidden py-1 absolute before:rounded-xl rounded-large bottom-1 w-[calc(100%_-_8px)] shadow-small ml-1 z-10">
-                  <p className="text-tiny text-white/80">
-                    <span>{i % 2 === 0 ? "Hero" : "Villain"}</span>
-                    <span className="text-sm font-semibold"> #{i}</span>
+                <div className="absolute top-4 left-4 rounded-md bg-background/50 px-4 flex items-center justify-center">
+                  <p className="text-sizing text-white drop-shadow-[0_1px_1px_#00000088]">
+                    Hero Name
                   </p>
-                </CardFooter>
-              </Card>
-            </List>
-          );
-        })}
-      </UL_Grid>
+                </div>
+                <div className="absolute top-0 bottom-0 left-0 right-0">
+                  <GlowingBorder />
+                </div>
+              </div>
+            );
+          })}
+        </div>
+        <div className=" flex flex-row gap-4  con-partition">
+          {nfts.map((nft, i) => {
+            return (
+              <div
+                key={nft.src}
+                className=" h-full w-auto aspect-square glowing-border p-1 bg-primary/20 rounded-xl relative overflow-hidden"
+              >
+                <img
+                  className="h-full w-auto aspect-square object-cover rounded-xl duration-100 "
+                  src={nft.src}
+                  alt={String(nft.id)}
+                />{" "}
+                <div className="absolute top-4 left-4 rounded-md bg-background/50 px-4 flex items-center justify-center">
+                  <p className="text-sizing text-white drop-shadow-[0_1px_1px_#00000088]">
+                    Hero Name
+                  </p>
+                </div>
+                <div className="absolute top-0 bottom-0 left-0 right-0">
+                  <GlowingBorder />
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      </div>
     </Scrollable>
   );
 }
