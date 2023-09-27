@@ -39,13 +39,13 @@ export default function Page() {
           {nfts.map((nft, i) => {
             return (
               <div
-                key={nft.id}
+                key={i}
                 className=" h-full w-auto aspect-square glowing-border p-1 bg-primary/20 rounded-xl relative overflow-hidden"
               >
                 <img
                   className="h-full w-auto aspect-square object-cover rounded-xl duration-100 "
                   src={nft.src}
-                  alt={String(nft.id)}
+                  alt={String(nft.src)}
                 />
                 <div className="absolute top-4 left-4 rounded-md bg-background/50 px-4 flex items-center justify-center">
                   <p className="text-sizing text-white drop-shadow-[0_1px_1px_#00000088]">
@@ -69,7 +69,7 @@ export default function Page() {
                 <img
                   className="h-full w-auto aspect-square object-cover rounded-xl duration-100 "
                   src={nft.src}
-                  alt={String(nft.id)}
+                  alt={String(nft.src)}
                 />{" "}
                 <div className="absolute top-4 left-4 rounded-md bg-background/50 px-4 flex items-center justify-center">
                   <p className="text-sizing text-white drop-shadow-[0_1px_1px_#00000088]">
