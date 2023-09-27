@@ -93,7 +93,7 @@ export default function TopNav() {
     {
       type: "button",
       title: "CONNECT",
-      href: "/connectwallet",
+      href: null,
       icon: <BsWallet />,
       filledIcon: <BsWalletFill />,
       children: null,
@@ -196,7 +196,12 @@ export default function TopNav() {
               {option.type === "button" ? (
                 <Button
                   onClick={() => navigation.setWillNavigateTo(option.href!)}
-                  className={`group btn-default text-xs   ${
+                  className={`group btn-default text-xs 
+                  ${
+                    option.href === null &&
+                    "pointer-events-none cursor-not-allowed"
+                  }
+                  ${
                     pathname === option.href
                       ? "bg-primary text-content1 sm:hover:text-primary"
                       : "bg-primary/10 text-primary"
