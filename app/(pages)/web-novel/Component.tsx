@@ -28,7 +28,7 @@ export default function Component() {
             <List key={i}>
               <Card
                 isFooterBlurred
-                className="w-full h-[300px] col-span-12 sm:col-span-7 "
+                className="w-full max-w-[800px] mx-auto h-[300px] col-span-12 sm:col-span-7 "
               >
                 <CardHeader className="absolute z-10 flex-col items-start top-1">
                   <h4 className="text-white drop-shadow-[0_2px_2px_#000000aa] font-montserrat text-xl">
