@@ -69,3 +69,20 @@ p {
     transform: translateX(-100%);
   }
 }
+
+.container:hover .con-partition-reverse {
+  animation-play-state: paused;
+}
+
+.con-partition-reverse {
+  animation: slide-reverse 30s linear infinite;
+}
+
+@keyframes slide-reverse {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0%);
+  }
+}
