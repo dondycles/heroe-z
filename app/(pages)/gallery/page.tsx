@@ -43,9 +43,9 @@ export default function Page() {
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus, velit
         fuga. Qui!
       </Paragraph>
-      <div className="w-full h-full grid grid-rows-2 gap-4 group ">
-        <div className=" flex flex-row gap-4 max-h-[300px] sm:max-h-[400px] md:max-h-[500px] h-full overflow-hidden group slider">
-          <div className=" flex flex-row gap-4 con-partition bg-white">
+      <div className="w-full h-4/5 grid grid-rows-2 gap-4 group ">
+        <div className=" flex flex-row gap-4  h-full overflow-hidden group slider">
+          <div className=" flex flex-row gap-4 con-partition ">
             {nfts.map((nft, i) => {
               const [showDetails, setShowDetails] = useState(false);
               return (
@@ -180,7 +180,7 @@ export default function Page() {
             })}
           </div>
         </div>
-        <div className=" flex flex-row gap-4 max-h-[300px] sm:max-h-[400px] md:max-h-[500px] h-full overflow-hidden group slider ">
+        <div className=" flex flex-row gap-4  h-full overflow-hidden group slider ">
           <div className=" flex flex-row gap-4 con-partition-reverse">
             {nfts.map((nft, i) => {
               const [showDetails, setShowDetails] = useState(false);
