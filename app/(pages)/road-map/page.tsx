@@ -3,7 +3,6 @@ import Paragraph from "@/app/components/AnimatedTags/Paragraph";
 import Scrollable from "@/app/components/Layouts/Scrollable";
 import RoadMapItem from "@/app/components/ui/RoadMapItem";
 import { AnimatePresence } from "framer-motion";
-import { useState } from "react";
 
 export default function Page() {
   return (

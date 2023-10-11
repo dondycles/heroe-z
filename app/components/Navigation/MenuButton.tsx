@@ -21,13 +21,11 @@ export default function MenuButton({
   return (
     <Button
       onClick={() => toggleMenu()}
+      color="primary"
+      variant="shadow"
       className={`group relative flex lg:hidden btn-default-menu  z-[51] max-w-[100px] w-full overflow-hidden backdrop-blur-lg text-primary glowing-border 
       ${theme.mode === "dark" && pathname === "/" && "backdrop-brightness-50"}
-      ${
-        theme.mode === "dark"
-          ? " shadow-[0_0_20px_#ff444466]"
-          : " shadow-[0_0_20px_#0099ff66]"
-      }
+    
       ${
         menuStatus
           ? "bg-primary after:bg-primary/10 sm:hover:after:bg-background/50 text-content1 sm:hover:bg-primary/10  sm:hover:text-primary  "

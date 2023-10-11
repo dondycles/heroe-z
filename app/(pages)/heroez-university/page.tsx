@@ -2,10 +2,11 @@
 import { Link } from "@nextui-org/react";
 import Scrollable from "@/app/components/Layouts/Scrollable";
 import Paragraph from "@/app/components/AnimatedTags/Paragraph";
+import ComingSoonModal from "@/app/components/modals/ComingSoon";
 export default function Page() {
   return (
     <Scrollable>
-      <Paragraph>
+      {/* <Paragraph>
         Claiming of Hero license is not yet available. This feature will be
         unlocked in future events.
       </Paragraph>
@@ -48,7 +49,8 @@ export default function Page() {
         Molestias eligendi minus provident inventore laborum? Vitae
         dignissimosrecusandae fugiat harum blanditiis explicabo illo ducimus
         sunt facilis. Quo, dolore.
-      </Paragraph>
+      </Paragraph> */}
+      <ComingSoonModal />
     </Scrollable>
   );
 }
