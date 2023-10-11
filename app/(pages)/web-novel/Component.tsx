@@ -28,7 +28,9 @@ export default function Component() {
             <List key={i}>
               <Card
                 isFooterBlurred
-                className="w-full max-w-[800px] mx-auto h-[300px] col-span-12 sm:col-span-7 "
+                className={`w-full max-w-[800px] mx-auto h-[300px] col-span-12 sm:col-span-7 ${
+                  i === 1 && "pointer-events-none saturate-0"
+                }`}
               >
                 <CardHeader className="absolute z-10 flex-col items-start top-1">
                   <h4 className="text-white drop-shadow-[0_2px_2px_#000000aa] font-montserrat text-xl">
@@ -64,12 +66,18 @@ export default function Component() {
                     className="px-6 shadow-md group btn-default text-primary w-fit sm:hover:translate-x-1 bg-primary/10"
                   >
                     <p className="flex items-center justify-center w-full gap-1 text-xs">
-                      <span className="duration-150 sm:group-hover:-translate-x-1">
-                        READ
-                      </span>
-                      <span className="duration-150 sm:group-hover:text-lg">
-                        <TbPlayerTrackNextFilled />
-                      </span>
+                      {i === 1 ? (
+                        "COMING SOON"
+                      ) : (
+                        <>
+                          <span className="duration-150 sm:group-hover:-translate-x-1">
+                            READ
+                          </span>
+                          <span className="duration-150 sm:group-hover:text-lg">
+                            <TbPlayerTrackNextFilled />
+                          </span>
+                        </>
+                      )}
                     </p>
                   </Button>
                 </CardFooter>

@@ -12,7 +12,7 @@ export default function Chapter2() {
       <motion.h1 initial={{ x: 10 }} animate={{ x: 0 }} exit={{ x: 10 }}>
         CHAPTER <span className="text-primary">2</span>
       </motion.h1>
-      {animate.mode && (
+      {/* {animate.mode && (
         <motion.div
           variants={container}
           key={"chapter2"}
@@ -987,7 +987,22 @@ export default function Chapter2() {
             summoning circle.
           </motion.p>
         </motion.div>
-      )}
+      )} */}
+      <motion.div
+        variants={container}
+        key={"chapter2"}
+        initial="hidden"
+        animate="visible"
+        exit={{ opacity: 0 }}
+        className="flex flex-col h-screen max-h-full gap-3 overflow-x-hidden overflow-y-auto "
+      >
+        <motion.h2
+          variants={item}
+          className="text-lg font-montserrat text-primary"
+        >
+          COMING SOON
+        </motion.h2>
+      </motion.div>
     </AnimatePresence>
   );
 }
