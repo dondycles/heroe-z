@@ -83,7 +83,7 @@ export default function Wallpaper() {
           placeholder="blur"
           alt="Circular Logo"
           fill
-          className="w-full h-full object-cover sm:object-contain"
+          className="w-full h-full object-cover sm:object-contain overflow-visible "
         />
       </div>
     </div>

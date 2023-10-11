@@ -50,7 +50,7 @@ export const TeamData = [
     img: Fonso,
   },
   {
-    name: "EscoCobarseth",
+    name: "EscoCobars.eth",
     moto: null,
     roles: ["HEROEZ!", "Strategist", "Collaborations/Partnerships Manager"],
     description:
@@ -63,13 +63,7 @@ export const TeamData = [
       },
       { type: "elixir", link: "https://elixir-corp.io/p/EscoCobarseth" },
     ],
-    communities: [
-      "Project ATAMA",
-      "Dre’s Empire",
-      "Triangle Web3",
-      "1Minute Web3",
-      "Zenogakki",
-    ],
+    communities: ["Dre’s Empire", "Triangle Web3", "1Minute Web3", "Zenogakki"],
     img: EscoCobarseth,
   },
   {
