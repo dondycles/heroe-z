@@ -13,16 +13,4 @@ export const NovelData = [
     src: chatp2,
     link: "/web-novel/read?chapter=2",
   },
-  {
-    title: "TO AETHEREA / HAO YUA",
-    desc: "",
-    src: chatp1,
-    link: "/web-novel/read?chapter=1",
-  },
-  {
-    title: "THE NIGHT THAT STARS FELL",
-    desc: "",
-    src: chatp2,
-    link: "/web-novel/read?chapter=2",
-  },
 ];
