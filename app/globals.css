@@ -53,7 +53,7 @@ p {
   }
 }
 
-.container:hover .con-partition {
+.slider:hover .con-partition {
   animation-play-state: paused;
 }
 
@@ -70,7 +70,7 @@ p {
   }
 }
 
-.container:hover .con-partition-reverse {
+.slider:hover .con-partition-reverse {
   animation-play-state: paused;
 }
 

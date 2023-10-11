@@ -28,7 +28,7 @@ export default function Component() {
             <List key={i}>
               <Card
                 isFooterBlurred
-                className={`w-full max-w-[800px] mx-auto h-[300px] col-span-12 sm:col-span-7 ${
+                className={`w-full mx-auto h-[300px] col-span-12 sm:col-span-7 ${
                   i === 1 && "pointer-events-none saturate-0"
                 }`}
               >
