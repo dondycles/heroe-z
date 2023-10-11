@@ -20,10 +20,10 @@ export default function Page() {
         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur
         dolore fuga mollitia.
       </Paragraph>
-      <div className="h-full w-full flex flex-row gap-1">
+      <div className="max-h-full h-screen overflow-y-auto w-full flex flex-col gap-1 ">
         <AnimatePresence>
           {Array.from({ length: 4 }, (_, index) => {
-            return <RoadMapItem>p1</RoadMapItem>;
+            return <RoadMapItem index={index} />;
           })}
         </AnimatePresence>
       </div>
