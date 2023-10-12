@@ -53,7 +53,7 @@ export default function ComingSoonModal() {
           {pathname === "/updates" && (
             <p className="text-center uppercase">
               This page is intended for announcements that revolves around
-              HEROEZ!. We will let everyone know once this page is up and
+              HEROEZ! We will let everyone know once this page is up and
               running. PLEASE BE PATIENT. THANK YOU!
             </p>
           )}
