@@ -94,6 +94,7 @@ export default function MusicPlayer() {
         audio.current!.currentTime = 0;
         setPlayerState({
           ...playerState,
+
           progress: {
             bar: 0,
             time: {
@@ -285,6 +286,7 @@ export default function MusicPlayer() {
                   loop={0}
                   pauseOnClick
                   pauseOnHover
+                  play={playerState.play}
                 >
                   <span className="flex-1 mr-3 text-sm leading-none text-primary sm:text-base sm:font-montserrat">
                     {tracks[playerState.index].title}
