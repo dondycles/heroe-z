@@ -138,7 +138,7 @@ export default function ({
               damping: 15,
             }}
             onClick={(e) => e.stopPropagation()}
-            className=" w-full gap-3  sm:w-2/3 h-full bg-background/90  px-6 pb-6 flex flex-col "
+            className=" w-full gap-3  sm:w-2/3 h-full bg-background/90  px-3 pb-6 flex flex-col "
           >
             <Divider className="mt-24" />
             <motion.ul className="flex flex-col gap-1 overflow-y-auto overflow-x-hidden ">

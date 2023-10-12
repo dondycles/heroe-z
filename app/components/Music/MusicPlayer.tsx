@@ -169,7 +169,7 @@ export default function MusicPlayer() {
       onClick={() => {
         playerGlobalState.setShowPlayer(false);
       }}
-      className={`fixed top-0 left-0 py-6 px-6 md:px-12 lg:px-24 xl:px-36 2xl:px-48 flex justify-start items-end h-[100dvh] w-screen duration-150  ${
+      className={`fixed top-0 left-0 py-6 px-3 md:px-12 lg:px-24 xl:px-36 2xl:px-48 flex justify-start items-end h-[100dvh] w-screen duration-150  ${
         playerGlobalState.showPlayer
           ? " translate-x-0"
           : " pointer-events-none "
