@@ -43,7 +43,7 @@ export default function Page() {
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus, velit
         fuga. Qui!
       </Paragraph>
-      <div className="w-full h-4/5 grid grid-rows-2 gap-4 group ">
+      <div className="w-full h-2/3 grid grid-rows-2 gap-4 group ">
         <div className=" flex flex-row gap-4  h-full overflow-hidden group slider">
           <div className=" flex flex-row gap-4 con-partition ">
             {nfts.map((nft, i) => {
