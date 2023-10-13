@@ -1,15 +1,14 @@
 import GlowingBorder from "@/app/components/Styles/GlowingBorder";
 import { Button, Divider } from "@nextui-org/react";
 import Image from "next/image";
-import { useState } from "react";
+import { Key, useState } from "react";
 import { MdOutlineKeyboardArrowUp } from "react-icons/md";
 
-export default function HeroCard({ i, nft }: { i: number; nft: any[any] }) {
+export default function HeroCard({ nft }: { nft: any[any] }) {
   const [showDetails, setShowDetails] = useState(false);
   return (
     <div
       onClick={() => setShowDetails(false)}
-      key={i * i}
       className=" h-full w-auto aspect-square glowing-border p-1 bg-primary/20 rounded-xl relative overflow-hidden"
     >
       <Image
