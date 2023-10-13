@@ -82,7 +82,7 @@ export default function Chapter1() {
             where he was abused by his blood relatives after the death of his
             parents. Anger suddenly grew on his chest and he got up as dark
             energy enveloped his body. The image manifested into an entity and
-            reached for him
+            reached for him.
           </motion.p>
           <motion.p className=" indent-6" variants={item}>
             ???: [War, it is time.]
@@ -155,7 +155,7 @@ export default function Chapter1() {
           </motion.p>
           <motion.p className=" indent-6" variants={item}>
             “Hey Buche, don’t scare the little girl.” Merele came to approach
-            her too. ”Where did you come from sweetie? What’s your name?”
+            her too. ”Where did you come from sweetie? What’s your name?”.
           </motion.p>
           <motion.p className=" indent-6" variants={item}>
             Alexiel: [I’m Alexiel. From Tokyo. Where am I?]
@@ -268,8 +268,10 @@ export default function Chapter1() {
             if she is the one we are waiting for]
           </motion.p>
           <motion.p className=" indent-6" variants={item}>
-            Seaver: [Guild Master, you want me to die do you?] Seaver is still
-            shivering in fear.
+            Seaver: [Guild Master, you want me to die do you?]
+          </motion.p>
+          <motion.p className=" indent-6" variants={item}>
+            Seaver is still shivering in fear.
           </motion.p>
           <motion.p className=" indent-6" variants={item}>
             Merele: [What do you mean?]
@@ -372,7 +374,7 @@ export default function Chapter1() {
           </motion.p>
           <motion.p className=" indent-6" variants={item}>
             Buche just blurted then Seaver and Merele looked at him then they
-            looked at Alexiel. |
+            looked at Alexiel.
           </motion.p>
           <motion.p className=" indent-6" variants={item}>
             Merele: [He can’t?]
