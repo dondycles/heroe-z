@@ -47,7 +47,7 @@ export default function Wallpaper() {
           }`}
           src={lgwallpaper}
           alt="HeroeZ"
-          placeholder="blur"
+          placeholder="empty"
           quality={100}
           priority
         />
@@ -57,7 +57,7 @@ export default function Wallpaper() {
             theme.mode === "light" ? "opacity-0" : "opacity-100"
           }`}
           src={lgwallpaperdark}
-          placeholder="blur"
+          placeholder="empty"
           alt="HeroeZ"
           quality={100}
           priority
@@ -67,7 +67,7 @@ export default function Wallpaper() {
                 key={"smwallpaper"}
                 className="fixed top-0 left-0 w-screen h-screen object-cover"
                 src={smwallpaper}
-                placeholder="blur"
+                       placeholder="empty"
                 alt="HeroeZ"
                 quality={100}
                 priority
@@ -80,7 +80,7 @@ export default function Wallpaper() {
           priority
           quality={50}
           src={circularlogo}
-          placeholder="blur"
+          placeholder="empty"
           alt="Circular Logo"
           fill
           className="w-full h-full object-cover sm:object-contain overflow-visible "
