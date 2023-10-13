@@ -40,8 +40,8 @@ export default function Component() {
                 <Image
                   alt={part.title}
                   className="z-0 object-cover w-full h-full"
-                  width={1000}
-                  height={500}
+                  fill
+                  quality={100}
                   placeholder="blur"
                   src={part.src}
                 />

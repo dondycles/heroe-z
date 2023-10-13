@@ -14,6 +14,7 @@ export default function HeroCard({ nft }: { nft: any[any] }) {
       <Image
         className="h-full w-auto aspect-square object-cover rounded-xl duration-100 "
         src={nft.src}
+        quality={100}
         alt={String(nft.src)}
         placeholder="blur"
       />
