@@ -78,7 +78,7 @@ export default function Wallpaper() {
       <div className="fixed top-0 left-0 h-full w-full z-[-1] spin-slow">
         <Image
           priority
-          quality={50}
+          quality={100}
           src={circularlogo}
           placeholder="empty"
           alt="Circular Logo"
