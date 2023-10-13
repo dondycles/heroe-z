@@ -55,12 +55,6 @@ export default function Page() {
           );
         })}
       </UL_Grid>
-      <div
-        key="motioncabin"
-        className="mt-auto mb-0 text-xs font-thin text-center text-warning"
-      >
-        Powered by : Motion Cabin
-      </div>
       <HeroModal
         heroIndexToShow={heroIndexToShow}
         setShowModal={(state) => setShowModal(state)}
