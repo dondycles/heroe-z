@@ -14,6 +14,7 @@ import nft3 from "@/public/images/nfts/3.webp";
 import nft4 from "@/public/images/nfts/4.webp";
 import nft5 from "@/public/images/nfts/5.webp";
 import nft6 from "@/public/images/nfts/6.webp";
+import HeroCard from "./Card";
 
 export default function Page() {
   const nfts = [
@@ -44,275 +45,31 @@ export default function Page() {
         fuga. Qui!
       </Paragraph>
       <div className="w-full h-2/3 grid grid-rows-2 gap-4 group ">
-        <div className=" flex flex-row gap-4  h-full overflow-hidden group slider">
+        <div className=" flex flex-row gap-4  h-full overflow-hidden group slider rounded-xl">
           <div className=" flex flex-row gap-4 con-partition ">
             {nfts.map((nft, i) => {
               const [showDetails, setShowDetails] = useState(false);
-              return (
-                <div
-                  onClick={() => setShowDetails(false)}
-                  key={i * i}
-                  className=" h-full w-auto aspect-square glowing-border p-1 bg-primary/20 rounded-xl relative overflow-hidden"
-                >
-                  <Image
-                    className="h-full w-auto aspect-square object-cover rounded-xl duration-100 "
-                    src={nft.src}
-                    alt={String(nft.src)}
-                    placeholder="blur"
-                  />
-
-                  <div
-                    onClick={(e) => e.stopPropagation()}
-                    className={`
-                  absolute bottom-4 h-1/2 left-4 right-4 rounded-xl text-white flex duration-300 z-10 flex-col bg-black/50 backdrop-blur-[2px] backdrop-brightness-75 cursor-pointer overflow-hidden ${
-                    !showDetails ? "max-h-[40px]" : "max-h-[400px]"
-                  }`}
-                  >
-                    <Button
-                      onClick={() => setShowDetails((prev) => !prev)}
-                      className="bg-transparent min-h-[40px] p-0"
-                    >
-                      <p className="text-sizing text-white drop-shadow-[0_1px_1px_#00000088] font-montserrat flex flex-row items-center justify-between w-full p-4">
-                        Hero Name
-                        <span
-                          className={`${
-                            showDetails ? "rotate-180" : "rotate-0"
-                          } duration-500 text-white text-2xl`}
-                        >
-                          <MdOutlineKeyboardArrowUp />
-                        </span>
-                      </p>
-                    </Button>
-                    <Divider />
-                    <div className="py-4 overflow-hidden ">
-                      <div className="max-h-full overflow-auto rounded-xl px-4 ">
-                        <p>
-                          Skills: ipsum dolor sit amet consectetur adipisicing
-                          elit. Tempora
-                        </p>
-                        <br />
-                        <p>
-                          Skills: ipsum dolor sit amet consectetur adipisicing
-                          elit. Tempora
-                        </p>
-                        <br />
-
-                        <p>
-                          Skills: ipsum dolor sit amet consectetur adipisicing
-                          elit. Tempora
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="absolute top-0 bottom-0 left-0 right-0">
-                    <GlowingBorder />
-                  </div>
-                </div>
-              );
+              return <HeroCard nft={nft} i={i} key={"a" + i} />;
             })}
           </div>
           <div className=" flex flex-row gap-4 con-partition">
             {nfts.map((nft, i) => {
               const [showDetails, setShowDetails] = useState(false);
-              return (
-                <div
-                  onClick={() => setShowDetails(false)}
-                  key={i + 100}
-                  className=" h-full w-auto aspect-square glowing-border p-1 bg-primary/20 rounded-xl relative overflow-hidden"
-                >
-                  <Image
-                    className="h-full w-auto aspect-square object-cover rounded-xl duration-100 "
-                    src={nft.src}
-                    alt={String(nft.src)}
-                    placeholder="blur"
-                  />
-
-                  <div
-                    onClick={(e) => e.stopPropagation()}
-                    className={`
-                  absolute bottom-4 h-1/2 left-4 right-4 rounded-xl text-white flex duration-300 z-10 flex-col bg-black/50 backdrop-blur-[2px] backdrop-brightness-75 cursor-pointer overflow-hidden ${
-                    !showDetails ? "max-h-[40px]" : "max-h-[400px]"
-                  }`}
-                  >
-                    <Button
-                      onClick={() => setShowDetails((prev) => !prev)}
-                      className="bg-transparent min-h-[40px] p-0"
-                    >
-                      <p className="text-sizing text-white drop-shadow-[0_1px_1px_#00000088] font-montserrat flex flex-row items-center justify-between w-full p-4">
-                        Hero Name
-                        <span
-                          className={`${
-                            showDetails ? "rotate-180" : "rotate-0"
-                          } duration-500 text-white text-2xl`}
-                        >
-                          <MdOutlineKeyboardArrowUp />
-                        </span>
-                      </p>
-                    </Button>
-                    <Divider />
-                    <div className="py-4 overflow-hidden ">
-                      <div className="max-h-full overflow-auto rounded-xl px-4 ">
-                        <p>
-                          Skills: ipsum dolor sit amet consectetur adipisicing
-                          elit. Tempora
-                        </p>
-                        <br />
-                        <p>
-                          Skills: ipsum dolor sit amet consectetur adipisicing
-                          elit. Tempora
-                        </p>
-                        <br />
-
-                        <p>
-                          Skills: ipsum dolor sit amet consectetur adipisicing
-                          elit. Tempora
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="absolute top-0 bottom-0 left-0 right-0">
-                    <GlowingBorder />
-                  </div>
-                </div>
-              );
+              return <HeroCard nft={nft} i={i} key={"b" + i} />;
             })}
           </div>
         </div>
-        <div className=" flex flex-row gap-4  h-full overflow-hidden group slider ">
+        <div className=" flex flex-row gap-4  h-full overflow-hidden group slider rounded-xl">
           <div className=" flex flex-row gap-4 con-partition-reverse">
             {nfts.map((nft, i) => {
               const [showDetails, setShowDetails] = useState(false);
-              return (
-                <div
-                  onClick={() => setShowDetails(false)}
-                  key={i * i}
-                  className=" h-full w-auto aspect-square glowing-border p-1 bg-primary/20 rounded-xl relative overflow-hidden"
-                >
-                  <Image
-                    className="h-full w-auto aspect-square object-cover rounded-xl duration-100 "
-                    src={nft.src}
-                    alt={String(nft.src)}
-                    placeholder="blur"
-                  />
-
-                  <div
-                    onClick={(e) => e.stopPropagation()}
-                    className={`
-                  absolute bottom-4 h-1/2 left-4 right-4 rounded-xl text-white flex duration-300 z-10 flex-col bg-black/50 backdrop-blur-[2px] backdrop-brightness-75 cursor-pointer overflow-hidden ${
-                    !showDetails ? "max-h-[40px]" : "max-h-[400px]"
-                  }`}
-                  >
-                    <Button
-                      onClick={() => setShowDetails((prev) => !prev)}
-                      className="bg-transparent min-h-[40px] p-0"
-                    >
-                      <p className="text-sizing text-white drop-shadow-[0_1px_1px_#00000088] font-montserrat flex flex-row items-center justify-between w-full p-4">
-                        Hero Name
-                        <span
-                          className={`${
-                            showDetails ? "rotate-180" : "rotate-0"
-                          } duration-500 text-white text-2xl`}
-                        >
-                          <MdOutlineKeyboardArrowUp />
-                        </span>
-                      </p>
-                    </Button>
-                    <Divider />
-                    <div className="py-4 overflow-hidden ">
-                      <div className="max-h-full overflow-auto rounded-xl px-4 ">
-                        <p>
-                          Skills: ipsum dolor sit amet consectetur adipisicing
-                          elit. Tempora
-                        </p>
-                        <br />
-                        <p>
-                          Skills: ipsum dolor sit amet consectetur adipisicing
-                          elit. Tempora
-                        </p>
-                        <br />
-
-                        <p>
-                          Skills: ipsum dolor sit amet consectetur adipisicing
-                          elit. Tempora
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="absolute top-0 bottom-0 left-0 right-0">
-                    <GlowingBorder />
-                  </div>
-                </div>
-              );
+              return <HeroCard nft={nft} i={i} key={"c" + i} />;
             })}
           </div>
           <div className=" flex flex-row gap-4 con-partition-reverse">
             {nfts.map((nft, i) => {
               const [showDetails, setShowDetails] = useState(false);
-              return (
-                <div
-                  onClick={() => setShowDetails(false)}
-                  key={i + 100}
-                  className=" h-full w-auto aspect-square glowing-border p-1 bg-primary/20 rounded-xl relative overflow-hidden"
-                >
-                  <Image
-                    className="h-full w-auto aspect-square object-cover rounded-xl duration-100 "
-                    src={nft.src}
-                    alt={String(nft.src)}
-                    placeholder="blur"
-                  />
-
-                  <div
-                    onClick={(e) => e.stopPropagation()}
-                    className={`
-                  absolute bottom-4 h-1/2 left-4 right-4 rounded-xl text-white flex duration-300 z-10 flex-col bg-black/50 backdrop-blur-[2px] backdrop-brightness-75 cursor-pointer overflow-hidden ${
-                    !showDetails ? "max-h-[40px]" : "max-h-[400px]"
-                  }`}
-                  >
-                    <Button
-                      onClick={() => setShowDetails((prev) => !prev)}
-                      className="bg-transparent min-h-[40px] p-0"
-                    >
-                      <p className="text-sizing text-white drop-shadow-[0_1px_1px_#00000088] font-montserrat flex flex-row items-center justify-between w-full p-4">
-                        Hero Name
-                        <span
-                          className={`${
-                            showDetails ? "rotate-180" : "rotate-0"
-                          } duration-500 text-white text-2xl`}
-                        >
-                          <MdOutlineKeyboardArrowUp />
-                        </span>
-                      </p>
-                    </Button>
-                    <Divider />
-                    <div className="py-4 overflow-hidden ">
-                      <div className="max-h-full overflow-auto rounded-xl px-4 ">
-                        <p>
-                          Skills: ipsum dolor sit amet consectetur adipisicing
-                          elit. Tempora
-                        </p>
-                        <br />
-                        <p>
-                          Skills: ipsum dolor sit amet consectetur adipisicing
-                          elit. Tempora
-                        </p>
-                        <br />
-
-                        <p>
-                          Skills: ipsum dolor sit amet consectetur adipisicing
-                          elit. Tempora
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="absolute top-0 bottom-0 left-0 right-0">
-                    <GlowingBorder />
-                  </div>
-                </div>
-              );
+              return <HeroCard nft={nft} i={i} key={"d" + i} />;
             })}
           </div>
         </div>
