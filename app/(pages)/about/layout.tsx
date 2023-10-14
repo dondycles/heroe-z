@@ -7,7 +7,7 @@ export const metadata: Metadata = {
 export default function About({ children }: { children: React.ReactNode }) {
   return (
     <>
-      <h1 className="text-primary">ABOUT</h1>
+      <h1 className="text-primary">WHO WE ARE</h1>
       {children}
     </>
   );
