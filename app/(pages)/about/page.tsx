@@ -4,6 +4,7 @@ import Scrollable from "@/app/components/Layouts/Scrollable";
 import { Link } from "@nextui-org/react";
 import Image from "next/image";
 import dragon from "@/public/images/about/dragon.webp";
+import GlowingBorder from "@/app/components/Styles/GlowingBorder";
 
 export default function Page() {
   return (
@@ -12,8 +13,15 @@ export default function Page() {
         HEROEZ! / ROKU JIGEN DE NO HEROES / HEROES IN 6th DIMENSION
       </Paragraph>
       <div className="max-h-full overflow-y-auto overflow-x-hidden flex flex-col gap-3">
-        <div className="relative w-full h-[450px] rounded-xl overflow-hidden">
-          <Image src={dragon} alt="HeroeZ" objectFit="contain" />
+        <div className="relative w-full  shrink-0 h-[450px] rounded-xl overflow-hidden glowing-border p-[2px]">
+          <Image
+            src={dragon}
+            alt="HeroeZ"
+            className="object-cover object-center w-full h-full rounded-xl"
+          />
+          <div className="absolute top-0 left-0 bottom-0 right-0">
+            <GlowingBorder />
+          </div>
         </div>
         <Paragraph>
           Developed by Studio Z, Heroez is an anime brand developing vast and
