@@ -58,7 +58,7 @@ p {
 }
 
 .con-partition {
-  animation: slide 30s linear infinite;
+  animation: slide 140s linear infinite;
 }
 
 @keyframes slide {
@@ -75,7 +75,7 @@ p {
 }
 
 .con-partition-reverse {
-  animation: slide-reverse 30s linear infinite;
+  animation: slide-reverse 140s linear infinite;
 }
 
 @keyframes slide-reverse {

@@ -12,6 +12,7 @@ import logolight from "@/public/images/icons/logo256.png";
 import { ImCross } from "react-icons/im";
 import { useThemeStore } from "@/store";
 import Div from "@/app/components/AnimatedTags/Div";
+import { partners } from "./partners-data";
 export default function Page() {
   const theme = useThemeStore();
   return (
@@ -71,6 +72,17 @@ export default function Page() {
         <Paragraph className="font-bold">
           HEROEZ AND MOTION CABIN PARTNERSHIP
         </Paragraph>
+        <Div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 lg:grid-cols-6 xl:grid-cols-7 gap-2">
+          {partners.map((partner) => {
+            return (
+              <Image
+                className="h-auto w-full object-cover aspect-square p-6"
+                alt={partner.alt}
+                src={partner.src}
+              />
+            );
+          })}
+        </Div>
 
         <Paragraph>
           HEROEZ! & Studio Z has the full support of our partner Motioncabin, a

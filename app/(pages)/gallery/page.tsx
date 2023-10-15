@@ -14,6 +14,11 @@ import nft3 from "@/public/images/nfts/3.webp";
 import nft4 from "@/public/images/nfts/4.webp";
 import nft5 from "@/public/images/nfts/5.webp";
 import nft6 from "@/public/images/nfts/6.webp";
+import nft7 from "@/public/images/nfts/7.webp";
+import nft8 from "@/public/images/nfts/8.webp";
+import nft9 from "@/public/images/nfts/9.webp";
+import nft10 from "@/public/images/nfts/10.webp";
+import nft11 from "@/public/images/nfts/11.webp";
 import HeroCard from "@/app/components/ui/HeroCard";
 
 export default function Page() {
@@ -36,17 +41,28 @@ export default function Page() {
     {
       src: nft6,
     },
+    {
+      src: nft7,
+    },
+    {
+      src: nft8,
+    },
+    {
+      src: nft9,
+    },
+    {
+      src: nft10,
+    },
+    {
+      src: nft11,
+    },
   ];
 
   return (
     <Scrollable>
-      <Paragraph>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus, velit
-        fuga. Qui!
-      </Paragraph>
-      <div className="w-full h-2/3 grid grid-rows-2 gap-4 group ">
-        <div className=" flex flex-row gap-4  h-full overflow-hidden group slider">
-          <div className=" flex flex-row gap-4 con-partition ">
+      <div className="w-full h-full grid grid-rows-2 gap-1 sm:gap-4  group ">
+        <div className=" flex flex-row gap-1 sm:gap-4   h-full overflow-hidden group slider">
+          <div className=" flex flex-row gap-1 sm:gap-4 con-partition ">
             {nfts.map((nft, i) => {
               return (
                 <React.Fragment key={"a" + i}>
@@ -55,7 +71,7 @@ export default function Page() {
               );
             })}
           </div>
-          <div className=" flex flex-row gap-4 con-partition">
+          <div className=" flex flex-row gap-1 sm:gap-4  con-partition">
             {nfts.map((nft, i) => {
               return (
                 <React.Fragment key={"b" + i}>
@@ -65,8 +81,8 @@ export default function Page() {
             })}
           </div>
         </div>
-        <div className=" flex flex-row gap-4  h-full overflow-hidden group slider ">
-          <div className=" flex flex-row gap-4 con-partition-reverse">
+        <div className=" flex flex-row gap-1 sm:gap-4   h-full overflow-hidden group slider ">
+          <div className=" flex flex-row gap-1 sm:gap-4  con-partition-reverse">
             {nfts.map((nft, i) => {
               return (
                 <React.Fragment key={"c" + i}>
@@ -75,7 +91,7 @@ export default function Page() {
               );
             })}
           </div>
-          <div className=" flex flex-row gap-4 con-partition-reverse">
+          <div className=" flex flex-row gap-1 sm:gap-4  con-partition-reverse">
             {nfts.map((nft, i) => {
               return (
                 <React.Fragment key={"d" + i}>
@@ -84,6 +100,22 @@ export default function Page() {
               );
             })}
           </div>
+        </div>
+        <div className="flex flex-col w-full h-full pb-10">
+          <Paragraph className=" text-xl sm:text-3xl font-montserrat text-center">
+            MEET THE GREATES HEROES, <span className=" text-primary">YOU.</span>
+          </Paragraph>
+          <Paragraph>
+            BE THE HERO YOU NEED. UNLEASH YOUR INNER HERO. WE'RE ONE FOR ALL
+            TOGETHER AND ONE FOR ALL FOREVER.
+          </Paragraph>
+          <Paragraph>
+            <span className="text-primary font-montserrat">3333</span> HEROES
+            CAME FROM DIFFERENT WORLDS BUT ONE MISSION. TO PROTECT HUMANITY FROM
+            GREAT DESTRUCTION. A CAREFULLY CURATED COLLECTION BY{" "}
+            <span className=" font-montserrat">STUDIO</span>{" "}
+            <span className="text-primary font-montserrat">Z</span>.
+          </Paragraph>
         </div>
       </div>
     </Scrollable>
