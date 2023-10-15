@@ -76,7 +76,11 @@ export default function Page() {
           {partners.map((partner) => {
             return (
               <Image
-                className="h-auto w-full object-cover aspect-square p-6"
+                className={`h-auto w-full object-cover aspect-square p-6 ${
+                  partner.alt === "Rebisco" &&
+                  theme.mode === "light" &&
+                  "invert"
+                }`}
                 alt={partner.alt}
                 src={partner.src}
               />
