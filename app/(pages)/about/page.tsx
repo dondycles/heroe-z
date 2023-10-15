@@ -5,14 +5,21 @@ import { Link } from "@nextui-org/react";
 import Image from "next/image";
 import dragon from "@/public/images/about/dragon.webp";
 import GlowingBorder from "@/app/components/Styles/GlowingBorder";
-
+import motioncabinlight from "@/public/images/about/motion-cabin-light.svg";
+import motioncabindark from "@/public/images/about/motion-cabin-dark.svg";
+import logodark from "@/public/images/icons/logo256-dark.png";
+import logolight from "@/public/images/icons/logo256.png";
+import { ImCross } from "react-icons/im";
+import { useThemeStore } from "@/store";
+import Div from "@/app/components/AnimatedTags/Div";
 export default function Page() {
+  const theme = useThemeStore();
   return (
     <Scrollable>
       <Paragraph className="text-primary font-bold">
         HEROEZ! / ROKU JIGEN DE NO HEROES / HEROES IN 6th DIMENSION
       </Paragraph>
-      <div className="max-h-full overflow-y-auto overflow-x-hidden flex flex-col gap-3">
+      <div className="max-h-full pb-10 overflow-y-auto overflow-x-hidden flex flex-col gap-3">
         <div className="relative w-full  shrink-0 h-[450px] rounded-xl overflow-hidden glowing-border p-[2px]">
           <Image
             src={dragon}
@@ -39,6 +46,32 @@ export default function Page() {
           Teenage Mutant Ninja Turtles (NETFLIX), DORA THE EXPLORER, and many
           others. 」
         </Paragraph>
+
+        <div className="w-full flex flex-wrap justify-center gap-4 items-center bg-primary/10 rounded-xl">
+          <Div>
+            <Image
+              className="h-20 sm:h-40 w-fit aspect-square"
+              src={theme.mode === "dark" ? logodark : logolight}
+              alt="Motion Cabin"
+            />
+          </Div>
+
+          <Div className="text-primary text-2xl">
+            <ImCross />
+          </Div>
+          <Div>
+            <Image
+              className="h-20 sm:h-40 w-fit aspect-square"
+              src={theme.mode === "light" ? motioncabindark : motioncabinlight}
+              alt="Motion Cabin"
+            />
+          </Div>
+        </div>
+
+        <Paragraph className="text-primary font-bold">
+          HEROEZ AND MOTION CABIN PARTNERSHIP
+        </Paragraph>
+
         <Paragraph>
           HEROEZ! & Studio Z has the full support of our partner Motioncabin, a
           prominent creative agency in the Philippines and the first choice for
