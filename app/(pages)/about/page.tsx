@@ -16,10 +16,10 @@ export default function Page() {
   const theme = useThemeStore();
   return (
     <Scrollable>
-      <Paragraph className="text-primary font-bold">
+      <Paragraph className=" font-bold">
         HEROEZ! / ROKU JIGEN DE NO HEROES / HEROES IN 6th DIMENSION
       </Paragraph>
-      <div className="max-h-full pb-10 overflow-y-auto overflow-x-hidden flex flex-col gap-3">
+      <div className=" text-center max-h-full pb-10 overflow-y-auto overflow-x-hidden flex flex-col gap-3">
         <div className="relative w-full  shrink-0 h-[450px] rounded-xl overflow-hidden glowing-border p-[2px]">
           <Image
             src={dragon}
@@ -47,7 +47,7 @@ export default function Page() {
           others. 」
         </Paragraph>
 
-        <div className="w-full flex flex-wrap justify-center gap-4 items-center bg-primary/10 rounded-xl">
+        <div className="w-full flex flex-wrap justify-center gap-4 items-center  rounded-xl">
           <Div>
             <Image
               className="h-20 sm:h-40 w-fit aspect-square"
@@ -68,7 +68,7 @@ export default function Page() {
           </Div>
         </div>
 
-        <Paragraph className="text-primary font-bold">
+        <Paragraph className="font-bold">
           HEROEZ AND MOTION CABIN PARTNERSHIP
         </Paragraph>
 
