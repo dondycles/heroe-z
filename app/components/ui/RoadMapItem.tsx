@@ -1,9 +1,9 @@
-import { useEffect, useRef, useState } from "react";
+import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import GlowingBorder from "../Styles/GlowingBorder";
 import { roadMapData } from "@/app/(pages)/road-map/road-map-data";
-import List from "../AnimatedTags/List";
-import { container } from "@/transitions";
+import { LuArrowDownToDot } from "react-icons/lu";
+import { PiFlowArrowBold } from "react-icons/pi";
 export default function RoadMapItem({ index }: { index: any }) {
   const [showMe, setShowMe] = useState(false);
 
@@ -44,7 +44,7 @@ export default function RoadMapItem({ index }: { index: any }) {
         <AnimatePresence mode="popLayout">
           <motion.ul
             key={"description" + index + showMe}
-            className={`flex flex-col gap-2 duration-300 list-decimal list-inside ${
+            className={`flex flex-col gap-2 duration-300  ${
               showMe ? "h-fit" : "h-0 opacity-0"
             }`}
           >
@@ -63,7 +63,13 @@ export default function RoadMapItem({ index }: { index: any }) {
                     key={data}
                     layout
                   >
-                    {data}
+                    <p className="flex items-center gap-2">
+                      <span className=" shrink-0 text-primary rotate-90 flip scale-x-100">
+                        <PiFlowArrowBold />
+                      </span>
+
+                      {data}
+                    </p>
                   </motion.li>
                 );
               })
