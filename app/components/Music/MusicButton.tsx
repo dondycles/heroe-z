@@ -16,15 +16,18 @@ export default function MusicButtn() {
   return (
     <AnimatePresence initial={false} mode="wait">
       <Tooltip
+        style={{ zIndex: 0 }}
         showArrow={true}
         isOpen={showTip && animate.mode}
         className={`${theme.mode} text-white`}
-        classNames={{ arrow: `${theme.mode} bg-primary ` }}
+        classNames={{
+          arrow: `${theme.mode} bg-primary `,
+        }}
         color="primary"
         closeDelay={0}
         delay={0}
         placement="right"
-        content="< Click Here for Music."
+        content="Click to play"
       >
         {!music.showPlayer && (
           <motion.div
