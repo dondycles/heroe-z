@@ -20,10 +20,10 @@ export default function Page() {
   return (
     <Scrollable>
       <Paragraph>Meet the Founding heroes behind this epic journey</Paragraph>
-      <UL_Grid type="grid">
+      <ul className=" flex gap-2 flex-wrap justify-center max-h-full overflow-y-auto">
         {team.map((hero, i) => {
           return (
-            <List key={hero.name} className="w-fit h-fit">
+            <List key={hero.name} className="max-h-[250px] aspect-square">
               <div
                 onClick={() => {
                   setShowModal(true);
@@ -54,7 +54,7 @@ export default function Page() {
             </List>
           );
         })}
-      </UL_Grid>
+      </ul>
       <HeroModal
         heroIndexToShow={heroIndexToShow}
         setShowModal={(state) => setShowModal(state)}
