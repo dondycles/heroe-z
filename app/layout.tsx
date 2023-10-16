@@ -35,12 +35,12 @@ export const metadata: Metadata = {
     url: "heroe-z.vercel.app",
     images: [
       {
-        url: "/logohighres-dark.webp",
+        url: "/summary.png",
         width: 800,
         height: 800,
       },
       {
-        url: "/lg-dark-wallpaper.webp",
+        url: "/summary.png",
         width: 1920,
         height: 1080,
       },
