@@ -19,42 +19,127 @@ import nft8 from "@/public/images/nfts/8.webp";
 import nft9 from "@/public/images/nfts/9.webp";
 import nft10 from "@/public/images/nfts/10.webp";
 import nft11 from "@/public/images/nfts/11.webp";
+import nft12 from "@/public/images/nfts/12.webp";
+import nft13 from "@/public/images/nfts/13.webp";
+import nft14 from "@/public/images/nfts/14.webp";
+import nft15 from "@/public/images/nfts/15.webp";
+import nft16 from "@/public/images/nfts/16.webp";
+import nft17 from "@/public/images/nfts/17.webp";
+import nft18 from "@/public/images/nfts/18.webp";
 import HeroCard from "@/app/components/ui/HeroCard";
 
 export default function Page() {
   const nfts = [
     {
-      src: nft1,
+      src: nft7,
     },
     {
       src: nft2,
     },
     {
-      src: nft3,
-    },
-    {
       src: nft4,
     },
     {
-      src: nft5,
+      src: nft18,
     },
     {
-      src: nft6,
-    },
-    {
-      src: nft7,
-    },
-    {
-      src: nft8,
+      src: nft12,
     },
     {
       src: nft9,
     },
     {
-      src: nft10,
+      src: nft15,
+    },
+    {
+      src: nft1,
+    },
+    {
+      src: nft14,
+    },
+    {
+      src: nft16,
     },
     {
       src: nft11,
+    },
+    {
+      src: nft13,
+    },
+    {
+      src: nft8,
+    },
+    {
+      src: nft3,
+    },
+    {
+      src: nft5,
+    },
+    {
+      src: nft10,
+    },
+    {
+      src: nft6,
+    },
+    {
+      src: nft17,
+    },
+  ];
+
+  const nfts2 = [
+    {
+      src: nft13,
+    },
+    {
+      src: nft8,
+    },
+    {
+      src: nft15,
+    },
+    {
+      src: nft2,
+    },
+    {
+      src: nft6,
+    },
+    {
+      src: nft12,
+    },
+    {
+      src: nft3,
+    },
+    {
+      src: nft5,
+    },
+    {
+      src: nft7,
+    },
+    {
+      src: nft11,
+    },
+    {
+      src: nft1,
+    },
+    {
+      src: nft10,
+    },
+    {
+      src: nft17,
+    },
+    {
+      src: nft4,
+    },
+    {
+      src: nft9,
+    },
+    {
+      src: nft14,
+    },
+    {
+      src: nft16,
+    },
+    {
+      src: nft18,
     },
   ];
 
@@ -63,7 +148,7 @@ export default function Page() {
       <div className="w-full h-full grid grid-rows-2 gap-1 sm:gap-4  group ">
         <div className=" flex flex-row gap-1 sm:gap-4   h-full overflow-hidden group slider">
           <div className=" flex flex-row gap-1 sm:gap-4 con-partition ">
-            {nfts.map((nft, i) => {
+            {nfts2.map((nft, i) => {
               return (
                 <React.Fragment key={"a" + i}>
                   <HeroCard nft={nft} />
@@ -72,7 +157,7 @@ export default function Page() {
             })}
           </div>
           <div className=" flex flex-row gap-1 sm:gap-4  con-partition">
-            {nfts.map((nft, i) => {
+            {nfts2.map((nft, i) => {
               return (
                 <React.Fragment key={"b" + i}>
                   <HeroCard nft={nft} />
