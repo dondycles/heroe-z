@@ -75,15 +75,14 @@ export default function Wallpaper() {
             )}
            */}
       </AnimatePresence>
-      <div className="fixed top-0 left-0 h-full w-full z-[-1] spin-slow">
+      <div className="fixed top-0 left-[50%] translate-x-[-50%] h-[100dvh] w-[100dvh] z-[-1]">
         <Image
           priority
           quality={100}
           src={circularlogo}
           placeholder="empty"
           alt="Circular Logo"
-          fill
-          className="w-full h-full object-cover sm:object-contain overflow-visible "
+          className="w-[100dvh] h-[100dvh] aspect-square  spin-slow"
         />
       </div>
     </div>
