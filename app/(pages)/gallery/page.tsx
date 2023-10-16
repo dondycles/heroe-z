@@ -88,6 +88,9 @@ export default function Page() {
 
   const nfts2 = [
     {
+      src: nft6,
+    },
+    {
       src: nft13,
     },
     {
@@ -99,10 +102,10 @@ export default function Page() {
     {
       src: nft2,
     },
-    {
-      src: nft6,
-    },
 
+    {
+      src: nft12,
+    },
     {
       src: nft3,
     },
@@ -114,9 +117,6 @@ export default function Page() {
     },
     {
       src: nft11,
-    },
-    {
-      src: nft12,
     },
     {
       src: nft1,
