@@ -18,7 +18,7 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://heroezofficial.com"),
   description: "Heroes in 6th Dimension.",
   twitter: {
-    title: "HeroeZ",
+    title: "HeroeZ | Heroes in 6th Dimension.",
     description: "Heroes in 6th Dimension.",
     card: "summary_large_image",
     creator: "@HEROEZofficial",
@@ -28,10 +28,10 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: "HeroeZ",
+    title: "HeroeZ | Heroes in 6th Dimension.",
     description: "Heroes in 6th Dimension.",
     type: "website",
-    siteName: "HeroeZ",
+    siteName: "HeroeZ | Heroes in 6th Dimension.",
     url: "https://heroezofficial.com",
     images: [
       {
