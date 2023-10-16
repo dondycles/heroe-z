@@ -31,116 +31,115 @@ import HeroCard from "@/app/components/ui/HeroCard";
 export default function Page() {
   const nfts = [
     {
-      src: nft7,
+      src: nft1,
     },
     {
       src: nft2,
     },
     {
-      src: nft4,
-    },
-    {
-      src: nft18,
-    },
-    {
-      src: nft12,
-    },
-    {
-      src: nft9,
-    },
-    {
-      src: nft15,
-    },
-    {
-      src: nft1,
-    },
-    {
-      src: nft14,
-    },
-    {
-      src: nft16,
-    },
-    {
-      src: nft11,
-    },
-    {
-      src: nft13,
-    },
-    {
-      src: nft8,
-    },
-    {
       src: nft3,
+    },
+    {
+      src: nft4,
     },
     {
       src: nft5,
     },
     {
-      src: nft10,
-    },
-    {
       src: nft6,
     },
     {
+      src: nft7,
+    },
+    {
+      src: nft8,
+    },
+    {
+      src: nft9,
+    },
+    {
+      src: nft10,
+    },
+    {
+      src: nft11,
+    },
+    {
+      src: nft12,
+    },
+    {
+      src: nft13,
+    },
+    {
+      src: nft14,
+    },
+    {
+      src: nft15,
+    },
+    {
+      src: nft16,
+    },
+    {
       src: nft17,
+    },
+    {
+      src: nft18,
     },
   ];
 
   const nfts2 = [
     {
-      src: nft6,
-    },
-    {
-      src: nft13,
-    },
-    {
-      src: nft8,
+      src: nft16,
     },
     {
       src: nft15,
     },
     {
-      src: nft2,
+      src: nft14,
     },
-
+    {
+      src: nft13,
+    },
     {
       src: nft12,
-    },
-    {
-      src: nft3,
-    },
-    {
-      src: nft5,
-    },
-    {
-      src: nft7,
     },
     {
       src: nft11,
     },
     {
-      src: nft1,
-    },
-    {
       src: nft10,
-    },
-    {
-      src: nft17,
-    },
-    {
-      src: nft4,
     },
     {
       src: nft9,
     },
     {
-      src: nft14,
+      src: nft8,
     },
     {
-      src: nft16,
+      src: nft7,
+    },
+    {
+      src: nft6,
+    },
+    {
+      src: nft5,
+    },
+    {
+      src: nft4,
+    },
+    {
+      src: nft3,
+    },
+    {
+      src: nft2,
+    },
+    {
+      src: nft1,
     },
     {
       src: nft18,
+    },
+    {
+      src: nft17,
     },
   ];
 
