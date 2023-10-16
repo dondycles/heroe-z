@@ -1,7 +1,7 @@
 "use client";
 import Paragraph from "@/app/components/AnimatedTags/Paragraph";
 import Scrollable from "@/app/components/Layouts/Scrollable";
-import { Link } from "@nextui-org/react";
+import { Divider, Link } from "@nextui-org/react";
 import Image from "next/image";
 import dragon from "@/public/images/about/dragon.webp";
 import GlowingBorder from "@/app/components/Styles/GlowingBorder";
@@ -69,25 +69,6 @@ export default function Page() {
           </Div>
         </div>
 
-        <Paragraph className="font-bold">
-          HEROEZ AND MOTION CABIN PARTNERSHIP
-        </Paragraph>
-        <Div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 lg:grid-cols-6 xl:grid-cols-7 gap-2">
-          {partners.map((partner) => {
-            return (
-              <Image
-                className={`h-auto w-full object-cover aspect-square p-6 ${
-                  partner.alt === "Rebisco" &&
-                  theme.mode === "light" &&
-                  "invert"
-                }`}
-                alt={partner.alt}
-                src={partner.src}
-              />
-            );
-          })}
-        </Div>
-
         <Paragraph>
           HEROEZ! & Studio Z has the full support of our partner Motioncabin, a
           prominent creative agency in the Philippines and the first choice for
@@ -107,6 +88,27 @@ export default function Page() {
             https://motioncabin.com/
           </Link>
         </Paragraph>
+        <Divider />
+        <Div className="w-full flex flex-col gap-2 bg-primary/5 rounded-xl">
+          <Paragraph className="font-montserrat mt-2">
+            HEROEZ AND MOTION CABIN PARTNERS
+          </Paragraph>
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 lg:grid-cols-6 xl:grid-cols-7 gap-2">
+            {partners.map((partner) => {
+              return (
+                <Image
+                  className={`h-auto w-full object-cover aspect-square p-6 ${
+                    partner.alt === "Rebisco" &&
+                    theme.mode === "light" &&
+                    "invert"
+                  }`}
+                  alt={partner.alt}
+                  src={partner.src}
+                />
+              );
+            })}
+          </div>
+        </Div>
       </div>
     </Scrollable>
   );
