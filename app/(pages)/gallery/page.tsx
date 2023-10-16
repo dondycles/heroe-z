@@ -102,9 +102,7 @@ export default function Page() {
     {
       src: nft6,
     },
-    {
-      src: nft12,
-    },
+
     {
       src: nft3,
     },
@@ -116,6 +114,9 @@ export default function Page() {
     },
     {
       src: nft11,
+    },
+    {
+      src: nft12,
     },
     {
       src: nft1,
