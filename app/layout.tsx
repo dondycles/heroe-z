@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     creator: "@HEROEZofficial",
     images: {
-      url: "/lg-dark-wallpaper.webp",
+      url: "/images/summary.png",
       alt: "HeroeZ",
     },
   },
@@ -32,15 +32,15 @@ export const metadata: Metadata = {
     description: "Heroes in 6th Dimension.",
     type: "website",
     siteName: "HeroeZ",
-    url: "heroe-z.vercel.app",
+    url: "https://heroezofficial.com",
     images: [
       {
-        url: "/summary.png",
+        url: "/images/summary.png",
         width: 800,
         height: 800,
       },
       {
-        url: "/summary.png",
+        url: "/images/summary.png",
         width: 1920,
         height: 1080,
       },
