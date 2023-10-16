@@ -90,7 +90,7 @@ export default function Page() {
         </Paragraph>
         <Divider />
         <Div className="w-full flex flex-col gap-2 bg-primary/5 rounded-xl">
-          <Paragraph className="font-montserrat mt-2">
+          <Paragraph className="font-montserrat mt-2 text-primary">
             HEROEZ AND MOTION CABIN PARTNERS
           </Paragraph>
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 lg:grid-cols-6 xl:grid-cols-7 gap-2">
