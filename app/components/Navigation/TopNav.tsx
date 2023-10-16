@@ -14,8 +14,7 @@ import {
   useNavigationStore,
   useRandomCurtainColor,
 } from "@/store";
-import { Button, ButtonGroup } from "@nextui-org/react";
-
+import { Button, ButtonGroup, Divider, Tooltip } from "@nextui-org/react";
 import {
   BsWallet,
   BsMap,
@@ -32,6 +31,9 @@ import {
 } from "react-icons/bs";
 import MoreDropDownButton from "./MoreDropDownButton";
 import GlowingBorder from "../Styles/GlowingBorder";
+import SocialsDownButton from "./SocialsDropDownButton";
+import Link from "next/link";
+import { FaDiscord, FaXTwitter } from "react-icons/fa6";
 export default function TopNav() {
   const pathname = usePathname();
   const searchparams = useSearchParams();
@@ -89,6 +91,10 @@ export default function TopNav() {
     {
       type: "dropdown",
       title: "MORE",
+    },
+    {
+      type: "dropdown",
+      title: "SOCIALS",
     },
     {
       type: "button",
@@ -180,7 +186,7 @@ export default function TopNav() {
 
       <ButtonGroup
         className={`relative hidden lg:flex backdrop-blur-lg rounded-xl overflow-hidden glowing-border
-        
+        ml-4
         ${theme.mode === "dark" && pathname === "/" && "backdrop-brightness-50"}
         ${
           theme.mode === "dark"
@@ -190,6 +196,7 @@ export default function TopNav() {
         `}
       >
         <GlowingBorder />
+
         {groupButtons.map((option, i) => {
           return (
             <React.Fragment key={option.title}>
@@ -215,11 +222,49 @@ export default function TopNav() {
                   </span>
                 </Button>
               ) : (
-                <MoreDropDownButton />
+                option.title === "MORE" && <MoreDropDownButton />
               )}
             </React.Fragment>
           );
         })}
+        <Tooltip
+          delay={0}
+          closeDelay={0}
+          className={` ${theme.mode}`}
+          color="primary"
+          classNames={{ arrow: "hidden" }}
+          showArrow={true}
+          content="Join the HEROEZ! Discord Server!"
+        >
+          <Button
+            isIconOnly
+            as={Link}
+            href="https://discord.gg/FJ9MQW25B9"
+            target="_blank"
+            className="btn-default bg-primary/10 text-primary text-lg"
+          >
+            <FaDiscord />
+          </Button>
+        </Tooltip>
+        <Tooltip
+          delay={0}
+          closeDelay={0}
+          className={` ${theme.mode}`}
+          classNames={{ arrow: "hidden" }}
+          color="primary"
+          showArrow={true}
+          content="/HEROEZofficial"
+        >
+          <Button
+            isIconOnly
+            as={Link}
+            href="https://twitter.com/HEROEZofficial"
+            target="_blank"
+            className="btn-default bg-primary/10 text-primary text-lg"
+          >
+            <FaXTwitter />
+          </Button>
+        </Tooltip>
       </ButtonGroup>
 
       <MenuButton

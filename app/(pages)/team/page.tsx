@@ -1,7 +1,6 @@
 "use client";
 import List from "@/app/components/AnimatedTags/List";
 import Image from "next/image";
-import UL_Grid from "@/app/components/Layouts/Scrollable_UL";
 import HeroModal from "./HeroModal";
 import Paragraph from "@/app/components/AnimatedTags/Paragraph";
 import Scrollable from "@/app/components/Layouts/Scrollable";
