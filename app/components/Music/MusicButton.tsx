@@ -14,26 +14,26 @@ export default function MusicButtn() {
   const animate = useAnimateStore();
   const [showTip, setShowTip] = useState(true);
   return (
-    <AnimatePresence initial={false}>
-      {!music.showPlayer && (
-        <motion.div
-          key={"audiobutton"}
-          initial={{ opacity: 0, scale: 0 }}
-          animate={{ opacity: 1, scale: 1 }}
-          exit={{ opacity: 0, scale: 0 }}
-          transition={{ type: "spring" }}
-          className={`bottom-6 fixed left-3 md:left-12 lg:left-24 xl:left-36 2xl:left-48 z-[21]`}
-        >
-          <Tooltip
-            showArrow={true}
-            isOpen={showTip && animate.mode}
-            className={`${theme.mode} text-white`}
-            classNames={{ arrow: `${theme.mode} bg-primary ` }}
-            color="primary"
-            closeDelay={0}
-            delay={0}
-            placement="right"
-            content="< Click Here for Music."
+    <AnimatePresence initial={false} mode="wait">
+      <Tooltip
+        showArrow={true}
+        isOpen={showTip && animate.mode}
+        className={`${theme.mode} text-white`}
+        classNames={{ arrow: `${theme.mode} bg-primary ` }}
+        color="primary"
+        closeDelay={0}
+        delay={0}
+        placement="right"
+        content="< Click Here for Music."
+      >
+        {!music.showPlayer && (
+          <motion.div
+            key={"audiobutton"}
+            initial={{ opacity: 0, scale: 0 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0 }}
+            transition={{ type: "spring" }}
+            className={`bottom-6 fixed left-3 md:left-12 lg:left-24 xl:left-36 2xl:left-48 z-[21]`}
           >
             <Button
               onClick={() => {
@@ -56,9 +56,9 @@ export default function MusicButtn() {
               {music.playMusic ? <MdMusicNote /> : <MdMusicOff />}
               <GlowingBorder />
             </Button>
-          </Tooltip>
-        </motion.div>
-      )}
+          </motion.div>
+        )}
+      </Tooltip>
     </AnimatePresence>
   );
 }
