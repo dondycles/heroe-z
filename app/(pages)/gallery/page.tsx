@@ -166,7 +166,8 @@ export default function Page() {
         </div>
         <div className="flex flex-col w-full h-full pb-10 text-center">
           <Paragraph className=" text-xl sm:text-3xl font-montserrat ">
-            MEET THE GREATES HEROES, <span className=" text-primary">YOU.</span>
+            MEET THE GREATEST HEROES,{" "}
+            <span className=" text-primary">YOU.</span>
           </Paragraph>
           <Paragraph>
             BE THE HERO YOU NEED. UNLEASH YOUR INNER HERO. WE'RE ONE FOR ALL
