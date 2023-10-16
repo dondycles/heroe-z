@@ -68,7 +68,6 @@ export default function Page() {
             />
           </Div>
         </div>
-
         <Paragraph>
           HEROEZ! & Studio Z has the full support of our partner Motioncabin, a
           prominent creative agency in the Philippines and the first choice for
@@ -91,17 +90,15 @@ export default function Page() {
         <Divider />
         <Div className="w-full flex flex-col gap-2 bg-primary/5 rounded-xl">
           <Paragraph className="font-montserrat mt-2 text-primary">
-            HEROEZ AND MOTION CABIN PARTNERS
+            MOTION CABIN PARTNERS
           </Paragraph>
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 lg:grid-cols-6 xl:grid-cols-7 gap-2">
             {partners.map((partner) => {
               return (
                 <Image
-                  className={`h-auto w-full object-cover aspect-square p-6 ${
-                    partner.alt === "Rebisco" &&
-                    theme.mode === "light" &&
-                    "invert"
-                  }`}
+                  className={`m-auto h-auto w-full max-w-[136px] object-cover ${
+                    theme.mode === "light" && "invert"
+                  } aspect-square p-6`}
                   alt={partner.alt}
                   src={partner.src}
                 />

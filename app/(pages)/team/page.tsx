@@ -20,10 +20,10 @@ export default function Page() {
   return (
     <Scrollable>
       <Paragraph>Meet the Founding heroes behind this epic journey</Paragraph>
-      <ul className=" flex gap-2 flex-wrap justify-center max-h-full overflow-y-auto">
+      <ul className=" flex gap-2 flex-wrap justify-center items-center max-h-full m-auto overflow-y-auto">
         {team.map((hero, i) => {
           return (
-            <List key={hero.name} className="max-h-[250px] aspect-square">
+            <List key={hero.name} className="max-h-[300px] aspect-square">
               <div
                 onClick={() => {
                   setShowModal(true);

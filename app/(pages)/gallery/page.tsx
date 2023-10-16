@@ -8,21 +8,17 @@ import { MdOutlineKeyboardArrowUp } from "react-icons/md";
 import React, { useState } from "react";
 import GlowingBorder from "@/app/components/Styles/GlowingBorder";
 import { Button, Divider } from "@nextui-org/react";
-import nft1 from "@/public/images/nfts/1.webp";
+import nft1 from "@/public/images/nfts/1.png";
 import nft2 from "@/public/images/nfts/2.webp";
 import nft3 from "@/public/images/nfts/3.webp";
 import nft4 from "@/public/images/nfts/4.webp";
-import nft5 from "@/public/images/nfts/5.webp";
+import nft5 from "@/public/images/nfts/5.jpg";
 import nft6 from "@/public/images/nfts/6.webp";
 import nft7 from "@/public/images/nfts/7.webp";
-import nft8 from "@/public/images/nfts/8.webp";
-import nft9 from "@/public/images/nfts/9.webp";
 import nft10 from "@/public/images/nfts/10.webp";
-import nft11 from "@/public/images/nfts/11.webp";
 import nft12 from "@/public/images/nfts/12.webp";
 import nft13 from "@/public/images/nfts/13.webp";
 import nft14 from "@/public/images/nfts/14.webp";
-import nft15 from "@/public/images/nfts/15.webp";
 import nft16 from "@/public/images/nfts/16.webp";
 import nft17 from "@/public/images/nfts/17.webp";
 import nft18 from "@/public/images/nfts/18.webp";
@@ -51,18 +47,11 @@ export default function Page() {
     {
       src: nft7,
     },
-    {
-      src: nft8,
-    },
-    {
-      src: nft9,
-    },
+
     {
       src: nft10,
     },
-    {
-      src: nft11,
-    },
+
     {
       src: nft12,
     },
@@ -72,9 +61,7 @@ export default function Page() {
     {
       src: nft14,
     },
-    {
-      src: nft15,
-    },
+
     {
       src: nft16,
     },
@@ -90,9 +77,7 @@ export default function Page() {
     {
       src: nft16,
     },
-    {
-      src: nft15,
-    },
+
     {
       src: nft14,
     },
@@ -102,18 +87,11 @@ export default function Page() {
     {
       src: nft12,
     },
-    {
-      src: nft11,
-    },
+
     {
       src: nft10,
     },
-    {
-      src: nft9,
-    },
-    {
-      src: nft8,
-    },
+
     {
       src: nft7,
     },

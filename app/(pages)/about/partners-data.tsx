@@ -14,7 +14,7 @@ import pra from "@/public/images/partners/pra.png";
 import rebisco from "@/public/images/partners/rebisco.png";
 import sanicare from "@/public/images/partners/sanicare.png";
 import sutherland from "@/public/images/partners/sutherland.png";
-import trestonshield from "@/public/images/partners/trestonshield.webp";
+import trestonshield from "@/public/images/partners/trestonshield.png";
 import wmg from "@/public/images/partners/wmg.png";
 
 export let partners = [
