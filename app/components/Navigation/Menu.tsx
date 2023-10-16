@@ -31,6 +31,7 @@ import {
 } from "react-icons/bs";
 import Link from "next/link";
 import ThemeButton from "../Theme/ThemeButton";
+import { SiFandom } from "react-icons/si";
 export default function ({
   menuState,
   closeMenu,
@@ -212,6 +213,16 @@ export default function ({
                     target="_blank"
                   >
                     <BsTwitter />
+                  </Link>
+                  <Divider
+                    orientation="vertical"
+                    className=" bg-background hidden sm:flex"
+                  />
+                  <Link
+                    href={"https://heroez.fandom.com/wiki/HEROEZ_Wiki"}
+                    target="_blank"
+                  >
+                    <SiFandom />
                   </Link>
                 </div>
               </div>
