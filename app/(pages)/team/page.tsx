@@ -68,7 +68,7 @@ export default function Page() {
           })}
         </ul>
       </div>
-      <Paragraph className="text-center mb-10 uppercase">
+      <Paragraph className="text-center font-montserrat mb-10 uppercase">
         Meet the Founding heroes behind this epic journey.
       </Paragraph>
       <HeroModal
