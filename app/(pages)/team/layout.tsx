@@ -7,7 +7,7 @@ export const metadata: Metadata = {
 export default function Team({ children }: { children: React.ReactNode }) {
   return (
     <>
-      <h1 className="text-primary">TEAM</h1>
+      <h1 className="text-primary text-center">TEAM</h1>
       {children}
     </>
   );

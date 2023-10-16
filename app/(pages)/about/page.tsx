@@ -25,6 +25,7 @@ export default function Page() {
           <Image
             src={dragon}
             alt="HeroeZ"
+            placeholder="blur"
             className="object-cover object-center w-full h-full rounded-xl"
           />
           <div className="absolute top-0 left-0 bottom-0 right-0">

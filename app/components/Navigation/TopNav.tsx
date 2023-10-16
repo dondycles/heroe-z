@@ -231,9 +231,9 @@ export default function TopNav() {
         <Tooltip
           delay={0}
           closeDelay={0}
-          className={` ${theme.mode}`}
-          classNames={{ arrow: "hidden" }}
+          className={` ${theme.mode} text-white`}
           color="primary"
+          classNames={{ arrow: `${theme.mode} bg-primary ` }}
           showArrow={true}
           content="HEROEZ! Wiki"
         >
@@ -250,9 +250,9 @@ export default function TopNav() {
         <Tooltip
           delay={0}
           closeDelay={0}
-          className={` ${theme.mode}`}
+          className={` ${theme.mode} text-white`}
           color="primary"
-          classNames={{ arrow: "hidden" }}
+          classNames={{ arrow: `${theme.mode} bg-primary ` }}
           showArrow={true}
           content="Join the HEROEZ! Discord Server!"
         >
@@ -269,10 +269,10 @@ export default function TopNav() {
         <Tooltip
           delay={0}
           closeDelay={0}
-          className={` ${theme.mode}`}
-          classNames={{ arrow: "hidden" }}
+          className={` ${theme.mode} text-white`}
           color="primary"
           showArrow={true}
+          classNames={{ arrow: `${theme.mode} bg-primary ` }}
           content="/HEROEZofficial"
         >
           <Button

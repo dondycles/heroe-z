@@ -123,7 +123,7 @@ export default function Page() {
 
   return (
     <Scrollable>
-      <div className="w-full h-full grid grid-rows-2 gap-1 sm:gap-4  group ">
+      <div className="w-full h-full grid grid-rows-2 gap-1 sm:gap-3  group ">
         <div className=" flex flex-row gap-1 sm:gap-4   h-full overflow-hidden group slider">
           <div className=" flex flex-row gap-1 sm:gap-4 con-partition ">
             {nfts2.map((nft, i) => {

@@ -20,14 +20,12 @@ export default function Page() {
 
   return (
     <Scrollable>
-      <Paragraph className="text-center">
-        Meet the Founding heroes behind this epic journey
-      </Paragraph>
       <div className="max-h-full h-full overflow-x-hidden overflow-y-auto pb-10 flex flex-col gap-3  m-auto">
         <div className="relative w-full  shrink-0 h-[250px] sm:h-[350px] xl:h-[450px] rounded-xl overflow-hidden glowing-border p-[2px]">
           <Image
             src={teams}
             alt="HeroeZ"
+            placeholder="blur"
             className="object-cover object-center w-full h-full rounded-xl"
           />
           <div className="absolute top-0 left-0 bottom-0 right-0">
@@ -70,7 +68,9 @@ export default function Page() {
           })}
         </ul>
       </div>
-
+      <Paragraph className="text-center mb-10 uppercase">
+        Meet the Founding heroes behind this epic journey.
+      </Paragraph>
       <HeroModal
         heroIndexToShow={heroIndexToShow}
         setShowModal={(state) => setShowModal(state)}
