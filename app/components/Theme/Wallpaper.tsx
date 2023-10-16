@@ -39,41 +39,27 @@ export default function Wallpaper() {
   return (
     <div className="fixed top-0 bottom-0 left-0 right-0 w-screen h-screen z-[-1] bg-background ">
       <AnimatePresence>
-        {/* {windowSize.width > 620 ? ( */}
-        <Image
-          key={"lgwallpaper"}
-          className={` absolute top-0 left-0 w-full h-full object-cover duration-300 ${
-            theme.mode === "dark" ? "opacity-0" : "opacity-100"
-          }`}
-          src={lgwallpaper}
-          alt="HeroeZ"
-          placeholder="empty"
-          quality={100}
-          priority
-        />
-        <Image
-          key={"lgwallpaperdark"}
-          className={` absolute top-0 left-0 w-full h-full object-cover duration-300 ${
-            theme.mode === "light" ? "opacity-0" : "opacity-100"
-          }`}
-          src={lgwallpaperdark}
-          placeholder="empty"
-          alt="HeroeZ"
-          quality={100}
-          priority
-        />
-        {/*) : (
-              <Image
-                key={"smwallpaper"}
-                className="fixed top-0 left-0 w-screen h-screen object-cover"
-                src={smwallpaper}
-                       placeholder="empty"
-                alt="HeroeZ"
-                quality={100}
-                priority
-              />
-            )}
-           */}
+        {theme.mode === "light" ? (
+          <Image
+            key={"lgwallpaper"}
+            className={` absolute top-0 left-0 w-full h-full object-cover duration-300 `}
+            src={lgwallpaper}
+            alt="HeroeZ"
+            placeholder="empty"
+            quality={100}
+            priority
+          />
+        ) : (
+          <Image
+            key={"lgwallpaperdark"}
+            className={` absolute top-0 left-0 w-full h-full object-cover duration-300 `}
+            src={lgwallpaperdark}
+            placeholder="empty"
+            alt="HeroeZ"
+            quality={100}
+            priority
+          />
+        )}
       </AnimatePresence>
       <div className="fixed top-0 left-[50%] translate-x-[-50%] h-[100dvh] w-[100dvh] z-[-1]">
         <Image
