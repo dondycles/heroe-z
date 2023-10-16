@@ -29,7 +29,7 @@ export default function Component() {
               <Card
                 isFooterBlurred
                 className={`w-full mx-auto h-[300px] col-span-12 sm:col-span-7 ${
-                  i === 1 && "pointer-events-none saturate-0"
+                  i > 0 && "pointer-events-none saturate-0"
                 }`}
               >
                 <CardHeader className="absolute z-10 flex-col items-start top-1">
@@ -66,7 +66,7 @@ export default function Component() {
                     className="px-6 shadow-md group btn-default text-primary w-fit sm:hover:translate-x-1 bg-primary/10"
                   >
                     <p className="flex items-center justify-center w-full gap-1 text-xs">
-                      {i === 1 ? (
+                      {i > 0 ? (
                         "COMING SOON"
                       ) : (
                         <>

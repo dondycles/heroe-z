@@ -31,6 +31,7 @@ import {
 } from "react-icons/bs";
 import MoreDropDownButton from "./MoreDropDownButton";
 import GlowingBorder from "../Styles/GlowingBorder";
+import { SiFandom } from "react-icons/si";
 import SocialsDownButton from "./SocialsDropDownButton";
 import Link from "next/link";
 import { FaDiscord, FaXTwitter } from "react-icons/fa6";
@@ -227,6 +228,25 @@ export default function TopNav() {
             </React.Fragment>
           );
         })}
+        <Tooltip
+          delay={0}
+          closeDelay={0}
+          className={` ${theme.mode}`}
+          classNames={{ arrow: "hidden" }}
+          color="primary"
+          showArrow={true}
+          content="HEROEZ! Wiki"
+        >
+          <Button
+            isIconOnly
+            as={Link}
+            href="https://heroez.fandom.com/wiki/HEROEZ_Wiki"
+            target="_blank"
+            className="btn-default bg-primary/10 text-primary text-lg"
+          >
+            <SiFandom />
+          </Button>
+        </Tooltip>
         <Tooltip
           delay={0}
           closeDelay={0}
