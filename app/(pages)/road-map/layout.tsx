@@ -7,7 +7,7 @@ export const metadata: Metadata = {
 export default function RoadMap({ children }: { children: React.ReactNode }) {
   return (
     <>
-      <h1>
+      <h1 className="hidden">
         ROAD <span className="text-primary">MAP</span>{" "}
       </h1>
       {children}

@@ -11,7 +11,10 @@ import { PiPathBold } from "react-icons/pi";
 export default function Page() {
   return (
     <Scrollable>
-      <div className="m-auto h-full w-full flex flex-col gap-3 items-center justify-center">
+      <div className="mb-auto mt-0 h-full w-full flex flex-col gap-3 items-center justify-center">
+        <h1 className="ml-0 mr-auto">
+          ROAD <span className="text-primary">MAP</span>{" "}
+        </h1>
         <Paragraph className="font-montserrat mb-6">
           HEROEZ! The "Community" is a key element that revolves around the
           roadmap. As we progress through our hero adventure and jointly uncover
