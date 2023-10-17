@@ -1,11 +1,9 @@
 "use client";
-import Div from "@/app/components/AnimatedTags/Div";
 import Paragraph from "@/app/components/AnimatedTags/Paragraph";
 import Scrollable from "@/app/components/Layouts/Scrollable";
 import RoadMapItem from "@/app/components/ui/RoadMapItem";
 import { AnimatePresence } from "framer-motion";
 import React from "react";
-import { AiOutlineNodeIndex } from "react-icons/ai";
 import { PiPathBold } from "react-icons/pi";
 
 export default function Page() {

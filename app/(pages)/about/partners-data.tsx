@@ -15,6 +15,10 @@ import rebisco from "@/public/images/partners/rebisco.png";
 import sanicare from "@/public/images/partners/sanicare.png";
 import sutherland from "@/public/images/partners/sutherland.png";
 import trestonshield from "@/public/images/partners/trestonshield.png";
+import aeon from "@/public/images/partners/aeon.png";
+import fastpasscorp from "@/public/images/partners/fastpasscorp.png";
+import origin from "@/public/images/partners/origin.png";
+import speedqueen from "@/public/images/partners/speed-queen.png";
 import wmg from "@/public/images/partners/wmg.png";
 
 export let partners = [
@@ -36,4 +40,8 @@ export let partners = [
   { src: sutherland, alt: "Sutherland" },
   { src: trestonshield, alt: "Treston Shield" },
   { src: wmg, alt: "WMG" },
+  { src: aeon, alt: "Aeon" },
+  { src: fastpasscorp, alt: "Fastpasscorp" },
+  { src: origin, alt: "Origin" },
+  { src: speedqueen, alt: "Speed Queen" },
 ];
