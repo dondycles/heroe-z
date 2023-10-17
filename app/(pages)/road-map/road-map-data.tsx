@@ -5,7 +5,7 @@ export let roadMapData = [
       "OFFICIAL WEBSITE LAUNCH",
       "ANIME TRAILER",
       "ESPORTS TRAILER",
-      "MINTING OF 4444 HEROES ON ETHEREUM CHAIN",
+      "MINTING OF 3333 HEROES ON ETHEREUM CHAIN",
       "REVEAL PHASE",
     ],
     2: [
