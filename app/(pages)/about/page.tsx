@@ -70,20 +70,20 @@ export default function Page() {
           </Div>
         </div>
         <Paragraph>
-          HEROEZ! & Studio Z has the full support of our partner Motioncabin, a
+          HEROEZ! & Studio Z has the full support of our partner Motion Cabin, a
           prominent creative agency in the Philippines and the first choice for
-          many clients. Motioncabin has signed agreements with the Philippine
+          many clients. Motion Cabin has signed agreements with the Philippine
           Retailers Association, AyalaLand, Speed Queen, Treston International
           College, the Ecosystems Research and Development Bureau, and other
           major corporations.
         </Paragraph>
         <Paragraph>
-          Motioncabin will facilitate any businesses that will be established
+          Motion Cabin will facilitate any businesses that will be established
           around the HEROEZ ecosystem! making sure we give the greatest services
           for our people.
         </Paragraph>
         <Paragraph>
-          You may learn more about Motioncabin by visiting their website.{" "}
+          You may learn more about Motion Cabin by visiting their website.{" "}
           <Link color="primary" href="https://motioncabin.com/" target="_blank">
             https://motioncabin.com/
           </Link>
