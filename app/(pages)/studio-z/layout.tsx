@@ -7,7 +7,7 @@ export const metadata: Metadata = {
 export default function StudioZ({ children }: { children: React.ReactNode }) {
   return (
     <>
-      <h1>
+      <h1 hidden>
         STUDIO <span className=" text-primary">Z</span>{" "}
       </h1>
       {children}
