@@ -35,8 +35,6 @@ export default function Page() {
               alt={studioZImages[9].alt}
               style={{
                 animationDelay: String(0.5 + "s"),
-                transitionDelay: "0.5s",
-                opacity: animate.mode ? 1 : 0,
               }}
               className="object-cover aspect-auto w-fit rounded-xl animate-float ease-in-out duration-300 "
             />
@@ -49,8 +47,6 @@ export default function Page() {
                   key={image.alt}
                   style={{
                     animationDelay: String(i / 2 + "s"),
-                    transitionDelay: String(0.5 * (i + 1) + "s"),
-                    opacity: animate.mode ? 1 : 0,
                   }}
                   className="object-cover aspect-auto w-fit rounded-xl animate-float ease-in-out duration-300 "
                 />
@@ -66,8 +62,6 @@ export default function Page() {
                   alt={image.alt}
                   style={{
                     animationDelay: String(i / 2 + 0.3 + "s"),
-                    transitionDelay: String(i + "s"),
-                    opacity: animate.mode ? 1 : 0,
                   }}
                   className=" object-cover aspect-auto w-fit rounded-xl animate-float ease-in-out duration-300 "
                 />
@@ -83,8 +77,6 @@ export default function Page() {
                   alt={image.alt}
                   style={{
                     animationDelay: String(i / 2 + 0.6 + "s"),
-                    transitionDelay: String(i + "s"),
-                    opacity: animate.mode ? 1 : 0,
                   }}
                   className=" object-cover aspect-auto w-fit rounded-xl animate-float ease-in-out duration-300 "
                 />
@@ -100,8 +92,6 @@ export default function Page() {
                   alt={image.alt}
                   style={{
                     animationDelay: String(i / 2 + 0.9 + "s"),
-                    transitionDelay: String(i + "s"),
-                    opacity: animate.mode ? 1 : 0,
                   }}
                   className=" object-cover aspect-auto w-fit rounded-xl animate-float ease-in-out duration-300 "
                 />
