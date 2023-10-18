@@ -32,7 +32,7 @@ export default function Page() {
             <GlowingBorder />
           </div>
         </div>
-        <ul className=" grid grid-cols-2 sm:grid-cols-3 xl:grid-cols-6 gap-3">
+        <ul className=" grid grid-cols-2 sm:grid-cols-3 xl:grid-cols-7 gap-3">
           {team.map((hero, i) => {
             return (
               <List key={hero.name} className="aspect-square">
