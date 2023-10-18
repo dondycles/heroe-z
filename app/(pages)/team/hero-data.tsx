@@ -4,7 +4,7 @@ import EscoCobarseth from "@/public/images/team/ESCO.webp";
 import xJudaseth from "@/public/images/team/JUDAS.webp";
 import Fonso from "@/public/images/team/fonso.webp";
 import Dondy from "@/public/images/team/dondy.webp";
-
+import Steve from "@/public/images/team/steve.webp";
 export const TeamData = [
   {
     name: "Kazma",
@@ -23,7 +23,6 @@ export const TeamData = [
     description:
       "Years of experience being Traditional Artist/Animator/Illustrator. Known as the guy who fan animated jujutsu kaisen panels and one piece.",
     socials: [
-      { type: "fb", link: "https://facebook.com/jovzkieanimation" },
       { type: "ig", link: "https://instagram.com/jovzkieanimation" },
       { type: "yt", link: "https://youtube.com/c/jovzkieanimation" },
       { type: "tt", link: "https://tiktok.com/@jovzkieanimation" },
@@ -84,11 +83,32 @@ export const TeamData = [
     img: xJudaseth,
   },
   {
+    name: "STEVEY DRAWS",
+    moto: "Creating small worlds.",
+    roles: ["Animator/Illustrator"],
+    description:
+      "Creating captivating scenes and illustrations/animations for almost decade. Years of experience working in different anime brands/studios that is tied up with japan.",
+    socials: [
+      { type: "ig", link: "https://www.instagram.com/steveson_marquez/" },
+      {
+        type: "art",
+        link: "https://www.artstation.com/steveydraws22",
+      },
+      {
+        type: "zez",
+        link: "https://zez.am/steveson_marquez",
+      },
+    ],
+    communities: null,
+    img: Steve,
+  },
+  {
     name: "Dondy",
     moto: "Make a step everyday. It will matter, someday.",
     roles: ["HEROEZ!", "Front-End Web Dev."],
     description: `An aspiring web developer who pulls up an all-nighter, splits his time between creating piano covers on  YouTube and exploring the world of web development.`,
     socials: [
+      { type: "ig", link: "https://instagram.com/dondycles" },
       { type: "yt", link: "https://youtube.com/johnroddondoyano" },
       { type: "tt", link: "https://tiktok.com/@dondycles" },
       { type: "x", link: "https://twitter.com/dondycles" },

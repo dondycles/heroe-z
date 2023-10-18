@@ -5,12 +5,14 @@ import {
   FaInstagram,
   FaYoutube,
   FaFacebookF,
+  FaArtstation,
 } from "react-icons/fa6";
 
 import Link from "next/link";
 import Image from "next/image";
 import elixer from "@/public/images/icons/elixir.ico";
 import rethinkable from "@/public/images/icons/rethinkable.ico";
+import zez from "@/public/images/icons/zez.ico";
 
 import { TeamData } from "./hero-data";
 import { Chip, Divider } from "@nextui-org/react";
@@ -173,6 +175,11 @@ export default function HeroModal({
                             <FaYoutube />
                           </span>
                         )}
+                        {social.type === "art" && (
+                          <span className="text-cyan-600 ">
+                            <FaArtstation />
+                          </span>
+                        )}
                         {social.type === "elixir" && (
                           <Image
                             src={elixer}
@@ -188,6 +195,9 @@ export default function HeroModal({
                             width={20}
                             height={20}
                           />
+                        )}
+                        {social.type === "zez" && (
+                          <Image src={zez} alt="ZEZ" width={20} height={20} />
                         )}
                       </Link>
                     );
