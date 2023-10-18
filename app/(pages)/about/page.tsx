@@ -21,12 +21,12 @@ export default function Page() {
         HEROEZ! / ROKU JIGEN DE NO HEROES / HEROES IN 6th DIMENSION
       </Paragraph>
       <div className=" text-center max-h-full pb-10 overflow-y-auto overflow-x-hidden flex flex-col gap-3">
-        <div className="relative w-full  shrink-0 h-[450px] rounded-xl overflow-hidden glowing-border p-[2px]">
+        <div className="relative w-full  shrink-0 h-[450px] rounded-md sm:rounded-xl overflow-hidden glowing-border p-[2px]">
           <Image
             src={dragon}
             alt="HeroeZ"
             placeholder="blur"
-            className="object-cover object-center w-full h-full rounded-xl"
+            className="object-cover object-center w-full h-full rounded-md sm:rounded-xl"
           />
           <div className="absolute top-0 left-0 bottom-0 right-0">
             <GlowingBorder />

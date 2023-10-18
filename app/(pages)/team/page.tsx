@@ -20,19 +20,19 @@ export default function Page() {
 
   return (
     <Scrollable>
-      <div className="max-h-full h-screen overflow-x-hidden overflow-y-auto flex flex-col gap-3  m-auto ">
-        <div className="relative w-full h-full min-h-[300px] flex-1 rounded-xl overflow-hidden glowing-border p-[2px]">
+      <div className="max-h-full h-screen overflow-x-hidden overflow-y-auto flex flex-col gap-1 sm:gap-2  m-auto ">
+        <div className="relative w-full h-full min-h-[300px] flex-1 rounded-md sm:rounded-xl overflow-hidden glowing-border p-[2px]">
           <Image
             src={teams}
             alt="HeroeZ"
             placeholder="blur"
-            className="object-cover object-center w-full h-full rounded-xl"
+            className="object-cover object-center w-full h-full rounded-md sm:rounded-xl"
           />
           <div className="absolute top-0 left-0 bottom-0 right-0">
             <GlowingBorder />
           </div>
         </div>
-        <ul className=" grid grid-cols-2 sm:grid-cols-3 xl:grid-cols-7 gap-3">
+        <ul className=" grid grid-cols-2 sm:grid-cols-3 xl:grid-cols-7 gap-1 sm:gap-2">
           {team.map((hero, i) => {
             return (
               <List key={hero.name} className="aspect-square">
@@ -41,7 +41,7 @@ export default function Page() {
                     setShowModal(true);
                     setHeroIndexToShow(i);
                   }}
-                  className={`border-none glowing-border relative overflow-hidden max-w-[500px] w-full h-auto aspect-square p-[2px] rounded-xl bg-transparent sm:hover:scale-[99%] cursor-pointer duration-150
+                  className={`border-none glowing-border relative overflow-hidden max-w-[500px] w-full h-auto aspect-square p-[2px] rounded-md sm:rounded-xl bg-transparent sm:hover:scale-[99%] cursor-pointer duration-150
                     ${
                       theme.mode === "dark"
                         ? " drop-shadow-[0_0_4px_#ff444488]"
@@ -51,7 +51,7 @@ export default function Page() {
                 >
                   <GlowingBorder />
                   <Image
-                    className="object-cover w-full h-full rounded-xl"
+                    className="object-cover w-full h-full rounded-md sm:rounded-xl"
                     quality={100}
                     src={hero.img}
                     alt={hero.name}

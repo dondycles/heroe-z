@@ -123,9 +123,9 @@ export default function Page() {
 
   return (
     <Scrollable>
-      <div className="w-full h-full grid grid-rows-2 gap-1 sm:gap-3  group ">
-        <div className=" flex flex-row gap-1 sm:gap-4   h-full overflow-hidden group slider rounded-xl">
-          <div className=" flex flex-row gap-1 sm:gap-4 con-partition ">
+      <div className="w-full h-full grid grid-rows-2 gap-1 sm:gap-2  group ">
+        <div className=" flex flex-row gap-1 sm:gap-2   h-full overflow-hidden group slider rounded-xl">
+          <div className=" flex flex-row gap-1 sm:gap-2 con-partition ">
             {nfts2.map((nft, i) => {
               return (
                 <React.Fragment key={"a" + i}>
@@ -134,7 +134,7 @@ export default function Page() {
               );
             })}
           </div>
-          <div className=" flex flex-row gap-1 sm:gap-4  con-partition">
+          <div className=" flex flex-row gap-1 sm:gap-2  con-partition">
             {nfts2.map((nft, i) => {
               return (
                 <React.Fragment key={"b" + i}>
@@ -144,8 +144,8 @@ export default function Page() {
             })}
           </div>
         </div>
-        <div className=" flex flex-row gap-1 sm:gap-4   h-full overflow-hidden group slider rounded-xl ">
-          <div className=" flex flex-row gap-1 sm:gap-4  con-partition-reverse">
+        <div className=" flex flex-row gap-1 sm:gap-2   h-full overflow-hidden group slider rounded-xl ">
+          <div className=" flex flex-row gap-1 sm:gap-2  con-partition-reverse">
             {nfts.map((nft, i) => {
               return (
                 <React.Fragment key={"c" + i}>
@@ -154,7 +154,7 @@ export default function Page() {
               );
             })}
           </div>
-          <div className=" flex flex-row gap-1 sm:gap-4  con-partition-reverse">
+          <div className=" flex flex-row gap-1 sm:gap-2  con-partition-reverse">
             {nfts.map((nft, i) => {
               return (
                 <React.Fragment key={"d" + i}>
