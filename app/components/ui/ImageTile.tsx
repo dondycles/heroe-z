@@ -18,8 +18,8 @@ export default function ImageTile({ source, alt, i, delay }: Attribute) {
       style={{
         animationDelay: String(i / delay + "s"),
       }}
-      className={`object-cover w-fit rounded-md sm:rounded-xl animate-float ease-in-out duration-300 ${
-        i % 2 != 0 ? "aspect-square" : "aspect-auto"
+      className={`object-cover w-fit bg-primary rounded-md sm:rounded-xl animate-float ease-in-out duration-300 ${
+        i % 2 != 0 && !alt.includes("GIF") ? "aspect-square" : "aspect-auto"
       }`}
     />
   );
