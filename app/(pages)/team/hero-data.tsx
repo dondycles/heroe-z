@@ -1,10 +1,10 @@
-import JovzkyAnimation from "@/public/images/team/jovzky.webp";
-import EscoCobarseth from "@/public/images/team/esco.webp";
-import xJudaseth from "@/public/images/team/judas.webp";
-import Fonso from "@/public/images/team/fonso.webp";
-import Dondy from "@/public/images/team/dondy.webp";
-import Steve from "@/public/images/team/steve.webp";
-import Kazma from "@/public/images/team/kazma.webp";
+import JovzkyAnimation from "@/public/images/team/jovzkyy.webp";
+import EscoCobarseth from "@/public/images/team/escoo.webp";
+import xJudaseth from "@/public/images/team/judass.webp";
+import Fonso from "@/public/images/team/fonsoo.webp";
+import Dondy from "@/public/images/team/dondyy.webp";
+import Steve from "@/public/images/team/stevee.webp";
+import Kazma from "@/public/images/team/kazmaa.webp";
 export const TeamData = [
   {
     name: "Kazma",
