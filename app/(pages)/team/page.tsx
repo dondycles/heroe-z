@@ -6,7 +6,7 @@ import HeroModal from "./HeroModal";
 import Paragraph from "@/app/components/AnimatedTags/Paragraph";
 import Scrollable from "@/app/components/Layouts/Scrollable";
 import GlowingBorder from "@/app/components/Styles/GlowingBorder";
-import teams from "@/public/images/team/teams.webp";
+import teams from "@/public/images/team/teamss.webp";
 import { TeamData } from "./hero-data";
 import React, { useState } from "react";
 import { useThemeStore } from "@/store";
