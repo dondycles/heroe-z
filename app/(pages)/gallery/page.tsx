@@ -124,7 +124,7 @@ export default function Page() {
   return (
     <Scrollable>
       <div className="w-full h-full grid grid-rows-2 gap-1 sm:gap-3  group ">
-        <div className=" flex flex-row gap-1 sm:gap-4   h-full overflow-hidden group slider">
+        <div className=" flex flex-row gap-1 sm:gap-4   h-full overflow-hidden group slider rounded-xl">
           <div className=" flex flex-row gap-1 sm:gap-4 con-partition ">
             {nfts2.map((nft, i) => {
               return (
@@ -144,7 +144,7 @@ export default function Page() {
             })}
           </div>
         </div>
-        <div className=" flex flex-row gap-1 sm:gap-4   h-full overflow-hidden group slider ">
+        <div className=" flex flex-row gap-1 sm:gap-4   h-full overflow-hidden group slider rounded-xl ">
           <div className=" flex flex-row gap-1 sm:gap-4  con-partition-reverse">
             {nfts.map((nft, i) => {
               return (
