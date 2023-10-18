@@ -28,6 +28,8 @@ import {
   BsLightbulbFill,
   BsBookFill,
   BsCollectionFill,
+  BsHeart,
+  BsHeartFill,
 } from "react-icons/bs";
 import MoreDropDownButton from "./MoreDropDownButton";
 import GlowingBorder from "../Styles/GlowingBorder";
@@ -64,14 +66,7 @@ export default function TopNav() {
       filledIcon: <BsBuildingsFill />,
       children: null,
     },
-    {
-      type: "button",
-      title: "SYSTEM",
-      href: "/quest-system",
-      icon: <BsLightbulb />,
-      filledIcon: <BsLightbulbFill />,
-      children: null,
-    },
+
     {
       type: "button",
       title: "NOVEL",
@@ -89,6 +84,15 @@ export default function TopNav() {
       filledIcon: <BsCollectionFill />,
       children: null,
     },
+    {
+      type: "button",
+      title: "ABOUT",
+      href: "/about",
+      icon: <BsHeart />,
+      filledIcon: <BsHeartFill />,
+      children: null,
+    },
+
     {
       type: "dropdown",
       title: "MORE",

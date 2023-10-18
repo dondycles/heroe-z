@@ -19,6 +19,8 @@ import {
   BsRocketFill,
   BsCheckCircleFill,
   BsPeopleFill,
+  BsLightbulb,
+  BsLightbulbFill,
 } from "react-icons/bs";
 import { TbPlayerTrackNextFilled, TbPlayerTrackNext } from "react-icons/tb";
 import ThemeButton from "../Theme/ThemeButton";
@@ -28,10 +30,10 @@ export default function MoreDropDownButton() {
   const pathname = usePathname();
   let options = [
     {
-      title: "ABOUT",
-      href: "/about",
-      icon: <BsHeart />,
-      filledIcon: <BsHeartFill />,
+      title: "SYSTEM",
+      href: "/quest-system",
+      icon: <BsLightbulb />,
+      filledIcon: <BsLightbulbFill />,
     },
 
     {
@@ -64,7 +66,7 @@ export default function MoreDropDownButton() {
             pathname === "/team" ||
             pathname === "/updates" ||
             pathname === "/studio-z" ||
-            pathname === "/about"
+            pathname === "/quest-system"
               ? "bg-primary text-content1 sm:hover:text-primary"
               : "bg-primary/10 text-primary"
           }
