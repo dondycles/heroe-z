@@ -4,6 +4,7 @@
 
 * {
   @apply scrollbar scrollbar-thumb-primary scrollbar-track-transparent;
+  scroll-behavior: smooth;
 }
 
 *::-webkit-scrollbar-thumb {
@@ -89,4 +90,17 @@ p {
 
 .cls-1 {
   @apply fill-primary;
+}
+
+.animate-float {
+  animation: float 1s alternate infinite;
+}
+
+@keyframes float {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(0.99);
+  }
 }
