@@ -8,6 +8,11 @@ import image7 from "@/public/images/studioz/7.webp";
 import image8 from "@/public/images/studioz/8.webp";
 import image9 from "@/public/images/studioz/9.webp";
 import image10 from "@/public/images/studioz/10.webp";
+import image11 from "@/public/images/studioz/11.jpg";
+import image12 from "@/public/images/studioz/12.jpg";
+import image13 from "@/public/images/studioz/13.jpg";
+import image14 from "@/public/images/studioz/14.jpg";
+import image15 from "@/public/images/studioz/15.jpg";
 export const studioZImages = [
   { src: image1, alt: "Image 1" },
   { src: image2, alt: "Image 2" },
@@ -19,4 +24,9 @@ export const studioZImages = [
   { src: image8, alt: "Image 8" },
   { src: image9, alt: "Image 9" },
   { src: image10, alt: "Image 10" },
+  { src: image11, alt: "Image 11" },
+  { src: image12, alt: "Image 12" },
+  { src: image13, alt: "Image 13" },
+  { src: image14, alt: "Image 14" },
+  { src: image15, alt: "Image 15" },
 ];

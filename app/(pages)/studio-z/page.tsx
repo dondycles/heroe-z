@@ -12,7 +12,7 @@ export default function Page() {
   return (
     <Scrollable>
       <div className="flex flex-col-reverse w-full h-full overflow-y-auto overflow-x-hidden gap-3">
-        <div className="overflow-auto pb-10 text-center flex flex-col uppercase">
+        <div className="overflow-auto pb-10 text-center flex flex-col uppercase ">
           <h1 className="text-xl sm:text-3xl ">
             STUDIO <span className=" text-primary ">Z</span>{" "}
           </h1>
@@ -38,7 +38,7 @@ export default function Page() {
             space.
           </Paragraph>
         </div>
-        <div className="flex-1 w-full grid grid-rows-4 gap-2 overflow-auto scrollbar-hide rounded-xl">
+        <div className="flex-1 w-full grid grid-rows-3 gap-2 overflow-auto scrollbar-hide rounded-xl">
           <div className="flex-1 flex justify-start flex-row gap-2  overflow-auto scrollbar-hide shrink-0 relative">
             {studioZImages.map((image, i) => {
               return (
@@ -50,7 +50,7 @@ export default function Page() {
                     animationDelay: String(i / 2 + "s"),
                   }}
                   className={`object-cover w-fit rounded-xl animate-float ease-in-out duration-300 ${
-                    i % 2 === 0 ? "aspect-square" : "aspect-auto"
+                    i % 2 != 0 ? "aspect-square" : "aspect-auto"
                   }`}
                 />
               );
@@ -60,9 +60,9 @@ export default function Page() {
             {studioZImages.map((image, i) => {
               return (
                 <Image
-                  src={studioZImages[studioZImages.length - i - 1].src}
-                  key={studioZImages[studioZImages.length - i - 1].alt}
-                  alt={studioZImages[studioZImages.length - i - 1].alt}
+                  src={image.src}
+                  alt={image.alt}
+                  key={image.alt}
                   style={{
                     animationDelay: String(i / 2 + 0.3 + "s"),
                   }}
@@ -90,7 +90,8 @@ export default function Page() {
               );
             })}
           </div>
-          <div className="flex-1 flex flex-row gap-2  justify-start overflow-auto scrollbar-hide">
+          {/* <div className="flex-1 flex flex-row gap-2  justify-start overflow-auto scrollbar-hide">
+
             {studioZImages.map((image, i) => {
               return (
                 <Image
@@ -106,7 +107,7 @@ export default function Page() {
                 />
               );
             })}
-          </div>
+          </div> */}
         </div>
       </div>
     </Scrollable>
