@@ -1,10 +1,10 @@
-import Kazma from "@/public/images/team/kazma.webp";
 import JovzkyAnimation from "@/public/images/team/jovzky.webp";
 import EscoCobarseth from "@/public/images/team/esco.webp";
 import xJudaseth from "@/public/images/team/judas.webp";
 import Fonso from "@/public/images/team/fonso.webp";
 import Dondy from "@/public/images/team/dondy.webp";
 import Steve from "@/public/images/team/steve.webp";
+import Kazma from "@/public/images/team/kazma.webp";
 export const TeamData = [
   {
     name: "Kazma",
