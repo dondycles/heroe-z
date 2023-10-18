@@ -56,7 +56,7 @@ export default function Page() {
               );
             })}
           </div>
-          <div className="flex-1 flex flex-row gap-2 justify-center  overflow-auto scrollbar-hide">
+          <div className="flex-1 flex flex-row gap-2  overflow-auto scrollbar-hide">
             {studioZImages.map((image, i) => {
               return (
                 <Image
