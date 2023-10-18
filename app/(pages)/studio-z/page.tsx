@@ -38,7 +38,7 @@ export default function Page() {
             space.
           </Paragraph>
         </div>
-        <div className="flex-1 w-full grid grid-rows-4 gap-2 overflow-auto scrollbar-hide">
+        <div className="flex-1 w-full grid grid-rows-4 gap-2 overflow-auto scrollbar-hide rounded-xl">
           <div className="flex-1 flex justify-center flex-row gap-2  overflow-auto scrollbar-hide shrink-0 relative">
             {studioZImages.map((image, i) => {
               return (
