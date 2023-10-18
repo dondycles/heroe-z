@@ -89,8 +89,6 @@ export const TeamData = [
     roles: ["HEROEZ!", "Front-End Web Dev."],
     description: `An aspiring web developer who pulls up an all-nighter, splits his time between creating piano covers on  YouTube and exploring the world of web development.`,
     socials: [
-      { type: "fb", link: "https://facebook.com/dondycles" },
-      { type: "ig", link: "https://instagram.com/dondycles" },
       { type: "yt", link: "https://youtube.com/johnroddondoyano" },
       { type: "tt", link: "https://tiktok.com/@dondycles" },
       { type: "x", link: "https://twitter.com/dondycles" },
