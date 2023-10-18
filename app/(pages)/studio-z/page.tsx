@@ -11,8 +11,8 @@ export default function Page() {
   const animate = useAnimateStore();
   return (
     <Scrollable>
-      <div className="flex flex-row w-full h-full overflow-y-auto overflow-x-hidden gap-3">
-        <div className="max-h-full h-full flex-1 min-w-[250px] overflow-auto">
+      <div className="flex flex-col sm:flex-row w-full h-full overflow-y-auto overflow-x-hidden gap-3">
+        <div className="max-h-full h-fit sm:h-full sm:flex-1 min-w-[250px] overflow-auto">
           <Paragraph>
             Studio Z is an upcoming animation company that caters to Web2 & Web3
             clients fully backed by Motion Cabin, a leading creative agency in
@@ -27,8 +27,8 @@ export default function Page() {
             space.
           </Paragraph>
         </div>
-        <div className="hidden max-w-[47vw] w-screen sm:flex flex-col gap-2 overflow-auto scrollbar-hide">
-          <div className="flex-1 flex justify-end flex-row gap-2 min-h-[150px] overflow-auto scrollbar-hide shrink-0 relative">
+        <div className=" sm:max-w-[47vw] h-full flex-1 w-full flex flex-col gap-2 overflow-auto scrollbar-hide">
+          <div className="flex-1 flex justify-end flex-row gap-2 sm:min-h-[150px] overflow-auto scrollbar-hide shrink-0 relative">
             <Image
               key={studioZImages[9].alt}
               src={studioZImages[9].src}
@@ -57,7 +57,7 @@ export default function Page() {
               );
             })}
           </div>
-          <div className="flex-1 flex flex-row gap-2 overflow-auto min-h-[150px]  scrollbar-hide">
+          <div className="flex-1 flex flex-row gap-2 overflow-auto sm:min-h-[150px]  scrollbar-hide">
             {studioZImages.slice(2, 5).map((image, i) => {
               return (
                 <Image
@@ -74,7 +74,7 @@ export default function Page() {
               );
             })}
           </div>
-          <div className="flex-1 flex  justify-end  flex-row gap-2 min-h-[150px]  overflow-auto scrollbar-hide">
+          <div className="flex-1 flex  justify-end  flex-row gap-2 sm:min-h-[150px]  overflow-auto scrollbar-hide">
             {studioZImages.slice(4, 7).map((image, i) => {
               return (
                 <Image
@@ -91,7 +91,7 @@ export default function Page() {
               );
             })}
           </div>
-          <div className="flex-1 flex flex-row gap-2 overflow-auto min-h-[150px]  scrollbar-hide">
+          <div className="flex-1 flex flex-row gap-2 overflow-auto sm:min-h-[150px]  scrollbar-hide">
             {studioZImages.slice(7, 10).map((image, i) => {
               return (
                 <Image
