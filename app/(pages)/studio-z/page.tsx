@@ -38,8 +38,8 @@ export default function Page() {
             space.
           </Paragraph>
         </div>
-        <div className="flex-1 w-full grid grid-rows-3 gap-2 overflow-auto scrollbar-hide rounded-xl">
-          <div className="flex-1 flex justify-start flex-row gap-2  overflow-auto scrollbar-hide shrink-0 relative">
+        <div className="flex-1 w-full grid grid-rows-3 gap-1 sm:gap-2 overflow-auto scrollbar-hide rounded-xl">
+          <div className="flex-1 flex justify-start flex-row gap-1 sm:gap-2  overflow-auto scrollbar-hide shrink-0 relative">
             {studioZImages.map((image, i) => {
               return (
                 <Image
@@ -49,14 +49,14 @@ export default function Page() {
                   style={{
                     animationDelay: String(i / 2 + "s"),
                   }}
-                  className={`object-cover w-fit rounded-xl animate-float ease-in-out duration-300 ${
+                  className={`object-cover w-fit rounded-md sm:rounded-xl animate-float ease-in-out duration-300 ${
                     i % 2 != 0 ? "aspect-square" : "aspect-auto"
                   }`}
                 />
               );
             })}
           </div>
-          <div className="flex-1 flex flex-row gap-2 justify-center  overflow-auto scrollbar-hide">
+          <div className="flex-1 flex flex-row gap-1 sm:gap-2 justify-center  overflow-auto scrollbar-hide">
             {studioZImages.map((image, i) => {
               return (
                 <Image
@@ -66,14 +66,14 @@ export default function Page() {
                   style={{
                     animationDelay: String(i / 2 + 0.3 + "s"),
                   }}
-                  className={`object-cover w-fit rounded-xl animate-float ease-in-out duration-300 ${
+                  className={`object-cover w-fit rounded-md sm:rounded-xl animate-float ease-in-out duration-300 ${
                     i % 2 === 0 ? "aspect-square" : "aspect-auto"
                   }`}
                 />
               );
             })}
           </div>
-          <div className="flex-1 flex  justify-end  flex-row gap-2   overflow-auto scrollbar-hide">
+          <div className="flex-1 flex  justify-end  flex-row gap-1 sm:gap-2   overflow-auto scrollbar-hide">
             {studioZImages.map((image, i) => {
               return (
                 <Image
@@ -83,14 +83,14 @@ export default function Page() {
                   style={{
                     animationDelay: String(i / 2 + 0.6 + "s"),
                   }}
-                  className={`object-cover w-fit rounded-xl animate-float ease-in-out duration-300 ${
+                  className={`object-cover w-fit rounded-md sm:rounded-xl animate-float ease-in-out duration-300 ${
                     i % 2 === 0 ? "aspect-square" : "aspect-auto"
                   }`}
                 />
               );
             })}
           </div>
-          {/* <div className="flex-1 flex flex-row gap-2  justify-start overflow-auto scrollbar-hide">
+          {/* <div className="flex-1 flex flex-row gap-1 sm:gap-2  justify-start overflow-auto scrollbar-hide">
 
             {studioZImages.map((image, i) => {
               return (
