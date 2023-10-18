@@ -12,9 +12,9 @@ export default function Page() {
   return (
     <Scrollable>
       <div className="flex flex-col-reverse w-full h-full overflow-y-auto overflow-x-hidden gap-3">
-        <div className="overflow-auto pb-10 text-center flex flex-col">
-          <h1>
-            STUDIO <span className=" text-primary">Z</span>{" "}
+        <div className="overflow-auto pb-10 text-center flex flex-col uppercase">
+          <h1 className="text-xl sm:text-3xl ">
+            STUDIO <span className=" text-primary ">Z</span>{" "}
           </h1>
           <Paragraph>
             Studio Z is an upcoming animation company that caters to Web2 & Web3
