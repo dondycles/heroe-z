@@ -45,7 +45,7 @@ export default function Page() {
                 <Image
                   src={image.src}
                   alt={image.alt}
-                  key={image.alt}
+                  key={image.alt + 1}
                   style={{
                     animationDelay: String(i / 2 + "s"),
                   }}
@@ -62,7 +62,7 @@ export default function Page() {
                 <Image
                   src={image.src}
                   alt={image.alt}
-                  key={image.alt}
+                  key={image.alt + 2}
                   style={{
                     animationDelay: String(i / 2 + 0.3 + "s"),
                   }}
@@ -79,7 +79,7 @@ export default function Page() {
                 <Image
                   src={image.src}
                   alt={image.alt}
-                  key={image.alt}
+                  key={image.alt + 3}
                   style={{
                     animationDelay: String(i / 2 + 0.6 + "s"),
                   }}
@@ -90,24 +90,6 @@ export default function Page() {
               );
             })}
           </div>
-          {/* <div className="flex-1 flex flex-row gap-1 sm:gap-2  justify-start overflow-auto scrollbar-hide">
-
-            {studioZImages.map((image, i) => {
-              return (
-                <Image
-                  src={studioZImages[studioZImages.length - i - 1].src}
-                  key={studioZImages[studioZImages.length - i - 1].alt}
-                  alt={studioZImages[studioZImages.length - i - 1].alt}
-                  style={{
-                    animationDelay: String(i / 2 + 0.9 + "s"),
-                  }}
-                  className={`object-cover w-fit rounded-xl animate-float ease-in-out duration-300 ${
-                    i % 2 === 0 ? "aspect-square" : "aspect-auto"
-                  }`}
-                />
-              );
-            })}
-          </div> */}
         </div>
       </div>
     </Scrollable>
