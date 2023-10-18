@@ -20,8 +20,8 @@ export default function Page() {
 
   return (
     <Scrollable>
-      <div className="max-h-full h-full overflow-x-hidden overflow-y-auto pb-10 flex flex-col gap-3  m-auto">
-        <div className="relative w-full  shrink-0 h-[250px] sm:h-[350px] xl:h-[450px] rounded-xl overflow-hidden glowing-border p-[2px]">
+      <div className="max-h-full h-screen overflow-x-hidden overflow-y-auto flex flex-col gap-3  m-auto ">
+        <div className="relative w-full h-full min-h-[300px] flex-1 rounded-xl overflow-hidden glowing-border p-[2px]">
           <Image
             src={teams}
             alt="HeroeZ"
@@ -68,9 +68,14 @@ export default function Page() {
           })}
         </ul>
       </div>
-      <Paragraph className="text-center font-montserrat mb-10 uppercase">
-        Meet the Founding heroes behind this epic journey.
-      </Paragraph>
+      <div className="flex flex-col w-full text-center ">
+        <Paragraph className="text-primary font-black font-montserrat text-xl sm:text-3xl text-center">
+          TEAM
+        </Paragraph>
+        <Paragraph className="text-center font-montserrat uppercase">
+          Meet the Founding heroes behind this epic journey.
+        </Paragraph>
+      </div>
       <HeroModal
         heroIndexToShow={heroIndexToShow}
         setShowModal={(state) => setShowModal(state)}
