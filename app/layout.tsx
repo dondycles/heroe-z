@@ -2,6 +2,7 @@ import "./globals.css";
 import type { Metadata } from "next";
 import { Kanit, Montserrat } from "next/font/google";
 import { Providers } from "./components/ui-provider";
+import { Analytics } from "@vercel/analytics/react";
 const kanit = Kanit({
   subsets: ["latin"],
   weight: ["200", "400"],
@@ -58,6 +59,7 @@ export default function RootLayout({
         className={`bg-transparent ${kanit.variable} ${montserrat.variable} font-kanit `}
       >
         <Providers>{children}</Providers>
+        <Analytics />
       </body>
     </html>
   );
