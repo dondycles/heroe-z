@@ -4,7 +4,7 @@ import chatp3 from "@/public/images/novel/chapt3.webp";
 import chatp4 from "@/public/images/novel/chapt4.webp";
 export const NovelData = [
   {
-    title: "TO AETHEREA / HAO YUA",
+    title: "TO AETHEREA",
     desc: "",
     src: chatp1,
     link: "/web-novel/read?chapter=1",
