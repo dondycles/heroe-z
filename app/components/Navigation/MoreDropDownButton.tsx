@@ -21,6 +21,8 @@ import {
   BsPeopleFill,
   BsLightbulb,
   BsLightbulbFill,
+  BsWallet,
+  BsWalletFill,
 } from "react-icons/bs";
 import { TbPlayerTrackNextFilled, TbPlayerTrackNext } from "react-icons/tb";
 import ThemeButton from "../Theme/ThemeButton";
@@ -53,6 +55,12 @@ export default function MoreDropDownButton() {
       href: "/team",
       icon: <BsPeople />,
       filledIcon: <BsPeopleFill />,
+    },
+    {
+      title: "WALLET CHECKER",
+      href: "/wallet-checker",
+      icon: <BsWallet />,
+      filledIcon: <BsWalletFill />,
     },
   ];
   return (
@@ -113,7 +121,9 @@ export default function MoreDropDownButton() {
                   pathname === option.href
                     ? "bg-primary text-content1 pointer-events-none"
                     : "bg-transparent sm:hover:bg-primary/20"
-                }`}
+                }
+                ${option.title === "WALLET CHECKER" && " pointer-events-none"}
+                `}
               >
                 <p className="flex justify-center items-center gap-2 text-xs min-h-[28px]">
                   <span className=" sm:group-hover:translate-x-1 duration-150">
