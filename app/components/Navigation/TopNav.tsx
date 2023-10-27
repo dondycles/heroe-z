@@ -37,6 +37,7 @@ import { SiFandom } from "react-icons/si";
 import SocialsDownButton from "./SocialsDropDownButton";
 import Link from "next/link";
 import { FaDiscord, FaXTwitter } from "react-icons/fa6";
+import WalletChecker from "../modals/WalletChecker";
 export default function TopNav() {
   const pathname = usePathname();
   const searchparams = useSearchParams();
@@ -301,6 +302,7 @@ export default function TopNav() {
         }}
         isNavigating={!isNavigated}
       />
+      <WalletChecker />
       <Menu menuState={showMenu} closeMenu={() => setShowMenu(false)} />
     </motion.nav>
   );

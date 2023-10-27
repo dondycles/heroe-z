@@ -116,13 +116,17 @@ export default function MoreDropDownButton() {
               <DropdownItem
                 key={option.title}
                 textValue={option.title}
-                onClick={() => navigation.setWillNavigateTo(option.href)}
+                onClick={() => {
+                  if (option.title === "WALLET CHECKER")
+                    return navigation.setOpenWalletChecker(true);
+                  navigation.setWillNavigateTo(option.href);
+                }}
                 className={`rounded-none first:rounded-t-xl  p-3 group ${
                   pathname === option.href
                     ? "bg-primary text-content1 pointer-events-none"
                     : "bg-transparent sm:hover:bg-primary/20"
                 }
-                ${option.title === "WALLET CHECKER" && " pointer-events-none"}
+          
                 `}
               >
                 <p className="flex justify-center items-center gap-2 text-xs min-h-[28px]">

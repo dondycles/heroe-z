@@ -33,6 +33,8 @@ export const useAnimateStore = create<AnimateState>()(
 type NavigationState = {
   willNavigateTo: string;
   setWillNavigateTo: (pathname: string) => void;
+  openWalletChecker: boolean;
+  setOpenWalletChecker: (status: true | false) => void;
 };
 // ? This is for handling the navigation and also triggers the Curtains of the "willNavigateTo" is not equal to the current "pathname" from useRouter().
 export const useNavigationStore = create<NavigationState>()(
@@ -41,6 +43,9 @@ export const useNavigationStore = create<NavigationState>()(
       willNavigateTo: "",
       setWillNavigateTo: (pathname) =>
         set((state) => ({ willNavigateTo: pathname })),
+      openWalletChecker: false,
+      setOpenWalletChecker: (status) =>
+        set((state) => ({ openWalletChecker: status })),
     }),
     { name: "navigator" }
   )
