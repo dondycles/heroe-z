@@ -30,7 +30,6 @@ export default function WalletChecker() {
         navigation.setOpenWalletChecker(false);
       }}
       radius="md"
-      isDismissable={false}
       className={`${theme.mode} bg-background text-foreground `}
       closeButton={false}
     >

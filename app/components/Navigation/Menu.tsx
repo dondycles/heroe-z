@@ -50,6 +50,12 @@ export default function ({
       filledIcon: <BsWalletFill />,
     },
     {
+      title: "WALLET CHECKER",
+      href: "/walletchecker",
+      icon: <BsWallet />,
+      filledIcon: <BsWalletFill />,
+    },
+    {
       title: "HOME",
       href: "/",
       icon: <BsHouse />,
@@ -157,6 +163,11 @@ export default function ({
                           <Button
                             onClick={() => {
                               if (option.href === "/connectwallet") return;
+                              if (option.href === "/walletchecker") {
+                                navigation.setOpenWalletChecker(true);
+                                closeMenu();
+                                return;
+                              }
                               if (option.href === pathname) return;
                               navigation.setWillNavigateTo(option.href);
                               setTimeout(() => {
