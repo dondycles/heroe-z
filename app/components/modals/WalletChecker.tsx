@@ -1,26 +1,35 @@
-import { useNavigationStore, useThemeStore } from "@/store";
+import { useAnimateStore, useNavigationStore, useThemeStore } from "@/store";
 import {
+  Button,
   Divider,
   Input,
   Modal,
   ModalBody,
   ModalContent,
   ModalHeader,
+  Spinner,
 } from "@nextui-org/react";
+import { AnimatePresence, motion } from "framer-motion";
 import { BsWalletFill } from "react-icons/bs";
 import { useEffect, useState } from "react";
 import GlowingBorder from "../Styles/GlowingBorder";
 import { MdDangerous } from "react-icons/md";
 import useSWR from "swr";
-import { IoIosWarning } from "react-icons/io";
+import { IoIosWarning, IoMdAdd } from "react-icons/io";
 import { FaCheckCircle } from "react-icons/fa";
 export default function WalletChecker() {
   const theme = useThemeStore();
   const navigation = useNavigationStore();
+  const animate = useAnimateStore();
+  const [isLoading, setIsLoading] = useState(false);
+  const [address, setAddress] = useState<string | undefined>();
+  const [eligibility, setEligibility] = useState<
+    "og" | "white" | "ga" | "none" | "invalid" | undefined
+  >();
 
   const fetcher = (url: string) => fetch(url).then((res) => res.json());
   const [message, setMessage] = useState(
-    <span>Enter yout wallet address to check your eligiblity to summon.</span>
+    "Enter your wallet address to check your eligiblity to summon."
   );
 
   const { data: whitelistData, error: whitelistError } = useSWR(
@@ -36,29 +45,19 @@ export default function WalletChecker() {
   const handleChecks = (addr: string) => {
     if (addr === "") {
       setMessage(
-        <span>
-          Enter yout wallet address to check your eligiblity to summon.
-        </span>
+        "Enter your wallet address to check your eligiblity to summon."
       );
       return;
     }
-
     let isOG = false;
     let isWhitelist = false;
     let isGuaranteed = false;
     let isValidAddress = true;
-
     // Check if the address is valid
-    if (String(addr).length !== 42) {
+    if (String(addr).length !== 42 && addr !== "") {
       isValidAddress = false;
-      setMessage(
-        <p className="text-warning flex flex-row items-center justify-center gap-2">
-          <span>Not a valid address</span>
-          <span className="text-2xl">
-            <IoIosWarning />
-          </span>
-        </p>
-      );
+      setEligibility("invalid");
+      setMessage("Not a valid address");
     }
     if (isValidAddress) {
       // Only check OG, Whitelist, and Guaranteed if the address is valid
@@ -68,6 +67,7 @@ export default function WalletChecker() {
 
         if (loweracc.includes(useradd)) {
           isOG = true;
+          setEligibility("og");
         }
       }
 
@@ -77,6 +77,7 @@ export default function WalletChecker() {
 
         if (loweracc.includes(useradd)) {
           isWhitelist = true;
+          setEligibility("white");
         }
       }
 
@@ -86,69 +87,65 @@ export default function WalletChecker() {
 
         if (loweracc.includes(useradd)) {
           isGuaranteed = true;
+          setEligibility("ga");
         }
       }
 
       // Update the message based on the results
       if (!isOG && !isWhitelist && !isGuaranteed) {
-        setMessage(
-          <p className="text-danger flex flex-row items-center justify-center gap-2">
-            <span>Sorry! you are not qualified to summon a Hero.</span>
-            <span className="text-2xl">
-              <MdDangerous />
-            </span>
-          </p>
-        );
+        setMessage("Sorry! you are not qualified to summon a Hero.");
+        setEligibility("none");
       } else if (isOG) {
-        setMessage(
-          <p className="text-success flex flex-row items-center justify-center gap-2">
-            <span>Congratulations! You are listed on OG mint.</span>
-            <span className="text-2xl">
-              <FaCheckCircle />
-            </span>
-          </p>
-        );
+        setMessage("You are listed on OG mint.");
       } else if (isWhitelist) {
-        setMessage(
-          <p className="text-success flex flex-row items-center justify-center gap-2">
-            <span>Congratulations! You are listed on Whitelist mint.</span>
-            <span className="text-2xl">
-              <FaCheckCircle />
-            </span>
-          </p>
-        );
+        setMessage("You are listed on Whitelist mint.");
       } else if (isGuaranteed) {
-        setMessage(
-          <p className="text-success flex flex-row items-center justify-center gap-2">
-            <span>Congratulations! You are listed on Guaranteed mint.</span>
-            <span className="text-2xl">
-              <FaCheckCircle />
-            </span>
-          </p>
-        );
+        setMessage("You are listed on Guaranteed mint.");
       }
     }
   };
 
   useEffect(() => {
+    if (!address) {
+      setIsLoading(false);
+      setEligibility(undefined);
+      handleChecks("");
+      return;
+    }
+    setIsLoading(true);
+    const timeout = setTimeout(() => {
+      setIsLoading(false);
+      handleChecks(address);
+    }, 1000);
+    return () => clearTimeout(timeout);
+  }, [address]);
+
+  useEffect(() => {
     if (!navigation.openWalletChecker) {
       setMessage(
-        <span>
-          Enter yout wallet address to check your eligiblity to summon.
-        </span>
+        "Enter your wallet address to check your eligiblity to summon."
       );
     }
   }, [navigation.openWalletChecker]);
+
+  useEffect(() => {
+    navigation.setOpenWalletChecker(false);
+    setEligibility(undefined);
+    setIsLoading(false);
+    handleChecks("");
+  }, []);
 
   return (
     <Modal
       placement="center"
       backdrop="opaque"
-      isOpen={navigation.openWalletChecker}
+      isOpen={navigation.openWalletChecker && animate.mode}
       onOpenChange={() => {
         navigation.setOpenWalletChecker(false);
+        setAddress("");
       }}
       radius="md"
+      isDismissable
       className={`${theme.mode} bg-background text-foreground `}
       closeButton={false}
     >
@@ -165,13 +162,72 @@ export default function WalletChecker() {
             className="max-w-[500px] mx-auto"
             type={"text"}
             variant="bordered"
-            color="primary"
-            placeholder={"Wallet address"}
+            color={
+              eligibility
+                ? eligibility === "invalid" || eligibility === "none"
+                  ? "danger"
+                  : "success"
+                : "primary"
+            }
+            label={"Enter your wallet address to check your eligibility"}
+            value={address}
             onChange={(e) => {
-              handleChecks(e.target.value);
+              setAddress(e.target.value);
             }}
           />
-          <div className="text-center">{message}</div>
+          <div className="text-center">
+            {isLoading ? (
+              <Spinner size="sm" color="primary" />
+            ) : (
+              <p
+                className={`
+                ${
+                  eligibility === "invalid" || eligibility === "none"
+                    ? "text-danger"
+                    : "text-success"
+                } 
+                font-black flex flex-col gap-2 justify-center items-center
+                `}
+              >
+                <AnimatePresence>
+                  {eligibility && (
+                    <>
+                      {eligibility === "invalid" || eligibility === "none" ? (
+                        <motion.span
+                          key={"error"}
+                          initial={{ scale: 0.1, opacity: 0, rotate: "60deg" }}
+                          animate={{ scale: 1, opacity: 1, rotate: "0deg" }}
+                          transition={{
+                            type: "spring",
+                            duration: 0.5,
+                            damping: 5,
+                          }}
+                          className="text-4xl"
+                        >
+                          <MdDangerous />
+                        </motion.span>
+                      ) : (
+                        <motion.span
+                          key={"success"}
+                          initial={{ scale: 0.1, opacity: 0, rotate: "60deg" }}
+                          animate={{ scale: 1, opacity: 1, rotate: "0deg" }}
+                          transition={{
+                            type: "spring",
+                            duration: 0.5,
+                            damping: 5,
+                          }}
+                          className="text-4xl"
+                        >
+                          <FaCheckCircle />
+                        </motion.span>
+                      )}
+                      {message}
+                    </>
+                  )}
+                </AnimatePresence>
+              </p>
+            )}
+          </div>
         </ModalBody>
         {/* <Divider /> */}
         {/* <ModalFooter className="bg-background/50 rounded-b-xl ">
