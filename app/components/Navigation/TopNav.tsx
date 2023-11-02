@@ -212,7 +212,7 @@ export default function TopNav() {
                   className={`group btn-default text-xs 
                   ${
                     option.href === null &&
-                    "pointer-events-none cursor-not-allowed"
+                    "pointer-events-none cursor-not-allowed grayscale"
                   }
                   ${
                     pathname === option.href
