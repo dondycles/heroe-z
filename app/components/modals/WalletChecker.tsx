@@ -7,6 +7,7 @@ import {
   ModalContent,
   ModalHeader,
 } from "@nextui-org/react";
+import { BsWalletFill } from "react-icons/bs";
 import { useEffect, useState } from "react";
 import GlowingBorder from "../Styles/GlowingBorder";
 import { MdDangerous } from "react-icons/md";
@@ -152,8 +153,11 @@ export default function WalletChecker() {
       closeButton={false}
     >
       <ModalContent className="overflow-hidden relative glowing-border">
-        <ModalHeader className="flex flex-col gap-1 font-montserrat text-center text-2xl bg-background/50 rounded-t-xl text-primary">
-          Wallet Checker
+        <ModalHeader className="flex flex-row items-center justify-center gap-2 font-montserrat text-center text-2xl bg-background/50 rounded-t-xl text-primary">
+          Wallet Checker{" "}
+          <span>
+            <BsWalletFill />
+          </span>
         </ModalHeader>
         <Divider />
         <ModalBody className="bg-background/50 py-4">

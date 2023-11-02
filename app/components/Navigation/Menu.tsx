@@ -4,7 +4,7 @@ import { BsDiscord, BsTwitter } from "react-icons/bs";
 import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import { useNavigationStore } from "@/store";
-import { Button, Divider } from "@nextui-org/react";
+import { Button, ButtonGroup, Divider } from "@nextui-org/react";
 import {
   BsWallet,
   BsHouse,
@@ -32,6 +32,7 @@ import {
 import Link from "next/link";
 import ThemeButton from "../Theme/ThemeButton";
 import { SiFandom } from "react-icons/si";
+import { container, item } from "@/transitions";
 export default function ({
   menuState,
   closeMenu,
@@ -43,18 +44,18 @@ export default function ({
   const pathname = usePathname();
   const navigation = useNavigationStore();
   let options = [
-    {
-      title: "CONNECT WALLET",
-      href: "/connectwallet",
-      icon: <BsWallet />,
-      filledIcon: <BsWalletFill />,
-    },
-    {
-      title: "WALLET CHECKER",
-      href: "/walletchecker",
-      icon: <BsWallet />,
-      filledIcon: <BsWalletFill />,
-    },
+    // {
+    //   title: "CONNECT WALLET",
+    //   href: "/connectwallet",
+    //   icon: <BsWallet />,
+    //   filledIcon: <BsWalletFill />,
+    // },
+    // {
+    //   title: "WALLET CHECKER",
+    //   href: "/walletchecker",
+    //   icon: <BsWallet />,
+    //   filledIcon: <BsWalletFill />,
+    // },
     {
       title: "HOME",
       href: "/",
@@ -126,7 +127,7 @@ export default function ({
   }, [menuState]);
 
   return (
-    <div
+    <motion.div
       onClick={() => closeMenu()}
       className={`fixed top-0 left-0 w-screen h-[100dvh]  z-50 duration-500 flex justify-end  ${
         !menuState ? "pointer-events-none " : " bg-black/25"
@@ -197,9 +198,43 @@ export default function ({
                     })}
                   </>
                 )}
+                <motion.li
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: (0.1 + 10) / 10 }}
+                  key={"wallet"}
+                  className="flex gap-3 justify-center items-center"
+                >
+                  <Button
+                    onClick={() => {
+                      navigation.setWillNavigateTo(
+                        "https://mint.heroezofficial.com"
+                      );
+                    }}
+                    className=" w-full btn-default rounded-lg text-xs sm:hover:bg-primary/10 sm:hover:text-primary sm:hover:border-[1px] sm:border-transparent  bg-transparent text-content3"
+                  >
+                    <span className="text-2xl text-primary">
+                      <BsWalletFill />
+                    </span>
+                    MINT
+                  </Button>
+                  <Divider orientation="vertical" />
+                  <Button
+                    onClick={() => {
+                      navigation.setOpenWalletChecker(true);
+                      closeMenu();
+                    }}
+                    className=" w-full btn-default rounded-lg text-xs sm:hover:bg-primary/10 sm:hover:text-primary sm:hover:border-[1px] sm:border-transparent  bg-transparent text-content3"
+                  >
+                    <span className="text-2xl text-primary">
+                      <BsWalletFill />
+                    </span>
+                    WALLET CHECKER
+                  </Button>
+                </motion.li>
               </AnimatePresence>
             </motion.ul>
-            <Divider />
+
             <motion.footer
               layout
               className=" text-2xl flex flex-col gap-3 justify-center items-center mt-auto mb-0 "
@@ -242,6 +277,6 @@ export default function ({
           </motion.div>
         )}
       </AnimatePresence>
-    </div>
+    </motion.div>
   );
 }
