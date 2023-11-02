@@ -24,7 +24,7 @@ export default function WalletChecker() {
   );
 
   const { data: whitelistData, error: whitelistError } = useSWR(
-    "/Wallets/whitelist.json",
+    "/Wallets/Whitelist.json",
     fetcher
   );
   const { data: ogData, error: ogError } = useSWR("/Wallets/OG.json", fetcher);

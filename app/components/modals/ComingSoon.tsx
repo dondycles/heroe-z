@@ -12,7 +12,6 @@ import { useState } from "react";
 import GlowingBorder from "../Styles/GlowingBorder";
 import { usePathname } from "next/navigation";
 import { MdWarning } from "react-icons/md";
-import Link from "next/link";
 
 export default function ComingSoonModal() {
   const animateState = useAnimateStore();
