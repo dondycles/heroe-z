@@ -104,7 +104,7 @@ export default function TopNav() {
     },
     {
       type: "button",
-      title: "CONNECT",
+      title: "MINT",
       href: null,
       icon: <BsWallet />,
       filledIcon: <BsWalletFill />,

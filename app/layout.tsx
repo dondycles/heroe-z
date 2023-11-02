@@ -15,7 +15,7 @@ const montserrat = Montserrat({
 });
 
 export const metadata: Metadata = {
-  title: "HeroeZ",
+  title: "HeroeZ | Heroes in 6th Dimension.",
   metadataBase: new URL("https://heroezofficial.com"),
   description: "Heroes in 6th Dimension.",
   twitter: {
