@@ -3,6 +3,7 @@ import {
   Button,
   Divider,
   Input,
+  Link,
   Modal,
   ModalBody,
   ModalContent,
@@ -17,6 +18,7 @@ import { MdDangerous } from "react-icons/md";
 import useSWR from "swr";
 import { IoIosWarning, IoMdAdd } from "react-icons/io";
 import { FaCheckCircle } from "react-icons/fa";
+import { GoLink } from "react-icons/go";
 export default function WalletChecker() {
   const theme = useThemeStore();
   const navigation = useNavigationStore();
@@ -201,11 +203,12 @@ export default function WalletChecker() {
                           transition={{
                             type: "spring",
                             duration: 0.5,
-                            damping: 5,
+                            damping: 12,
                           }}
-                          className="text-4xl"
+                          className="text-4xl flex flex-col gap-2 justify-center items-center"
                         >
                           <MdDangerous />
+                          <p className="text-[12px] text-danger">{message}</p>
                         </motion.span>
                       ) : (
                         <motion.span
@@ -215,14 +218,38 @@ export default function WalletChecker() {
                           transition={{
                             type: "spring",
                             duration: 0.5,
-                            damping: 5,
+                            damping: 12,
                           }}
-                          className="text-4xl"
+                          className="text-4xl flex flex-col gap-2 justify-center items-center"
                         >
                           <FaCheckCircle />
+                          <p className="text-[12px] text-success">{message}</p>
+                          <Button
+                            onClick={() =>
+                              navigation.setWillNavigateTo(
+                                "https://mint.heroezofficial.com"
+                              )
+                            }
+                            variant="shadow"
+                            color="primary"
+                            className="glowing-border text-xs font-black relative text-primary bg-transparent"
+                          >
+                            GO TO MINT PAGE
+                            <GlowingBorder />
+                          </Button>
+                          <Link
+                            href="https://twitter.com/HEROEZofficial/status/1720654921035551166"
+                            color="primary"
+                            size="sm"
+                            className="text-[12px] p-0 m-0 leading-6 flex gap-1 items-center justify-center"
+                          >
+                            <span className="text-base">
+                              <GoLink />
+                            </span>
+                            {"  "} Summoning details
+                          </Link>
                         </motion.span>
                       )}
-                      {message}
                     </>
                   ) : (
                     <p className="text-warning text-[12px] text-center">
