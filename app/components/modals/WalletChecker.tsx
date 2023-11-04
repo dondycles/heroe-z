@@ -179,7 +179,7 @@ export default function WalletChecker() {
             {isLoading ? (
               <Spinner size="sm" color="primary" />
             ) : (
-              <p
+              <div
                 className={`
                 ${
                   eligibility === "invalid" || eligibility === "none"
@@ -200,32 +200,40 @@ export default function WalletChecker() {
                           transition={{
                             type: "spring",
                             duration: 0.5,
-                            damping: 5,
+                            damping: 12,
                           }}
-                          className="text-4xl"
+                          className="text-4xl flex flex-col gap-2 items-center justify-center"
                         >
                           <MdDangerous />
+                          <p className="text-danger text-xs">{message}</p>
                         </motion.span>
                       ) : (
-                        <motion.span
+                        <motion.div
                           key={"success"}
                           initial={{ scale: 0.1, opacity: 0, rotate: "60deg" }}
                           animate={{ scale: 1, opacity: 1, rotate: "0deg" }}
                           transition={{
                             type: "spring",
                             duration: 0.5,
-                            damping: 5,
+                            damping: 12,
                           }}
-                          className="text-4xl"
+                          className="text-4xl flex flex-col gap-2 justify-center items-center"
                         >
                           <FaCheckCircle />
-                        </motion.span>
+                          <p className="text-success text-xs">{message}</p>
+                          <Button
+                            className="text-xs font-black text-white"
+                            color="primary"
+                            variant="shadow"
+                          >
+                            GO TO MINT
+                          </Button>
+                        </motion.div>
                       )}
-                      {message}
                     </>
                   )}
                 </AnimatePresence>
-              </p>
+              </div>
             )}
           </div>
         </ModalBody>

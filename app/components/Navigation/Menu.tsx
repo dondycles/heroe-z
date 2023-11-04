@@ -206,13 +206,12 @@ export default function ({
                   className="flex gap-3 justify-center items-center"
                 >
                   <Button
-                    disabled
                     onClick={() => {
                       navigation.setWillNavigateTo(
                         "https://mint.heroezofficial.com"
                       );
                     }}
-                    className=" grayscale w-full btn-default rounded-lg text-xs sm:hover:bg-primary/10 sm:hover:text-primary sm:hover:border-[1px] sm:border-transparent  bg-transparent text-content3 disabled:pointer-events-none"
+                    className="  w-full btn-default rounded-lg text-xs sm:hover:bg-primary/10 sm:hover:text-primary sm:hover:border-[1px] sm:border-transparent  bg-transparent text-content3 "
                   >
                     <span className="text-2xl text-primary">
                       <BsWalletFill />
