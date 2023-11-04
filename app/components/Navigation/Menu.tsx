@@ -31,7 +31,7 @@ import {
 } from "react-icons/bs";
 import Link from "next/link";
 import ThemeButton from "../Theme/ThemeButton";
-import { SiFandom } from "react-icons/si";
+import { SiFandom, SiOpensea } from "react-icons/si";
 import { container, item } from "@/transitions";
 export default function ({
   menuState,
@@ -246,7 +246,7 @@ export default function ({
                 </div>
 
                 <Divider orientation="vertical" className="  flex sm:hidden" />
-                <div className="flex gap-4 rounded-xl bg-accent sm:text-content1 sm:p-6 sm:w-full items-center justify-center sm:bg-secondary">
+                <div className="flex gap-2 rounded-xl bg-accent sm:text-content1 sm:p-6 sm:w-full items-center justify-center sm:bg-secondary">
                   <Link href={"https://discord.gg/64nt9zk6x7"} target="_blank">
                     <BsDiscord />
                   </Link>
@@ -269,6 +269,16 @@ export default function ({
                     target="_blank"
                   >
                     <SiFandom />
+                  </Link>
+                  <Divider
+                    orientation="vertical"
+                    className=" bg-background hidden sm:flex"
+                  />
+                  <Link
+                    href={"https://opensea.io/collection/heroez"}
+                    target="_blank"
+                  >
+                    <SiOpensea />
                   </Link>
                 </div>
               </div>

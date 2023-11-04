@@ -33,7 +33,7 @@ import {
 } from "react-icons/bs";
 import MoreDropDownButton from "./MoreDropDownButton";
 import GlowingBorder from "../Styles/GlowingBorder";
-import { SiFandom } from "react-icons/si";
+import { SiFandom, SiOpensea } from "react-icons/si";
 import SocialsDownButton from "./SocialsDropDownButton";
 import Link from "next/link";
 import { FaDiscord, FaXTwitter } from "react-icons/fa6";
@@ -284,6 +284,25 @@ export default function TopNav() {
             className="btn-default bg-primary/10 text-primary text-lg"
           >
             <FaXTwitter />
+          </Button>
+        </Tooltip>
+        <Tooltip
+          delay={0}
+          closeDelay={0}
+          className={` ${theme.mode} text-white`}
+          color="primary"
+          showArrow={true}
+          classNames={{ arrow: `${theme.mode} bg-primary ` }}
+          content="OpenSea"
+        >
+          <Button
+            isIconOnly
+            as={Link}
+            href="https://opensea.io/collection/heroez"
+            target="_blank"
+            className="btn-default bg-primary/10 text-primary text-lg"
+          >
+            <SiOpensea />
           </Button>
         </Tooltip>
       </ButtonGroup>
