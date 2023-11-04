@@ -175,6 +175,7 @@ export default function WalletChecker() {
               setAddress(e.target.value);
             }}
           />
+
           <div className="text-center">
             {isLoading ? (
               <Spinner size="sm" color="primary" />
@@ -190,7 +191,7 @@ export default function WalletChecker() {
                 `}
               >
                 <AnimatePresence>
-                  {eligibility && (
+                  {eligibility ? (
                     <>
                       {eligibility === "invalid" || eligibility === "none" ? (
                         <motion.span
@@ -223,6 +224,10 @@ export default function WalletChecker() {
                       )}
                       {message}
                     </>
+                  ) : (
+                    <p className="text-warning text-[12px] text-center">
+                      Note: Remove blank spaces
+                    </p>
                   )}
                 </AnimatePresence>
               </p>
