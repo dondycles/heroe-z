@@ -105,7 +105,7 @@ export default function TopNav() {
     {
       type: "button",
       title: "MINT",
-      href: null,
+      href: "https://mint.heroezofficial.com",
       icon: <BsWallet />,
       filledIcon: <BsWalletFill />,
       children: null,
@@ -210,10 +210,6 @@ export default function TopNav() {
                 <Button
                   onClick={() => navigation.setWillNavigateTo(option.href!)}
                   className={`group btn-default text-xs 
-                  ${
-                    option.href === null &&
-                    "pointer-events-none cursor-not-allowed grayscale"
-                  }
                   ${
                     pathname === option.href
                       ? "bg-primary text-content1 sm:hover:text-primary"
