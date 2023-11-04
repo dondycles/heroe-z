@@ -3,6 +3,7 @@ import {
   Button,
   Divider,
   Input,
+  Link,
   Modal,
   ModalBody,
   ModalContent,
@@ -17,6 +18,7 @@ import { MdDangerous } from "react-icons/md";
 import useSWR from "swr";
 import { IoIosWarning, IoMdAdd } from "react-icons/io";
 import { FaCheckCircle } from "react-icons/fa";
+import { GoLink } from "react-icons/go";
 export default function WalletChecker() {
   const theme = useThemeStore();
   const navigation = useNavigationStore();
@@ -115,7 +117,7 @@ export default function WalletChecker() {
     setIsLoading(true);
     const timeout = setTimeout(() => {
       setIsLoading(false);
-      handleChecks(address);
+      handleChecks(address.trim());
     }, 1000);
     return () => clearTimeout(timeout);
   }, [address]);
@@ -175,6 +177,7 @@ export default function WalletChecker() {
               setAddress(e.target.value);
             }}
           />
+
           <div className="text-center">
             {isLoading ? (
               <Spinner size="sm" color="primary" />
@@ -190,7 +193,7 @@ export default function WalletChecker() {
                 `}
               >
                 <AnimatePresence>
-                  {eligibility && (
+                  {eligibility ? (
                     <>
                       {eligibility === "invalid" || eligibility === "none" ? (
                         <motion.span
@@ -202,10 +205,9 @@ export default function WalletChecker() {
                             duration: 0.5,
                             damping: 12,
                           }}
-                          className="text-4xl flex flex-col gap-2 items-center justify-center"
+                          className="text-4xl"
                         >
                           <MdDangerous />
-                          <p className="text-danger text-xs">{message}</p>
                         </motion.span>
                       ) : (
                         <motion.div
@@ -220,22 +222,14 @@ export default function WalletChecker() {
                           className="text-4xl flex flex-col gap-2 justify-center items-center"
                         >
                           <FaCheckCircle />
-                          <p className="text-success text-xs">{message}</p>
-                          <Button
-                            onClick={() => {
-                              navigation.setWillNavigateTo(
-                                "https://mint.heroezofficial.com"
-                              );
-                            }}
-                            className="text-xs font-black text-white"
-                            color="primary"
-                            variant="shadow"
-                          >
-                            GO TO MINT
-                          </Button>
                         </motion.div>
                       )}
+                      {message}
                     </>
+                  ) : (
+                    <p className="text-warning text-[12px] text-center">
+                      Note: Remove blank spaces
+                    </p>
                   )}
                 </AnimatePresence>
               </div>

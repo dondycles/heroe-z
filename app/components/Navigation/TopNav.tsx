@@ -210,7 +210,6 @@ export default function TopNav() {
                 <Button
                   onClick={() => navigation.setWillNavigateTo(option.href!)}
                   className={`group btn-default text-xs 
-                  
                   ${
                     pathname === option.href
                       ? "bg-primary text-content1 sm:hover:text-primary"
