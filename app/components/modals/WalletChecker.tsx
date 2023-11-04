@@ -115,7 +115,7 @@ export default function WalletChecker() {
     setIsLoading(true);
     const timeout = setTimeout(() => {
       setIsLoading(false);
-      handleChecks(address);
+      handleChecks(address.trim());
     }, 1000);
     return () => clearTimeout(timeout);
   }, [address]);
