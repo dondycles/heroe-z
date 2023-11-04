@@ -222,6 +222,11 @@ export default function WalletChecker() {
                           <FaCheckCircle />
                           <p className="text-success text-xs">{message}</p>
                           <Button
+                            onClick={() => {
+                              navigation.setWillNavigateTo(
+                                "https://mint.heroezofficial.com"
+                              );
+                            }}
                             className="text-xs font-black text-white"
                             color="primary"
                             variant="shadow"
