@@ -298,7 +298,7 @@ export default function TopNav() {
           <Button
             isIconOnly
             as={Link}
-            href="https://opensea.io/collection/heroez-2"
+            href="https://opensea.io/collection/heroez"
             target="_blank"
             className="btn-default bg-primary/10 text-primary text-lg"
           >
