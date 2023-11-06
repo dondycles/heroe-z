@@ -50,12 +50,12 @@ export default function MoreDropDownButton() {
       icon: <BsCheckCircle />,
       filledIcon: <BsCheckCircleFill />,
     },
-    {
-      title: "TEAM",
-      href: "/team",
-      icon: <BsPeople />,
-      filledIcon: <BsPeopleFill />,
-    },
+    // {
+    //   title: "TEAM",
+    //   href: "/team",
+    //   icon: <BsPeople />,
+    //   filledIcon: <BsPeopleFill />,
+    // },
     {
       title: "WALLET CHECKER",
       href: "/wallet-checker",

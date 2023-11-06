@@ -110,12 +110,12 @@ export default function ({
       icon: <BsCheckCircle />,
       filledIcon: <BsCheckCircleFill />,
     },
-    {
-      title: "TEAM",
-      href: "/team",
-      icon: <BsPeople />,
-      filledIcon: <BsPeopleFill />,
-    },
+    // {
+    //   title: "TEAM",
+    //   href: "/team",
+    //   icon: <BsPeople />,
+    //   filledIcon: <BsPeopleFill />,
+    // },
   ];
 
   useEffect(() => {
