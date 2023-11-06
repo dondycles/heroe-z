@@ -48,7 +48,7 @@ export default function Page() {
           Teenage Mutant Ninja Turtles (NETFLIX), DORA THE EXPLORER, and many
           others. 」
         </Paragraph>
-
+        {/* 
         <div className="w-full flex flex-wrap justify-center gap-4 items-center  rounded-xl">
           <Div>
             <Image
@@ -106,7 +106,7 @@ export default function Page() {
               );
             })}
           </div>
-        </Div>
+        </Div> */}
       </div>
     </Scrollable>
   );
