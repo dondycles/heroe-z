@@ -37,13 +37,12 @@ export default function MoreDropDownButton() {
       icon: <BsLightbulb />,
       filledIcon: <BsLightbulbFill />,
     },
-
-    {
-      title: "STUDIO Z",
-      href: "/studio-z",
-      icon: <BsRocket />,
-      filledIcon: <BsRocketFill />,
-    },
+    // {
+    //   title: "STUDIO Z",
+    //   href: "/studio-z",
+    //   icon: <BsRocket />,
+    //   filledIcon: <BsRocketFill />,
+    // },
     {
       title: "UPDATES",
       href: "/updates",

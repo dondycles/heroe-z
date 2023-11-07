@@ -92,12 +92,12 @@ export default function ({
       icon: <BsBook />,
       filledIcon: <BsBookFill />,
     },
-    {
-      title: "STUDIO Z",
-      href: "/studio-z",
-      icon: <BsRocket />,
-      filledIcon: <BsRocketFill />,
-    },
+    // {
+    //   title: "STUDIO Z",
+    //   href: "/studio-z",
+    //   icon: <BsRocket />,
+    //   filledIcon: <BsRocketFill />,
+    // },
     {
       title: "GALLERY",
       href: "/gallery",

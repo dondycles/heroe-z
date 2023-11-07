@@ -3,7 +3,13 @@ import Paragraph from "@/app/components/AnimatedTags/Paragraph";
 import Scrollable from "@/app/components/Layouts/Scrollable";
 import { studioZImages } from "./studio-z-images";
 import ImageTile from "@/app/components/ui/ImageTile";
+import { useRouter } from "next/navigation";
+import { useEffect } from "react";
 export default function Page() {
+  const route = useRouter();
+  useEffect(() => {
+    return route.replace("/");
+  });
   return (
     <Scrollable>
       <div className="flex flex-col-reverse w-full h-full overflow-y-auto overflow-x-hidden gap-3">
